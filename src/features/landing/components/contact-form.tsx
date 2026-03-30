@@ -30,7 +30,7 @@ type ResolverResult =
 
 function zodResolver(schema: typeof contactSchema) {
   // Matches the react-hook-form Resolver<TFieldValues> signature
-  return async (values: ContactFormValues, _context: unknown): Promise<ResolverResult> => {
+  return async (values: ContactFormValues): Promise<ResolverResult> => {
     const result = schema.safeParse(values)
     if (result.success) {
       return { values: result.data, errors: {} }
