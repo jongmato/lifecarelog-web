@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "title": "LifeCareLog — Turning life records into services",
+    "description": "A one-person dev studio making small, useful tools for everyday life"
+  },
+  "nav": {
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "headline": "Building things\npeople actually need,\none at a time.",
+    "subheadline": "LifeCareLog is a one-person dev studio making small, useful tools for everyday life.\nFrom calculators to legal search to mental wellness — building useful things, one by one.",
+    "brandStatement": "Turning life records into services",
+    "ctaCoffeeChat": "Book a coffee chat",
+    "ctaContact": "Get in touch"
+  },
+  "about": {
+    "title": "The maker",
+    "description": "Hi, I'm the solo developer behind LifeCareLog.\n\nFrom planning to design, development, and deployment — I do it all.\nIt's slow, but every decision is mine, and every feature is intentional.\n\nI'm building a brand where small, useful services add up to something meaningful.",
+    "available": "Open to freelance collaboration.",
+    "cta": "Let's work together",
+    "techLabel": "Built with",
+    "techCaption": "Full-stack, solo."
+  },
+  "services": {
+    "planC": {
+      "title": "Plan-C",
+      "subtitle": "Calculators",
+      "description": "The calculators you reach for most — all in one place.",
+      "cta": "Try it out",
+      "badge": "Live"
+    },
+    "planL": {
+      "title": "Plan-L",
+      "subtitle": "Legal Search",
+      "description": "Legal information that's actually readable.",
+      "teaser": "AI searches Korean statutes and explains them in plain language.",
+      "badge": "Coming Soon"
+    },
+    "planT": {
+      "title": "Plan-T",
+      "subtitle": "AI Mental Wellness",
+      "description": "A mobile app for checking in with yourself, every day.",
+      "platforms": "iOS · Android",
+      "badge": "In Development"
+    }
+  },
+  "stats": {
+    "label": "So far",
+    "services": "services in the works",
+    "live": "live and ready to use",
+    "year": "year we started"
+  },
+  "coffeeChat": {
+    "headline": "Let's grab a (virtual) coffee",
+    "description": "30 minutes, no agenda needed.\nTech questions, startup ideas, or just curious — all good.",
+    "cta": "Book a time",
+    "via": "Via Cal.com"
+  },
+  "social": {
+    "label": "Find me here",
+    "github": "See the work",
+    "twitter": "Building in public",
+    "linkedin": "Work history"
+  },
+  "contact": {
+    "headline": "Send me a message",
+    "subheadline": "I read everything. Usually reply within 2 days.",
+    "name": "Name",
+    "namePlaceholder": "What should I call you?",
+    "email": "Email",
+    "emailPlaceholder": "Where should I reply?",
+    "message": "Message",
+    "messagePlaceholder": "Say whatever's on your mind.",
+    "submit": "Send message",
+    "sending": "Sending...",
+    "success": "Got it. I'll be in touch soon.",
+    "errorNetwork": "Something went wrong. Try again in a moment.",
+    "errorEmpty": "Please fill in this field.",
+    "errorEmail": "That doesn't look like a valid email address.",
+    "privacy": "Your information is only used to respond and is never shared."
+  },
+  "footer": {
+    "copyright": "© 2026 LifeCareLog. All rights reserved.",
+    "brand": "Turning life records into services"
+  },
+  "notFound": {
+    "title": "Nothing here yet",
+    "description": "Maybe when we get to Plan-Z.",
+    "cta": "Go back home"
+  }
+}
