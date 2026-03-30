@@ -20,7 +20,11 @@ const SOCIAL_LINKS = [
   },
 ] as const
 
-export function Footer() {
+interface FooterProps {
+  onContact?: () => void
+}
+
+export function Footer({ onContact }: FooterProps) {
   const tFooter = useTranslations('footer')
   const tNav = useTranslations('nav')
 
@@ -41,20 +45,25 @@ export function Footer() {
           {/* Nav links */}
           <nav aria-label="Footer navigation">
             <ul className="flex gap-4 flex-wrap">
-              {[
-                { href: '#', label: tNav('services') },
-                { href: '#', label: tNav('about') },
-                { href: '#contact', label: tNav('contact') },
-              ].map(({ href, label }) => (
-                <li key={label}>
-                  <Link
-                    href={href}
-                    className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="#" className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  {tNav('services')}
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200">
+                  {tNav('about')}
+                </Link>
+              </li>
+              <li>
+                <button
+                  onClick={onContact}
+                  type="button"
+                  className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                >
+                  {tNav('contact')}
+                </button>
+              </li>
             </ul>
           </nav>
 

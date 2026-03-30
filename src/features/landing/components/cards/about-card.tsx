@@ -1,5 +1,4 @@
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
 import { Globe, Cpu, Database, Smartphone, Cloud } from 'lucide-react'
 import { BentoCard } from '../bento-card'
 import { Badge } from '@/shared/ui/badge'
@@ -15,9 +14,10 @@ const TECH_STACK = [
 
 interface AboutCardProps {
   index?: number
+  onContact?: () => void
 }
 
-export function AboutCard({ index = 0 }: AboutCardProps) {
+export function AboutCard({ index = 0, onContact }: AboutCardProps) {
   const t = useTranslations('about')
 
   return (
@@ -58,11 +58,9 @@ export function AboutCard({ index = 0 }: AboutCardProps) {
 
         {/* CTA */}
         <div className="pt-1">
-          <Link href="#contact">
-            <Button variant="primary" size="sm">
-              {t('cta')}
-            </Button>
-          </Link>
+          <Button variant="primary" size="sm" onClick={onContact}>
+            {t('cta')}
+          </Button>
         </div>
       </div>
     </BentoCard>

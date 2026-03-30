@@ -2,12 +2,15 @@
 
 import { motion, useReducedMotion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
 import { Button } from '@/shared/ui'
 
 const EASING = [0.22, 1, 0.36, 1] as const
 
-export function HeroSection() {
+interface HeroSectionProps {
+  onContact?: () => void
+}
+
+export function HeroSection({ onContact }: HeroSectionProps) {
   const t = useTranslations('hero')
   const shouldReduceMotion = useReducedMotion()
 
@@ -79,16 +82,12 @@ export function HeroSection() {
           variants={itemVariants}
           className="flex flex-col sm:flex-row gap-3"
         >
-          <Link href="#contact">
-            <Button variant="primary" size="md" className="w-full sm:w-auto">
-              {t('ctaCoffeeChat')}
-            </Button>
-          </Link>
-          <Link href="#contact">
-            <Button variant="outline" size="md" className="w-full sm:w-auto">
-              {t('ctaContact')}
-            </Button>
-          </Link>
+          <Button variant="primary" size="md" className="w-full sm:w-auto" onClick={onContact}>
+            {t('ctaCoffeeChat')}
+          </Button>
+          <Button variant="outline" size="md" className="w-full sm:w-auto" onClick={onContact}>
+            {t('ctaContact')}
+          </Button>
         </motion.div>
       </motion.div>
     </div>
