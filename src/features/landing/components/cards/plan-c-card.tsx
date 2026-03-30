@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
+import { ExternalLink, Wifi } from 'lucide-react'
 import { BentoCard } from '../bento-card'
 import { Badge } from '@/shared/ui/badge'
 import { Button } from '@/shared/ui/button'
@@ -17,29 +18,115 @@ export function PlanCCard({ index = 0 }: PlanCCardProps) {
     <BentoCard
       index={index}
       accentColor="var(--plan-c)"
+      hoverAccent="var(--plan-c)"
       className="lg:col-span-4 col-span-1 sm:col-span-2"
     >
+      {/* Sky-blue ambient glow in corner */}
+      <div
+        className="absolute top-0 right-0 w-32 h-32 pointer-events-none opacity-[0.06] dark:opacity-[0.04]"
+        style={{
+          background: 'radial-gradient(circle, var(--plan-c), transparent 70%)',
+        }}
+        aria-hidden="true"
+      />
+
       <div className="flex flex-col gap-4 flex-1">
+        {/* Mini "screen preview" illustration — abstract UI chrome */}
+        <div
+          className="rounded-lg overflow-hidden mb-1 border"
+          style={{
+            borderColor: 'color-mix(in oklch, var(--plan-c) 20%, var(--border))',
+            background:
+              'color-mix(in oklch, var(--plan-c) 5%, var(--muted))',
+          }}
+          aria-hidden="true"
+        >
+          {/* Window chrome bar */}
+          <div
+            className="flex items-center gap-1.5 px-3 py-2 border-b"
+            style={{
+              borderColor:
+                'color-mix(in oklch, var(--plan-c) 15%, var(--border))',
+              background: 'color-mix(in oklch, var(--plan-c) 8%, var(--card))',
+            }}
+          >
+            <span className="w-2 h-2 rounded-full bg-error/60" />
+            <span className="w-2 h-2 rounded-full bg-warning/60" />
+            <span className="w-2 h-2 rounded-full bg-success/60" />
+            <span
+              className="ml-auto text-[10px] font-medium"
+              style={{ color: 'var(--plan-c)' }}
+            >
+              plan-c.lifecarelog.co.kr
+            </span>
+          </div>
+          {/* Content placeholder lines */}
+          <div className="px-3 py-2.5 flex flex-col gap-1.5">
+            <div
+              className="h-2 rounded-full w-3/4"
+              style={{
+                background:
+                  'color-mix(in oklch, var(--plan-c) 25%, var(--muted))',
+              }}
+            />
+            <div
+              className="h-2 rounded-full w-1/2"
+              style={{
+                background:
+                  'color-mix(in oklch, var(--plan-c) 15%, var(--muted))',
+              }}
+            />
+            <div
+              className="h-2 rounded-full w-2/3"
+              style={{
+                background:
+                  'color-mix(in oklch, var(--plan-c) 10%, var(--muted))',
+              }}
+            />
+          </div>
+        </div>
+
         {/* Header */}
         <div>
-          <div className="flex items-center gap-2 mb-1.5">
+          <div className="flex items-center gap-2 mb-1.5 flex-wrap">
             <h2 className="font-sans text-lg font-semibold text-foreground">
               {t('title')}
             </h2>
-            {/* Live pulse badge */}
-            <Badge variant="live" className="flex items-center gap-1.5">
+            {/* Enhanced live badge with glow */}
+            <Badge
+              variant="live"
+              className="flex items-center gap-1.5 glow-success"
+            >
               <motion.span
-                className="w-2 h-2 rounded-full bg-success"
-                animate={{ scale: [1, 1.08, 1], opacity: [1, 0.85, 1] }}
-                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                className="w-1.5 h-1.5 rounded-full bg-success"
+                animate={{
+                  scale: [1, 1.5, 1],
+                  opacity: [1, 0.6, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
                 aria-hidden="true"
               />
               {t('badge')}
             </Badge>
           </div>
-          <p className="font-sans text-sm text-muted-foreground font-medium">
-            {t('subtitle')}
-          </p>
+          <div className="flex items-center gap-1.5">
+            <Wifi
+              size={12}
+              strokeWidth={2}
+              style={{ color: 'var(--plan-c)' }}
+              aria-hidden="true"
+            />
+            <p
+              className="font-sans text-sm font-medium"
+              style={{ color: 'var(--plan-c)' }}
+            >
+              {t('subtitle')}
+            </p>
+          </div>
         </div>
 
         {/* Description */}
@@ -54,8 +141,18 @@ export function PlanCCard({ index = 0 }: PlanCCardProps) {
           rel="noopener noreferrer"
           className="mt-auto"
         >
-          <Button variant="secondary" size="sm" className="w-full">
+          <Button
+            variant="secondary"
+            size="sm"
+            className="w-full gap-2 group border-2 transition-all duration-200 hover:border-[var(--plan-c)]/40 hover:text-[var(--plan-c)]"
+          >
             {t('cta')}
+            <ExternalLink
+              size={13}
+              strokeWidth={2}
+              className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              aria-hidden="true"
+            />
           </Button>
         </a>
       </div>

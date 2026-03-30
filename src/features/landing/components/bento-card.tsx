@@ -3,15 +3,17 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
-// Animation tokens from motion designer
+// Animation tokens
 const EASING = [0.22, 1, 0.36, 1] as const
-const SPRING_HOVER = { type: 'spring', stiffness: 300, damping: 25 } as const
+const SPRING_HOVER = { type: 'spring', stiffness: 280, damping: 22 } as const
 
 interface BentoCardProps {
   children: React.ReactNode
   className?: string
   index?: number
   accentColor?: string
+  /** Pass CSS variable string like "var(--plan-c)" for hover border tint */
+  hoverAccent?: string
 }
 
 export function BentoCard({
@@ -19,6 +21,7 @@ export function BentoCard({
   className,
   index = 0,
   accentColor,
+  hoverAccent,
 }: BentoCardProps) {
   const shouldReduceMotion = useReducedMotion()
 
@@ -27,12 +30,12 @@ export function BentoCard({
   const variants = {
     hidden: shouldReduceMotion
       ? { opacity: 0 }
-      : { opacity: 0, y: 16 },
+      : { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.4,
+        duration: 0.45,
         delay: staggerDelay,
         ease: EASING,
       },
@@ -41,7 +44,7 @@ export function BentoCard({
 
   const hoverAnimation = shouldReduceMotion
     ? {}
-    : { y: -4, transition: SPRING_HOVER }
+    : { y: -5, transition: SPRING_HOVER }
 
   return (
     <motion.div
@@ -49,19 +52,46 @@ export function BentoCard({
       initial="hidden"
       whileInView="visible"
       whileHover={hoverAnimation}
-      viewport={{ once: true, amount: 0.1 }}
+      viewport={{ once: true, amount: 0.08 }}
       className={cn(
-        'bg-card border border-border rounded-xl shadow-sm p-6',
-        'flex flex-col',
+        'relative flex flex-col overflow-hidden rounded-2xl p-6',
+        // Shadow system — richer than shadow-sm
+        'shadow-card transition-shadow duration-300',
+        'hover:shadow-card-hover',
         className
       )}
-      style={
-        accentColor
-          ? { borderTop: `3px solid ${accentColor}` }
-          : undefined
-      }
+      style={{
+        background: 'var(--card)',
+        border: '1px solid var(--border)',
+        ...(accentColor
+          ? { borderTop: `2.5px solid ${accentColor}` }
+          : undefined),
+      }}
+      onMouseEnter={(e) => {
+        if (!hoverAccent) return
+        const el = e.currentTarget as HTMLDivElement
+        el.style.borderColor = `color-mix(in oklch, ${hoverAccent} 40%, var(--border))`
+      }}
+      onMouseLeave={(e) => {
+        if (!hoverAccent) return
+        const el = e.currentTarget as HTMLDivElement
+        el.style.borderColor = 'var(--border)'
+      }}
     >
-      {children}
+      {/* Subtle inner gradient */}
+      <div
+        className="absolute inset-0 pointer-events-none rounded-2xl opacity-40"
+        style={{
+          background:
+            'radial-gradient(ellipse 80% 50% at 50% -10%, color-mix(in oklch, var(--muted) 60%, transparent), transparent)',
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Content — above the gradient overlay */}
+      <div className="relative z-10 flex flex-col flex-1">
+        {children}
+      </div>
     </motion.div>
   )
 }
