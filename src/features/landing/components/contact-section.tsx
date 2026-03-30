@@ -21,11 +21,11 @@ export function ContactSection() {
 
       {/* Email direct link */}
       <a
-        href="mailto:lifecarelog@gmail.com"
+        href="mailto:support@lifecarelog.co.kr"
         className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-200 w-fit"
       >
         <Mail size={16} strokeWidth={1.75} aria-hidden="true" />
-        <span>lifecarelog@gmail.com</span>
+        <span>support@lifecarelog.co.kr</span>
       </a>
 
       {/* Contact Form */}
