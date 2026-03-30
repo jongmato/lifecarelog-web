@@ -1,4 +1,5 @@
 import { BentoGrid, BentoRow, BentoSectionBreak } from '@/features/landing/components/bento-grid'
+import { BentoCard } from '@/features/landing/components/bento-card'
 import { HeroSection } from '@/features/landing/components/hero-section'
 import { AboutCard } from '@/features/landing/components/cards/about-card'
 import { PlanCCard } from '@/features/landing/components/cards/plan-c-card'
@@ -6,6 +7,7 @@ import { PlanLCard } from '@/features/landing/components/cards/plan-l-card'
 import { PlanTCard } from '@/features/landing/components/cards/plan-t-card'
 import { StatsTechCard } from '@/features/landing/components/cards/stats-tech-card'
 import { SocialCoffeeCard } from '@/features/landing/components/cards/social-coffee-card'
+import { ContactSection } from '@/features/landing/components/contact-section'
 import { Footer } from '@/features/landing/components/footer'
 
 export default function LocalePage() {
@@ -42,8 +44,14 @@ export default function LocalePage() {
             <SocialCoffeeCard index={6} />
           </BentoRow>
 
-          {/* Contact placeholder */}
-          <div id="contact" className="mt-3 sm:mt-4 lg:mt-5 scroll-mt-8" />
+          {/* Row 5: Contact Form (full width) */}
+          <div id="contact" className="mt-3 sm:mt-4 lg:mt-5 scroll-mt-8">
+            <BentoRow>
+              <BentoCard index={7} className="col-span-1 sm:col-span-4 lg:col-span-12">
+                <ContactSection />
+              </BentoCard>
+            </BentoRow>
+          </div>
         </BentoGrid>
       </main>
 

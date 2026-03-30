@@ -21,10 +21,10 @@ export function StatsTechCard({ index = 0 }: StatsTechCardProps) {
   const t = useTranslations('stats')
 
   const STATS = [
-    { value: 3, label: t('services'), suffix: '' },
-    { value: 1, label: t('live'), suffix: '' },
-    { value: 2026, label: t('year'), suffix: '' },
-  ] as const
+    { value: 3, label: t('services'), format: 'number' as const },
+    { value: 1, label: t('live'), format: 'number' as const },
+    { value: 2026, label: t('year'), format: 'plain' as const },
+  ]
 
   return (
     <BentoCard index={index} className="lg:col-span-6 col-span-1 sm:col-span-4">
@@ -35,10 +35,10 @@ export function StatsTechCard({ index = 0 }: StatsTechCardProps) {
             {t('label')}
           </p>
           <div className="grid grid-cols-3 gap-4">
-            {STATS.map(({ value, label }) => (
+            {STATS.map(({ value, label, format }) => (
               <div key={label} className="flex flex-col gap-1">
                 <span className="font-sans text-2xl sm:text-3xl font-bold text-foreground tabular-nums">
-                  <CountUp target={value} duration={1.5} />
+                  <CountUp target={value} duration={1.5} format={format} />
                 </span>
                 <span className="font-sans text-xs text-muted-foreground leading-snug">
                   {label}
