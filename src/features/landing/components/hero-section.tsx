@@ -150,10 +150,11 @@ export function HeroSection({ onContact }: HeroSectionProps) {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-3"
           >
-            {/* Primary CTA — gradient style */}
-            <button
-              onClick={onContact}
-              type="button"
+            {/* Primary CTA — Cal.com coffee chat */}
+            <a
+              href="https://cal.com/lifecarelog/coffee-chat"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2.5 font-sans font-semibold text-base px-7 min-h-[52px] rounded-xl cursor-pointer select-none transition-all duration-300 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring focus-visible:ring-offset-2 w-full sm:w-auto"
               style={{
                 background:
@@ -177,7 +178,7 @@ export function HeroSection({ onContact }: HeroSectionProps) {
             >
               {t('ctaCoffeeChat')}
               <ArrowRight size={16} strokeWidth={2.5} aria-hidden="true" />
-            </button>
+            </a>
 
             {/* Secondary CTA */}
             <Button

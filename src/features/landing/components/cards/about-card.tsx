@@ -88,9 +88,15 @@ export function AboutCard({ index = 0, onContact }: AboutCardProps) {
 
         {/* CTA */}
         <div className="pt-1">
-          <Button variant="primary" size="sm" onClick={onContact}>
-            {t('cta')}
-          </Button>
+          <a
+            href="https://cal.com/lifecarelog/project-consultation"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="primary" size="sm">
+              {t('cta')}
+            </Button>
+          </a>
         </div>
       </div>
     </BentoCard>
