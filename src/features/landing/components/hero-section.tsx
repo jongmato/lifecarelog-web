@@ -123,7 +123,7 @@ export function HeroSection({ onContact }: HeroSectionProps) {
             variants={itemVariants}
             className="text-[2rem] sm:text-[2.75rem] lg:text-[3.5rem] leading-[1.15] tracking-tight whitespace-pre-line mb-5 font-sans font-bold"
           >
-            <span className="gradient-text">{t('headline')}</span>
+            {t('headline')}
           </motion.h1>
 
           {/* Accent underline decoration — BOLDER: slightly wider */}
