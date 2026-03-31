@@ -167,7 +167,7 @@ export function SocialCoffeeCard({ index = 0 }: SocialCoffeeCardProps) {
               rel="noopener noreferrer"
               className="font-sans text-xs font-medium text-muted-foreground hover:text-primary underline underline-offset-4 decoration-primary/30 transition-colors duration-200"
             >
-              프로젝트 상담 예약
+              {tCoffee('consultationCta')}
             </a>
           </div>
           <span className="font-sans text-[11px] text-muted-foreground/50 mt-1">

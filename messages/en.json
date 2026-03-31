@@ -18,7 +18,8 @@
   "about": {
     "title": "The maker",
     "description": "Hi, I'm a full-stack developer with 5 years across multiple startups.\n\nAfter leaving my last startup, I decided to build useful services on my own.\nFrom planning to design, development, and deployment — it's slow going solo,\nbut every decision is mine, and every feature is intentional.\n\nBuilding a brand where small, useful services add up to something meaningful.",
-    "available": "Open to freelance collaboration.",
+    "available": "Open to freelance",
+    "availableDetail": "Open to freelance collaboration.",
     "cta": "Let's work together",
     "techLabel": "Built with",
     "techCaption": "Full-stack, solo."
@@ -56,7 +57,8 @@
     "headline": "Let's grab a (virtual) coffee",
     "description": "30 minutes, no agenda needed.\nTech questions, startup ideas, or just curious — all good.",
     "cta": "Book a time",
-    "via": "Via Cal.com"
+    "via": "Via Cal.com",
+    "consultationCta": "Book a project consultation"
   },
   "social": {
     "label": "Find me here",
@@ -65,6 +67,7 @@
     "linkedin": "Work history"
   },
   "contact": {
+    "close": "Close",
     "headline": "Send me a message",
     "subheadline": "I read everything. Usually reply within 2 days.",
     "name": "Name",

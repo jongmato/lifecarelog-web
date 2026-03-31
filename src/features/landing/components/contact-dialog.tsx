@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Mail, Sparkles } from 'lucide-react'
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useId } from 'react'
 import { ContactForm } from './contact-form'
 
 const DIALOG_EASING = [0.22, 1, 0.36, 1] as const
@@ -15,6 +15,7 @@ interface ContactDialogProps {
 
 export function ContactDialog({ open, onClose }: ContactDialogProps) {
   const t = useTranslations('contact')
+  const titleId = useId()
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -60,7 +61,7 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
             transition={{ duration: 0.3, ease: DIALOG_EASING }}
             role="dialog"
             aria-modal="true"
-            aria-label={t('headline')}
+            aria-labelledby={titleId}
             className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl"
             style={{
               background: 'var(--card)',
@@ -87,7 +88,7 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
                 aria-hidden="true"
               />
 
-              {/* Close button */}
+              {/* Close button — i18n label */}
               <button
                 onClick={onClose}
                 type="button"
@@ -96,12 +97,12 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
                   background:
                     'color-mix(in oklch, var(--muted) 80%, transparent)',
                 }}
-                aria-label="닫기"
+                aria-label={t('close')}
               >
                 <X size={16} strokeWidth={2} />
               </button>
 
-              {/* Icon + headline */}
+              {/* Icon + headline — id links to aria-labelledby */}
               <div className="flex items-start gap-3 pr-8">
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 mt-0.5"
@@ -116,7 +117,10 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
                   <Sparkles size={18} strokeWidth={1.75} aria-hidden="true" />
                 </div>
                 <div>
-                  <h2 className="font-sans text-xl font-semibold text-foreground leading-snug">
+                  <h2
+                    id={titleId}
+                    className="font-sans text-xl font-semibold text-foreground leading-snug"
+                  >
                     {t('headline')}
                   </h2>
                   <p className="font-sans text-sm text-muted-foreground mt-0.5">

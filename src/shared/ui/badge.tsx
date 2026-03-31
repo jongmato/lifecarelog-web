@@ -33,9 +33,12 @@ export type BadgeVariants = VariantProps<typeof badgeVariants>
 interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement>, BadgeVariants {}
 
 export function Badge({ variant, className, ...props }: BadgeProps) {
+  // Live badges communicate real-time status to screen readers
+  const isLive = variant === 'live'
   return (
     <span
       className={cn(badgeVariants({ variant }), className)}
+      {...(isLive ? { role: 'status' } : {})}
       {...props}
     />
   )

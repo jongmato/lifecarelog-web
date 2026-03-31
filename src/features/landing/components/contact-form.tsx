@@ -191,10 +191,10 @@ export function ContactForm() {
 function SuccessBanner({ message }: { message: string }) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.96 }}
-      animate={{ opacity: 1, scale: [1, 1.05, 1] }}
-      exit={{ opacity: 0, scale: 0.96 }}
-      transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -4 }}
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       role="status"
       aria-live="polite"
       className="flex items-center gap-3 rounded-xl bg-success/10 border border-success/20 px-4 py-3 text-success"

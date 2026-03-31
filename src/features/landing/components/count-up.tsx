@@ -13,10 +13,12 @@ interface CountUpProps {
   target: number
   duration?: number
   format?: 'number' | 'plain'
+  /** Starting value — defaults to 0. Use a nearby value for large numbers like years. */
+  startValue?: number
 }
 
-export function CountUp({ target, duration = 1.5, format = 'number' }: CountUpProps) {
-  const count = useMotionValue(0)
+export function CountUp({ target, duration = 1.5, format = 'number', startValue = 0 }: CountUpProps) {
+  const count = useMotionValue(startValue)
   const rounded = useTransform(count, (v) => {
     const value = Math.round(v)
     return format === 'plain' ? String(value) : value.toLocaleString()
@@ -29,12 +31,14 @@ export function CountUp({ target, duration = 1.5, format = 'number' }: CountUpPr
 
   useEffect(() => {
     if (!isInView) return
+    // Reset to startValue before animating
+    count.set(startValue)
     const controls = animate(count, target, {
       duration,
       ease: [0.22, 1, 0.36, 1],
     })
     return controls.stop
-  }, [isInView, count, target, duration])
+  }, [isInView, count, target, duration, startValue])
 
   return <motion.span ref={ref}>{rounded}</motion.span>
 }

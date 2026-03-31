@@ -184,7 +184,7 @@ export function HeroSection({ onContact }: HeroSectionProps) {
             <Button
               variant="outline"
               size="md"
-              className="w-full sm:w-auto border-2 font-semibold hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
+              className="w-full sm:w-auto font-semibold hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
               onClick={onContact}
             >
               {t('ctaContact')}

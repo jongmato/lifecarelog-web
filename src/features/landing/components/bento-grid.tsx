@@ -37,5 +37,16 @@ interface BentoSectionBreakProps {
 }
 
 export function BentoSectionBreak({ className }: BentoSectionBreakProps) {
-  return <div className={cn('h-10 sm:h-14 lg:h-16', className)} />
+  return (
+    <div className={cn('h-10 sm:h-14 lg:h-16 flex items-center', className)} aria-hidden="true">
+      {/* Subtle decorative divider — adds visual rhythm between sections */}
+      <div
+        className="h-px w-full max-w-[1200px] mx-auto"
+        style={{
+          background:
+            'linear-gradient(90deg, transparent 0%, var(--border) 20%, color-mix(in oklch, var(--primary) 15%, var(--border)) 50%, var(--border) 80%, transparent 100%)',
+        }}
+      />
+    </div>
+  )
 }

@@ -1,21 +1,8 @@
 import { useTranslations } from 'next-intl'
-import { Globe, Cpu, Database, Smartphone, Cloud, Code, Atom, TabletSmartphone, Server } from 'lucide-react'
 import { BentoCard } from '../bento-card'
 import { Badge } from '@/shared/ui/badge'
 import { Button } from '@/shared/ui/button'
-
-// Tech stack with individual accent colors for visual differentiation
-const TECH_STACK = [
-  { icon: Code, label: 'TypeScript', color: 'oklch(0.48 0.12 250)' },
-  { icon: Atom, label: 'React', color: 'oklch(0.55 0.16 220)' },
-  { icon: Globe, label: 'Next.js', color: 'oklch(0.20 0.01 250)' },
-  { icon: TabletSmartphone, label: 'React Native', color: 'oklch(0.55 0.16 220)' },
-  { icon: Smartphone, label: 'Expo', color: 'oklch(0.35 0.02 250)' },
-  { icon: Server, label: 'NestJS', color: 'oklch(0.50 0.18 15)' },
-  { icon: Cpu, label: 'FastAPI', color: 'oklch(0.42 0.14 168)' },
-  { icon: Database, label: 'Supabase', color: 'oklch(0.45 0.12 168)' },
-  { icon: Cloud, label: 'Cloudflare', color: 'oklch(0.58 0.15 42)' },
-] as const
+import { TECH_STACK } from '../tech-stack-data'
 
 interface AboutCardProps {
   index?: number
@@ -50,10 +37,17 @@ export function AboutCard({ index = 0, onContact }: AboutCardProps) {
               {t('title')}
             </h2>
           </div>
-          <Badge variant="live" className="shrink-0 glow-success">
-            {t('available')}
-          </Badge>
+          <div className="flex flex-col items-end gap-1">
+            <Badge variant="live" className="shrink-0 glow-success">
+              {t('available')}
+            </Badge>
+          </div>
         </div>
+
+        {/* Available detail — human-readable sentence below the badge area */}
+        <p className="font-sans text-xs text-muted-foreground -mt-3">
+          {t('availableDetail')}
+        </p>
 
         {/* Description */}
         <p className="font-sans text-sm text-muted-foreground whitespace-pre-line leading-relaxed flex-1">

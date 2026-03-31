@@ -38,7 +38,7 @@ export function LandingPage() {
           </BentoRow>
 
           {/* Row 3: Plan-L (4col) + Plan-T (8col) */}
-          <BentoRow>
+          <BentoRow className="mb-3 sm:mb-4 lg:mb-5">
             <PlanLCard index={3} />
             <PlanTCard index={4} />
           </BentoRow>

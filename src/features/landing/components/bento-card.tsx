@@ -5,7 +5,8 @@ import { cn } from '@/lib/utils'
 
 // Animation tokens
 const EASING = [0.22, 1, 0.36, 1] as const
-const SPRING_HOVER = { type: 'spring', stiffness: 280, damping: 22 } as const
+// Higher damping prevents spring overshoot on fast hover
+const SPRING_HOVER = { type: 'spring', stiffness: 300, damping: 30 } as const
 
 interface BentoCardProps {
   children: React.ReactNode

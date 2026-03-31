@@ -1,21 +1,9 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
-import { Globe, Cpu, Database, Smartphone, Cloud, Code, Atom, TabletSmartphone, Server } from 'lucide-react'
 import { BentoCard } from '../bento-card'
 import { CountUp } from '../count-up'
-
-const TECH_STACK = [
-  { icon: Code, label: 'TypeScript', color: 'oklch(0.48 0.12 250)' },
-  { icon: Atom, label: 'React', color: 'oklch(0.55 0.16 220)' },
-  { icon: Globe, label: 'Next.js', color: 'oklch(0.20 0.01 250)' },
-  { icon: TabletSmartphone, label: 'React Native', color: 'oklch(0.55 0.16 220)' },
-  { icon: Smartphone, label: 'Expo', color: 'oklch(0.35 0.02 250)' },
-  { icon: Server, label: 'NestJS', color: 'oklch(0.50 0.18 15)' },
-  { icon: Cpu, label: 'FastAPI', color: 'oklch(0.42 0.14 168)' },
-  { icon: Database, label: 'Supabase', color: 'oklch(0.45 0.12 168)' },
-  { icon: Cloud, label: 'Cloudflare', color: 'oklch(0.58 0.15 42)' },
-] as const
+import { TECH_STACK } from '../tech-stack-data'
 
 interface StatsTechCardProps {
   index?: number
@@ -27,11 +15,13 @@ function StatItem({
   label,
   format,
   accent,
+  startValue,
 }: {
   value: number
   label: string
   format: 'number' | 'plain'
   accent: string
+  startValue?: number
 }) {
   return (
     <div className="flex flex-col gap-1.5">
@@ -39,7 +29,7 @@ function StatItem({
         className="font-sans text-3xl sm:text-4xl font-bold tabular-nums leading-none"
         style={{ color: 'var(--foreground)' }}
       >
-        <CountUp target={value} duration={1.5} format={format} />
+        <CountUp target={value} duration={1.5} format={format} startValue={startValue} />
       </span>
       {/* Accent underline */}
       <div
@@ -71,7 +61,9 @@ export function StatsTechCard({ index = 0 }: StatsTechCardProps) {
       accent: 'var(--success)',
     },
     {
+      // Year should count up from 2024 to feel more meaningful, not from 0
       value: 2026,
+      startValue: 2024,
       label: t('year'),
       format: 'plain' as const,
       accent: 'var(--accent)',
@@ -91,10 +83,11 @@ export function StatsTechCard({ index = 0 }: StatsTechCardProps) {
             {t('label')}
           </p>
           <div className="grid grid-cols-3 gap-4">
-            {STATS.map(({ value, label, format, accent }) => (
+            {STATS.map(({ value, startValue, label, format, accent }) => (
               <StatItem
                 key={label}
                 value={value}
+                startValue={startValue}
                 label={label}
                 format={format}
                 accent={accent}

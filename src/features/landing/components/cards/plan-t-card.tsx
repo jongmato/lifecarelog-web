@@ -111,7 +111,7 @@ export function PlanTCard({ index = 0 }: PlanTCardProps) {
         </div>
 
         {/* Description */}
-        <p className="font-sans text-sm text-muted-foreground leading-relaxed flex-1 max-w-xs">
+        <p className="font-sans text-sm text-muted-foreground leading-relaxed flex-1">
           {t('description')}
         </p>
 
