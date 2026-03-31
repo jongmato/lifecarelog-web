@@ -43,9 +43,10 @@ export function BentoCard({
     },
   }
 
+  // ANIMATE: y -3 is subtler and more appropriate for a caring/warm brand
   const hoverAnimation = shouldReduceMotion
     ? {}
-    : { y: -5, transition: SPRING_HOVER }
+    : { y: -3, transition: SPRING_HOVER }
 
   return (
     <motion.div
@@ -79,9 +80,9 @@ export function BentoCard({
         el.style.borderColor = 'var(--border)'
       }}
     >
-      {/* Subtle inner gradient */}
+      {/* Subtle inner gradient — DISTILL: lowered opacity to not compete with content */}
       <div
-        className="absolute inset-0 pointer-events-none rounded-2xl opacity-40"
+        className="absolute inset-0 pointer-events-none rounded-2xl opacity-25"
         style={{
           background:
             'radial-gradient(ellipse 80% 50% at 50% -10%, color-mix(in oklch, var(--muted) 60%, transparent), transparent)',

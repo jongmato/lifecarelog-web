@@ -146,16 +146,17 @@ export function SocialCoffeeCard({ index = 0 }: SocialCoffeeCardProps) {
               target="_blank"
               rel="noopener noreferrer"
             >
+              {/* COLORIZE: warm amber button — dark mode uses accent-foreground for proper contrast */}
               <Button
                 variant="primary"
                 size="sm"
-                className="transition-all duration-200 hover:-translate-y-0.5"
+                className="transition-all duration-200 hover:-translate-y-0.5 min-h-[44px]"
                 style={{
                   background:
-                    'linear-gradient(135deg, var(--accent), oklch(0.68 0.12 50))',
-                  color: 'var(--foreground)',
+                    'linear-gradient(135deg, var(--accent), oklch(0.65 0.14 48))',
+                  color: 'var(--accent-foreground)',
                   boxShadow:
-                    '0 3px 10px color-mix(in oklch, var(--accent) 30%, transparent)',
+                    '0 4px 12px color-mix(in oklch, var(--accent) 35%, transparent)',
                 }}
               >
                 {tCoffee('cta')}

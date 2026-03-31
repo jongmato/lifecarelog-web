@@ -23,21 +23,22 @@ function StatItem({
   accent: string
   startValue?: number
 }) {
+  // BOLDER: larger stat numbers with stronger foreground color
   return (
     <div className="flex flex-col gap-1.5">
       <span
-        className="font-sans text-3xl sm:text-4xl font-bold tabular-nums leading-none"
+        className="font-sans text-[2.25rem] sm:text-[2.75rem] font-bold tabular-nums leading-none"
         style={{ color: 'var(--foreground)' }}
       >
         <CountUp target={value} duration={1.5} format={format} startValue={startValue} />
       </span>
-      {/* Accent underline */}
+      {/* Accent underline — BOLDER: slightly wider */}
       <div
-        className="h-0.5 w-8 rounded-full mb-0.5"
+        className="h-[3px] w-10 rounded-full mb-0.5"
         style={{ background: accent }}
         aria-hidden="true"
       />
-      <span className="font-sans text-xs text-muted-foreground leading-snug">
+      <span className="font-sans text-xs font-medium text-muted-foreground leading-snug">
         {label}
       </span>
     </div>

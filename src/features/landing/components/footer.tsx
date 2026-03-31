@@ -2,21 +2,28 @@ import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { GithubIcon, XIcon, LinkedinIcon } from './social-icons'
 
+// DELIGHT: each icon has its own brand color revealed on hover
 const SOCIAL_LINKS = [
   {
     icon: GithubIcon,
     href: 'https://github.com',
     label: 'GitHub',
+    hoverColor: 'oklch(0.20 0.01 250)',
+    hoverBg: 'color-mix(in oklch, oklch(0.20 0.01 250) 8%, var(--muted))',
   },
   {
     icon: XIcon,
     href: 'https://twitter.com',
     label: 'X (Twitter)',
+    hoverColor: 'oklch(0.20 0 0)',
+    hoverBg: 'color-mix(in oklch, oklch(0.20 0 0) 6%, var(--muted))',
   },
   {
     icon: LinkedinIcon,
     href: 'https://linkedin.com',
     label: 'LinkedIn',
+    hoverColor: 'oklch(0.47 0.12 237)',
+    hoverBg: 'color-mix(in oklch, oklch(0.47 0.12 237) 10%, var(--muted))',
   },
 ] as const
 
@@ -47,8 +54,9 @@ export function Footer({ onContact }: FooterProps) {
             'linear-gradient(180deg, color-mix(in oklch, var(--muted) 60%, transparent) 0%, transparent 100%)',
         }}
       >
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-10">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        {/* ADAPT: improved mobile layout — stacked on mobile, row on sm+ */}
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 sm:gap-6">
             {/* Brand mark */}
             <div className="flex flex-col gap-1.5">
               <div className="flex items-center gap-2">
@@ -103,7 +111,7 @@ export function Footer({ onContact }: FooterProps) {
 
             {/* Social links */}
             <div className="flex gap-1.5" role="list" aria-label="Social links">
-              {SOCIAL_LINKS.map(({ icon: Icon, href, label }) => (
+              {SOCIAL_LINKS.map(({ icon: Icon, href, label, hoverColor, hoverBg }) => (
                 <a
                   key={label}
                   href={href}
@@ -111,20 +119,23 @@ export function Footer({ onContact }: FooterProps) {
                   rel="noopener noreferrer"
                   aria-label={label}
                   role="listitem"
-                  className="w-9 h-9 flex items-center justify-center rounded-xl border text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110 hover:-translate-y-0.5"
+                  // ADAPT: 44px touch target
+                  // DELIGHT: each icon reveals its own brand color
+                  className="w-11 h-11 flex items-center justify-center rounded-xl border transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   style={{
                     borderColor: 'var(--border)',
                     background: 'transparent',
+                    color: 'var(--muted-foreground)',
                   }}
                   onMouseEnter={(e) => {
                     const el = e.currentTarget
-                    el.style.background =
-                      'color-mix(in oklch, var(--primary) 8%, var(--muted))'
-                    el.style.borderColor =
-                      'color-mix(in oklch, var(--primary) 30%, var(--border))'
+                    el.style.color = hoverColor
+                    el.style.background = hoverBg
+                    el.style.borderColor = `color-mix(in oklch, ${hoverColor} 30%, var(--border))`
                   }}
                   onMouseLeave={(e) => {
                     const el = e.currentTarget
+                    el.style.color = 'var(--muted-foreground)'
                     el.style.background = 'transparent'
                     el.style.borderColor = 'var(--border)'
                   }}

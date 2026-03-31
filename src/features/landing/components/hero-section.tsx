@@ -12,31 +12,29 @@ interface HeroSectionProps {
 }
 
 // Floating decorative orbs — pure CSS, no images needed
+// QUIETER: reduced orb opacity, removed noisy dot-grid
+// OVERDRIVE: added richer dual-orb composition for visual warmth
 function FloatingOrbs() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-      {/* Large warm orb — top right */}
+      {/* Large warm orb — top right, breath-like motion */}
       <motion.div
-        className="absolute -top-16 -right-16 w-72 h-72 rounded-full opacity-[0.07] dark:opacity-[0.05]"
+        className="absolute -top-20 -right-20 w-80 h-80 rounded-full opacity-[0.09] dark:opacity-[0.06]"
         style={{
-          background: 'radial-gradient(circle, var(--accent), transparent 70%)',
+          background: 'radial-gradient(circle at 40% 40%, var(--accent), transparent 65%)',
         }}
-        animate={{ scale: [1, 1.08, 1], x: [0, 8, 0], y: [0, -8, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        animate={{ scale: [1, 1.06, 1], x: [0, 6, 0], y: [0, -6, 0] }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
       />
-      {/* Medium sage orb — bottom left */}
+      {/* Medium sage orb — bottom left, slower drift */}
       <motion.div
-        className="absolute -bottom-8 left-8 w-48 h-48 rounded-full opacity-[0.06] dark:opacity-[0.04]"
+        className="absolute -bottom-12 -left-8 w-56 h-56 rounded-full opacity-[0.07] dark:opacity-[0.05]"
         style={{
-          background: 'radial-gradient(circle, var(--primary), transparent 70%)',
+          background: 'radial-gradient(circle at 60% 60%, var(--primary), transparent 65%)',
         }}
-        animate={{ scale: [1, 1.12, 1], x: [0, -6, 0], y: [0, 6, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 1.5 }}
+        animate={{ scale: [1, 1.08, 1], x: [0, -4, 0], y: [0, 5, 0] }}
+        transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
       />
-      {/* Small accent dot cluster */}
-      <div className="absolute right-8 top-8 opacity-20 dark:opacity-10">
-        <div className="dot-grid w-24 h-24" />
-      </div>
     </div>
   )
 }
@@ -66,10 +64,11 @@ export function HeroSection({ onContact }: HeroSectionProps) {
   const t = useTranslations('hero')
   const shouldReduceMotion = useReducedMotion()
 
+  // ANIMATE: looser stagger feels more natural, less mechanical
   const containerVariants = {
     hidden: {},
     visible: {
-      transition: { staggerChildren: 0.12 },
+      transition: { staggerChildren: 0.1, delayChildren: 0.05 },
     },
   }
 
@@ -86,10 +85,11 @@ export function HeroSection({ onContact }: HeroSectionProps) {
     <div
       className="col-span-1 sm:col-span-4 lg:col-span-12 relative overflow-hidden rounded-2xl"
       style={{
+        // COLORIZE: warmer gradient, OVERDRIVE: richer visual presence
         background:
-          'linear-gradient(135deg, var(--card) 0%, color-mix(in oklch, var(--primary) 3%, var(--card)) 100%)',
+          'linear-gradient(135deg, var(--card) 0%, color-mix(in oklch, var(--primary) 5%, var(--card)) 50%, color-mix(in oklch, var(--accent) 4%, var(--card)) 100%)',
         boxShadow:
-          '0 1px 2px color-mix(in oklch, var(--foreground) 4%, transparent), 0 4px 12px color-mix(in oklch, var(--foreground) 6%, transparent), 0 0 0 1px var(--border)',
+          '0 1px 2px color-mix(in oklch, var(--foreground) 4%, transparent), 0 4px 16px color-mix(in oklch, var(--primary) 8%, transparent), 0 0 0 1px var(--border)',
       }}
     >
       <AccentLine />
@@ -118,29 +118,29 @@ export function HeroSection({ onContact }: HeroSectionProps) {
             </span>
           </motion.div>
 
-          {/* Headline — gradient on key words */}
+          {/* Headline — OVERDRIVE: gradient text on key phrase, BOLDER: larger weight */}
           <motion.h1
             variants={itemVariants}
-            className="text-3xl sm:text-4xl lg:text-[3.25rem] text-foreground leading-[1.2] tracking-tight whitespace-pre-line mb-4 font-sans font-bold lg:font-display lg:font-normal lg:italic"
+            className="text-[2rem] sm:text-[2.75rem] lg:text-[3.5rem] leading-[1.15] tracking-tight whitespace-pre-line mb-5 font-sans font-bold"
           >
-            {t('headline')}
+            <span className="gradient-text">{t('headline')}</span>
           </motion.h1>
 
-          {/* Accent underline decoration */}
+          {/* Accent underline decoration — BOLDER: slightly wider */}
           <motion.div
             variants={itemVariants}
-            className="h-1 w-16 rounded-full mb-6"
+            className="h-[3px] w-20 rounded-full mb-7"
             style={{
               background:
-                'linear-gradient(90deg, var(--primary), var(--accent))',
+                'linear-gradient(90deg, var(--primary), oklch(0.68 0.14 168), var(--accent))',
             }}
             aria-hidden="true"
           />
 
-          {/* Subheadline */}
+          {/* Subheadline — ONBOARD: slightly larger for faster scanning */}
           <motion.p
             variants={itemVariants}
-            className="text-base sm:text-lg text-muted-foreground whitespace-pre-line leading-relaxed mb-10 max-w-xl"
+            className="text-base sm:text-[1.0625rem] text-muted-foreground whitespace-pre-line leading-[1.8] mb-10 max-w-xl"
           >
             {t('subheadline')}
           </motion.p>
@@ -150,29 +150,29 @@ export function HeroSection({ onContact }: HeroSectionProps) {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-3"
           >
-            {/* Primary CTA — Cal.com coffee chat */}
+            {/* Primary CTA — BOLDER: stronger shadow, confident presence */}
             <a
               href="https://cal.com/lifecarelog/coffee-chat"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 font-sans font-semibold text-base px-7 min-h-[52px] rounded-xl cursor-pointer select-none transition-all duration-300 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring focus-visible:ring-offset-2 w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2.5 font-sans font-semibold text-base px-8 min-h-[52px] rounded-xl cursor-pointer select-none transition-all duration-300 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring focus-visible:ring-offset-2 w-full sm:w-auto"
               style={{
                 background:
-                  'linear-gradient(135deg, var(--primary) 0%, oklch(0.65 0.13 163) 100%)',
+                  'linear-gradient(135deg, var(--primary) 0%, oklch(0.60 0.14 160) 100%)',
                 color: 'var(--primary-foreground)',
                 boxShadow:
-                  '0 4px 14px color-mix(in oklch, var(--primary) 35%, transparent)',
+                  '0 4px 16px color-mix(in oklch, var(--primary) 40%, transparent), 0 1px 0 color-mix(in oklch, var(--primary-foreground) 10%, transparent) inset',
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget
                 el.style.boxShadow =
-                  '0 6px 20px color-mix(in oklch, var(--primary) 45%, transparent)'
-                el.style.transform = 'translateY(-1px)'
+                  '0 8px 24px color-mix(in oklch, var(--primary) 50%, transparent), 0 1px 0 color-mix(in oklch, var(--primary-foreground) 10%, transparent) inset'
+                el.style.transform = 'translateY(-2px)'
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget
                 el.style.boxShadow =
-                  '0 4px 14px color-mix(in oklch, var(--primary) 35%, transparent)'
+                  '0 4px 16px color-mix(in oklch, var(--primary) 40%, transparent), 0 1px 0 color-mix(in oklch, var(--primary-foreground) 10%, transparent) inset'
                 el.style.transform = 'translateY(0)'
               }}
             >

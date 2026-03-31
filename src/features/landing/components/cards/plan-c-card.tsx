@@ -92,7 +92,7 @@ export function PlanCCard({ index = 0 }: PlanCCardProps) {
             <h2 className="font-sans text-lg font-semibold text-foreground">
               {t('title')}
             </h2>
-            {/* Enhanced live badge with glow */}
+            {/* QUIETER: pulse scale reduced to 1.25 (was 1.5), barely perceptible */}
             <Badge
               variant="live"
               className="flex items-center gap-1.5 glow-success"
@@ -100,11 +100,11 @@ export function PlanCCard({ index = 0 }: PlanCCardProps) {
               <motion.span
                 className="w-1.5 h-1.5 rounded-full bg-success"
                 animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [1, 0.6, 1],
+                  scale: [1, 1.25, 1],
+                  opacity: [1, 0.7, 1],
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 2.5,
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}
@@ -134,7 +134,7 @@ export function PlanCCard({ index = 0 }: PlanCCardProps) {
           {t('description')}
         </p>
 
-        {/* CTA */}
+        {/* CTA — ADAPT: w-full ensures 44px+ touch target on mobile */}
         <a
           href="https://plan-c.lifecarelog.co.kr"
           target="_blank"
@@ -144,7 +144,7 @@ export function PlanCCard({ index = 0 }: PlanCCardProps) {
           <Button
             variant="secondary"
             size="sm"
-            className="w-full gap-2 group border-2 transition-all duration-200 hover:border-[var(--plan-c)]/40 hover:text-[var(--plan-c)]"
+            className="w-full gap-2 group border-2 min-h-[44px] transition-all duration-200 hover:border-[var(--plan-c)]/40 hover:text-[var(--plan-c)]"
           >
             {t('cta')}
             <ExternalLink
