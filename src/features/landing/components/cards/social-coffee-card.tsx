@@ -9,7 +9,7 @@ const SOCIAL_LINKS = [
   {
     key: 'github' as const,
     icon: GithubIcon,
-    href: 'https://github.com',
+    href: 'https://github.com/jongmato',
     ariaLabel: 'GitHub',
     color: 'oklch(0.20 0.01 250)',
   },
@@ -140,9 +140,9 @@ export function SocialCoffeeCard({ index = 0 }: SocialCoffeeCardProps) {
             {tCoffee('description')}
           </p>
 
-          <div className="flex items-center gap-3 flex-wrap">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2.5 flex-wrap">
             <a
-              href="https://cal.com"
+              href="https://cal.com/lifecarelog/coffee-chat"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -161,10 +161,18 @@ export function SocialCoffeeCard({ index = 0 }: SocialCoffeeCardProps) {
                 {tCoffee('cta')}
               </Button>
             </a>
-            <span className="font-sans text-xs text-muted-foreground/60">
-              {tCoffee('via')}
-            </span>
+            <a
+              href="https://cal.com/lifecarelog/project-consultation"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-sans text-xs font-medium text-muted-foreground hover:text-primary underline underline-offset-4 decoration-primary/30 transition-colors duration-200"
+            >
+              프로젝트 상담 예약
+            </a>
           </div>
+          <span className="font-sans text-[11px] text-muted-foreground/50 mt-1">
+            {tCoffee('via')}
+          </span>
         </div>
       </div>
     </BentoCard>
