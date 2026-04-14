@@ -22,7 +22,7 @@ export function BentoRow({ children, className }: BentoRowProps) {
   return (
     <div
       className={cn(
-        'grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-12',
+        'bento-row grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-12',
         'gap-3 sm:gap-4 lg:gap-5',
         className
       )}

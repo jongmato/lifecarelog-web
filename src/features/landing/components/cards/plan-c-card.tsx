@@ -60,29 +60,32 @@ export function PlanCCard({ index = 0 }: PlanCCardProps) {
               plan-c.lifecarelog.co.kr
             </span>
           </div>
-          {/* Content placeholder lines */}
-          <div className="px-3 py-2.5 flex flex-col gap-1.5">
+          {/* App-like content preview */}
+          <div className="px-3 py-2.5 flex flex-col gap-2">
             <div
-              className="h-2 rounded-full w-3/4"
-              style={{
-                background:
-                  'color-mix(in oklch, var(--plan-c) 25%, var(--muted))',
-              }}
-            />
+              className="text-[9px] font-semibold uppercase tracking-widest"
+              style={{ color: 'color-mix(in oklch, var(--plan-c) 60%, var(--muted-foreground))' }}
+            >
+              오늘의 기록
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--success)' }} />
+              <div className="h-1.5 rounded-full w-24" style={{ background: 'color-mix(in oklch, var(--plan-c) 18%, var(--muted))' }} />
+            </div>
+            <div className="flex items-center gap-1.5">
+              <div className="w-1.5 h-1.5 rounded-full" style={{ background: 'color-mix(in oklch, var(--plan-c) 40%, var(--muted))' }} />
+              <div className="h-1.5 rounded-full w-16" style={{ background: 'color-mix(in oklch, var(--plan-c) 12%, var(--muted))' }} />
+            </div>
             <div
-              className="h-2 rounded-full w-1/2"
+              className="mt-1 h-4 rounded-md w-20 flex items-center justify-center text-[7px] font-medium"
               style={{
-                background:
-                  'color-mix(in oklch, var(--plan-c) 15%, var(--muted))',
+                background: 'color-mix(in oklch, var(--plan-c) 12%, var(--muted))',
+                border: '1px solid color-mix(in oklch, var(--plan-c) 20%, var(--border))',
+                color: 'var(--plan-c)',
               }}
-            />
-            <div
-              className="h-2 rounded-full w-2/3"
-              style={{
-                background:
-                  'color-mix(in oklch, var(--plan-c) 10%, var(--muted))',
-              }}
-            />
+            >
+              + 기록하기
+            </div>
           </div>
         </div>
 

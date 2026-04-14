@@ -1,0 +1,44 @@
+/**
+ * Cloudflare Workers config for Next.js 16 via @opennextjs/cloudflare.
+ *
+ * Build: `pnpm cf:build`
+ * Preview: `pnpm cf:preview`
+ * Deploy: `pnpm cf:deploy`
+ *
+ * Docs: https://opennext.js.org/cloudflare
+ *
+ * Required env vars (set via Cloudflare Dashboard > Workers & Pages > Settings > Variables):
+ *   - NEXT_PUBLIC_SITE_URL (https://lifecarelog.co.kr)
+ *   - NEXT_PUBLIC_SENTRY_DSN
+ *   - SENTRY_DSN (encrypted)
+ *   - NEXT_PUBLIC_GA_ID (G-XXXXXXXXXX)
+ *   - SENTRY_AUTH_TOKEN (encrypted, optional — for source map upload during build)
+ *   - RESEND_API_KEY (encrypted)
+ *   - TURNSTILE_SECRET_KEY (encrypted)
+ *   - NEXT_PUBLIC_TURNSTILE_SITE_KEY
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "lifecarelog-web",
+  "main": ".open-next/worker.js",
+  "account_id": "eb555c22df4760883a35a6c7db99dfb9",
+  "compatibility_date": "2025-08-16",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".open-next/assets"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "NEXT_PUBLIC_APP_ENV": "production",
+    "NEXT_PUBLIC_SITE_URL": "https://lifecarelog.co.kr"
+  },
+  "routes": [
+    {
+      "pattern": "lifecarelog.co.kr",
+      "custom_domain": true
+    }
+  ]
+}

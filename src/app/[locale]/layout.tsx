@@ -4,9 +4,13 @@ import { getMessages, getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import localFont from 'next/font/local'
 import { DM_Serif_Display } from 'next/font/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { Providers } from '@/app/providers'
+import { JsonLd } from '@/shared/components/json-ld'
 import { routing } from '@/i18n/routing'
 import '@/app/globals.css'
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://lifecarelog.co.kr'
 
 const pretendard = localFont({
   src: '../../fonts/PretendardVariable.woff2',
@@ -22,6 +26,9 @@ const dmSerifDisplay = DM_Serif_Display({
   display: 'swap',
 })
 
+// Gmarket Sans — CDN으로 로드 (Google Fonts에 없음)
+// globals.css에서 @font-face로 로드
+
 export async function generateMetadata({
   params,
 }: {
@@ -31,8 +38,49 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'meta' })
 
   return {
+    metadataBase: new URL(SITE_URL),
     title: t('title'),
     description: t('description'),
+    keywords: ['LifeCareLog', '라이프케어로그', '1인 개발', '솔로 개발자', 'Plan-C', 'Plan-L', 'Plan-T', '플랜씨', '플랜엘', '플랜티', '계산기', '법률 검색', '마음 건강'],
+    authors: [{ name: 'LifeCareLog' }],
+    creator: 'LifeCareLog',
+    openGraph: {
+      title: t('title'),
+      description: t('description'),
+      url: SITE_URL,
+      siteName: 'LifeCareLog',
+      type: 'website',
+      locale: locale === 'ko' ? 'ko_KR' : 'en_US',
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: 'LifeCareLog — 삶을 돌보는 기록',
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('title'),
+      description: t('description'),
+      images: ['/og-image.png'],
+      creator: '@lifecarelog',
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+    alternates: {
+      canonical: SITE_URL,
+      languages: {
+        'ko-KR': `${SITE_URL}/ko`,
+        'en-US': `${SITE_URL}/en`,
+      },
+    },
+    other: {
+      'content-language': locale,
+    },
   }
 }
 
@@ -65,7 +113,7 @@ export default async function LocaleLayout({
       className={`${pretendard.variable} ${dmSerifDisplay.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col antialiased">
+      <body className="min-h-full flex flex-col antialiased" suppressHydrationWarning>
         {/* Skip navigation for accessibility */}
         <a
           href="#main-content"
@@ -76,6 +124,10 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <Providers>{children}</Providers>
         </NextIntlClientProvider>
+        <JsonLd />
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+        )}
       </body>
     </html>
   )

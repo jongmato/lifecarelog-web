@@ -2,11 +2,16 @@
 
 import { useTranslations } from 'next-intl'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Mail, Sparkles } from 'lucide-react'
-import { useCallback, useEffect, useId } from 'react'
+import { X, Mail } from 'lucide-react'
+import { useCallback, useEffect, useId, useRef } from 'react'
+import Image from 'next/image'
 import { ContactForm } from './contact-form'
 
 const DIALOG_EASING = [0.22, 1, 0.36, 1] as const
+
+// Selectors for all focusable elements within the dialog
+const FOCUSABLE_SELECTORS =
+  'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
 interface ContactDialogProps {
   open: boolean
@@ -16,21 +21,65 @@ interface ContactDialogProps {
 export function ContactDialog({ open, onClose }: ContactDialogProps) {
   const t = useTranslations('contact')
   const titleId = useId()
+  const dialogRef = useRef<HTMLDivElement>(null)
+  const previousFocusRef = useRef<HTMLElement | null>(null)
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose()
+      if (e.key === 'Escape') {
+        onClose()
+        return
+      }
+
+      // Focus trap: cycle Tab/Shift+Tab within dialog
+      if (e.key === 'Tab' && dialogRef.current) {
+        const focusable = Array.from(
+          dialogRef.current.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTORS)
+        ).filter((el) => el.offsetParent !== null) // exclude hidden elements
+
+        if (focusable.length === 0) return
+
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault()
+            last.focus()
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault()
+            first.focus()
+          }
+        }
+      }
     },
     [onClose]
   )
 
   useEffect(() => {
     if (!open) return
+
+    // Save the element that triggered the dialog
+    previousFocusRef.current = document.activeElement as HTMLElement
+
     document.addEventListener('keydown', handleKeyDown)
     document.body.style.overflow = 'hidden'
+
+    // Move focus to the first focusable element in the dialog
+    const frame = requestAnimationFrame(() => {
+      if (!dialogRef.current) return
+      const focusable = dialogRef.current.querySelector<HTMLElement>(FOCUSABLE_SELECTORS)
+      focusable?.focus()
+    })
+
     return () => {
+      cancelAnimationFrame(frame)
       document.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = ''
+      // Restore focus to the trigger element when dialog closes
+      previousFocusRef.current?.focus()
     }
   }, [open, handleKeyDown])
 
@@ -55,6 +104,7 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
 
           {/* Dialog panel */}
           <motion.div
+            ref={dialogRef}
             initial={{ opacity: 0, scale: 0.96, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 16 }}
@@ -62,37 +112,26 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
             role="dialog"
             aria-modal="true"
             aria-labelledby={titleId}
-            className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl"
+            className="relative w-full max-w-lg max-h-[90dvh] overflow-y-auto rounded-2xl"
             style={{
               background: 'var(--card)',
               boxShadow:
                 '0 8px 40px color-mix(in oklch, var(--foreground) 18%, transparent), 0 0 0 1px var(--border)',
             }}
           >
-            {/* Gradient header band */}
+            {/* Header band */}
             <div
               className="relative px-6 pt-6 pb-5 sm:px-8 sm:pt-7 sm:pb-5"
               style={{
-                background:
-                  'linear-gradient(135deg, color-mix(in oklch, var(--primary) 6%, var(--card)) 0%, color-mix(in oklch, var(--accent) 4%, var(--card)) 100%)',
+                background: 'var(--surface-low)',
                 borderBottom: '1px solid var(--border)',
               }}
             >
-              {/* Top accent line */}
-              <div
-                className="absolute top-0 left-0 right-0 h-[2.5px] rounded-t-2xl"
-                style={{
-                  background:
-                    'linear-gradient(90deg, var(--primary) 0%, oklch(0.68 0.13 163) 50%, var(--accent) 100%)',
-                }}
-                aria-hidden="true"
-              />
-
               {/* Close button — i18n label */}
               <button
                 onClick={onClose}
                 type="button"
-                className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-lg text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                className="absolute top-3 right-3 w-11 h-11 flex items-center justify-center rounded-lg text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 style={{
                   background:
                     'color-mix(in oklch, var(--muted) 80%, transparent)',
@@ -104,18 +143,14 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
 
               {/* Icon + headline — id links to aria-labelledby */}
               <div className="flex items-start gap-3 pr-8">
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 mt-0.5"
-                  style={{
-                    background:
-                      'color-mix(in oklch, var(--primary) 12%, var(--muted))',
-                    border:
-                      '1px solid color-mix(in oklch, var(--primary) 25%, var(--border))',
-                    color: 'var(--primary)',
-                  }}
-                >
-                  <Sparkles size={18} strokeWidth={1.75} aria-hidden="true" />
-                </div>
+                <Image
+                  src="/logo-icon.png"
+                  alt=""
+                  width={40}
+                  height={40}
+                  className="w-10 h-10 rounded-xl shrink-0 mt-0.5"
+                  aria-hidden="true"
+                />
                 <div>
                   <h2
                     id={titleId}

@@ -25,9 +25,9 @@ function StatItem({
 }) {
   // BOLDER: larger stat numbers with stronger foreground color
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className="flex flex-col gap-1.5 first:pl-0 pl-4">
       <span
-        className="font-sans text-[2.25rem] sm:text-[2.75rem] font-bold tabular-nums leading-none"
+        className="font-display text-[2.25rem] sm:text-[2.75rem] font-bold tabular-nums leading-none"
         style={{ color: 'var(--foreground)' }}
       >
         <CountUp target={value} duration={1.5} format={format} startValue={startValue} />
@@ -83,7 +83,7 @@ export function StatsTechCard({ index = 0 }: StatsTechCardProps) {
           <p className="font-sans text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-5">
             {t('label')}
           </p>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4 divide-x divide-border/50">
             {STATS.map(({ value, startValue, label, format, accent }) => (
               <StatItem
                 key={label}

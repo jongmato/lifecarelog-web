@@ -6,7 +6,7 @@ import { z } from 'zod/v3'
 import Turnstile from 'react-turnstile'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CheckCircle, AlertCircle } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Button } from '@/shared/ui/button'
 import { Input } from '@/shared/ui/input'
 import { Textarea } from '@/shared/ui/textarea'
@@ -59,6 +59,8 @@ export function ContactForm() {
   const [status, setStatus] = useState<FormStatus>('idle')
   const [errorMessage, setErrorMessage] = useState('')
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null)
+  // P2-01: clearTimeout ref to prevent memory leak on unmount
+  const resetTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const {
     register,
@@ -69,6 +71,15 @@ export function ContactForm() {
     resolver: zodResolver(contactSchema),
     mode: 'onBlur',
   })
+
+  // P2-01: cleanup setTimeout on unmount to prevent state updates on dead component
+  useEffect(() => {
+    return () => {
+      if (resetTimerRef.current !== null) {
+        clearTimeout(resetTimerRef.current)
+      }
+    }
+  }, [])
 
   async function onSubmit(data: ContactFormValues) {
     setStatus('submitting')
@@ -96,8 +107,8 @@ export function ContactForm() {
 
       setStatus('success')
 
-      // Reset form after 3 seconds
-      setTimeout(() => {
+      // P2-01: store timer ref for cleanup
+      resetTimerRef.current = setTimeout(() => {
         reset()
         setStatus('idle')
         setTurnstileToken(null)
@@ -112,7 +123,7 @@ export function ContactForm() {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={(e) => handleSubmit(onSubmit)(e)}
       noValidate
       aria-label={t('headline')}
       className="flex flex-col gap-5"

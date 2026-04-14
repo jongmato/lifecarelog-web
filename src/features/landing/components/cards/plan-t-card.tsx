@@ -10,7 +10,7 @@ interface PlanTCardProps {
 function PhoneMockup() {
   return (
     <div
-      className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none opacity-[0.07] dark:opacity-[0.05]"
+      className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none opacity-[0.12] dark:opacity-[0.07]"
       aria-hidden="true"
     >
       <svg

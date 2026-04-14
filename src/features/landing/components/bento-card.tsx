@@ -56,7 +56,7 @@ export function BentoCard({
       whileHover={hoverAnimation}
       viewport={{ once: true, amount: 0.08 }}
       className={cn(
-        'relative flex flex-col overflow-hidden rounded-2xl p-6',
+        'bento-card relative flex flex-col overflow-hidden rounded-2xl p-6',
         // Shadow system — richer than shadow-sm
         'shadow-card transition-shadow duration-300',
         'hover:shadow-card-hover',

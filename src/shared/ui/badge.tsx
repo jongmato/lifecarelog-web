@@ -12,7 +12,7 @@ const badgeVariants = cva(
         live: [
           'bg-success/15 text-success',
           // Pulse dot for live indicator
-          'before:content-[""] before:w-1.5 before:h-1.5 before:rounded-full before:bg-success before:animate-pulse',
+          'before:content-[""] before:w-1.5 before:h-1.5 before:rounded-full before:bg-success before:motion-safe:animate-pulse',
         ],
         'coming-soon': [
           'bg-warning/15 text-warning',

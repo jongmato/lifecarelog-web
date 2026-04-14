@@ -1,0 +1,24 @@
+# LifeCareLog
+
+삶을 돌보는 기록 — 한 명이라도 필요로 하는 서비스를 만드는 1인 개발자 브랜드.
+
+## About
+- 홈: https://lifecarelog.co.kr
+- 서비스: https://lifecarelog.co.kr/services
+
+## Services
+- Plan-C (플랜씨): 금융 계산기 & 재정 플래너 — https://plan-c.lifecarelog.co.kr
+- Plan-L (플랜엘): AI 법률 정보 검색 — https://plan-l.lifecarelog.co.kr
+- Plan-T (플랜티): AI 마음 건강 앱 (개발 중)
+
+## Tech Stack
+- Frontend: Next.js, React, Expo
+- Backend: FastAPI, NestJS
+- Database: Supabase (PostgreSQL)
+- Infrastructure: Cloudflare Workers
+
+## Contact
+- GitHub: https://github.com/jongmato
+- X: https://x.com/lifecarelog
+- Threads: https://www.threads.com/@lifecarelog_official
+- Email: support@lifecarelog.co.kr

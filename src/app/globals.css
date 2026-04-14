@@ -22,6 +22,9 @@
   --color-plan-c: var(--plan-c);
   --color-plan-l: var(--plan-l);
   --color-plan-t: var(--plan-t);
+  --color-surface-low: var(--surface-low);
+  --color-primary-light: var(--primary-light);
+  --color-tertiary: var(--tertiary);
 
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
@@ -31,49 +34,77 @@
 
   --font-sans: var(--font-pretendard, 'Pretendard Variable', 'Pretendard', system-ui, sans-serif);
   --font-display: var(--font-dm-serif, 'DM Serif Display', serif);
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-heading: 'GmarketSans', system-ui, sans-serif;
 }
 
-/* Light Mode */
+/* Gmarket Sans — heading font */
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+  font-weight: 300;
+  font-display: swap;
+}
+
+/* Light Mode — Artisan Journal warm ivory palette */
 :root {
-  --background: oklch(0.98 0.005 90);
-  --foreground: oklch(0.15 0.010 250);
-  --primary: oklch(0.62 0.12 158);
-  --primary-hover: oklch(0.55 0.12 158);
-  --primary-foreground: oklch(0.98 0.005 90);
+  --background: oklch(0.985 0.006 88);
+  --surface-low: oklch(0.975 0.007 88);
+  --foreground: oklch(0.18 0.010 248);
+  --primary: oklch(0.76 0.09 15);
+  --primary-light: oklch(0.84 0.06 15);
+  --primary-hover: oklch(0.70 0.11 15);
+  --primary-foreground: oklch(0.98 0.005 88);
   --accent: oklch(0.72 0.10 55);
-  --accent-foreground: oklch(0.15 0.010 250);
-  --card: oklch(1.0 0 0);
-  --card-foreground: oklch(0.15 0.010 250);
-  --muted: oklch(0.94 0.005 90);
-  --muted-foreground: oklch(0.50 0.010 250);
-  --border: oklch(0.90 0.005 90);
-  --input: oklch(0.93 0.005 90);
-  --ring: oklch(0.62 0.12 158);
+  --accent-foreground: oklch(0.18 0.010 248);
+  --tertiary: oklch(0.52 0.10 158);
+  --card: oklch(0.995 0.003 88);
+  --card-foreground: oklch(0.18 0.010 248);
+  --muted: oklch(0.950 0.006 88);
+  --muted-foreground: oklch(0.52 0.010 248);
+  --border: oklch(0.905 0.006 88);
+  --input: oklch(0.935 0.006 88);
+  --ring: oklch(0.76 0.09 15);
   --success: oklch(0.60 0.14 150);
   --warning: oklch(0.70 0.13 60);
   --error: oklch(0.58 0.18 25);
-  --plan-c: oklch(0.68 0.11 210);
-  --plan-l: oklch(0.55 0.10 250);
-  --plan-t: oklch(0.58 0.11 185);
+  --plan-c: oklch(0.55 0.10 215);
+  --plan-l: oklch(0.50 0.09 255);
+  --plan-t: oklch(0.53 0.10 190);
 }
 
-/* Dark Mode — COLORIZE: slightly warmer tint (hue 240→220) for cozy, not cold feeling */
+/* Dark Mode — Warm dark (hue 225) */
 .dark {
-  --background: oklch(0.14 0.008 220);
+  --background: oklch(0.14 0.008 225);
+  --surface-low: oklch(0.17 0.008 225);
   --foreground: oklch(0.93 0.006 80);
-  --primary: oklch(0.70 0.12 158);
-  --primary-hover: oklch(0.76 0.12 158);
-  --primary-foreground: oklch(0.12 0.008 220);
+  --primary: oklch(0.84 0.06 15);
+  --primary-light: oklch(0.76 0.09 15);
+  --primary-hover: oklch(0.88 0.05 15);
+  --primary-foreground: oklch(0.14 0.008 225);
   --accent: oklch(0.78 0.10 55);
-  --accent-foreground: oklch(0.12 0.008 220);
-  --card: oklch(0.19 0.008 220);
+  --accent-foreground: oklch(0.12 0.008 225);
+  --tertiary: oklch(0.75 0.08 158);
+  --card: oklch(0.19 0.008 225);
   --card-foreground: oklch(0.93 0.006 80);
-  --muted: oklch(0.22 0.008 220);
-  --muted-foreground: oklch(0.60 0.008 220);
-  --border: oklch(0.28 0.008 220);
-  --input: oklch(0.24 0.008 220);
-  --ring: oklch(0.70 0.12 158);
+  --muted: oklch(0.22 0.008 225);
+  --muted-foreground: oklch(0.60 0.008 225);
+  --border: oklch(0.28 0.008 225);
+  --input: oklch(0.24 0.008 225);
+  --ring: oklch(0.84 0.06 15);
   --success: oklch(0.70 0.14 150);
   --warning: oklch(0.78 0.12 60);
   --error: oklch(0.68 0.16 25);
@@ -120,24 +151,7 @@ body {
   }
 }
 
-/* ── Gradient text utility ─────────────────────────────────────────────────── */
-.gradient-text {
-  background: linear-gradient(
-    135deg,
-    var(--primary) 0%,
-    oklch(0.68 0.14 168) 50%,
-    var(--accent) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 /* ── Glow utilities ─────────────────────────────────────────────────────────── */
-.glow-primary {
-  box-shadow: 0 0 12px color-mix(in oklch, var(--primary) 35%, transparent);
-}
-
 .glow-success {
   box-shadow: 0 0 10px color-mix(in oklch, var(--success) 45%, transparent);
 }
@@ -157,6 +171,13 @@ body {
     0 0 0 1px color-mix(in oklch, var(--primary) 25%, var(--border));
 }
 
+/* ── Social icon link — brand color on hover via --social-hover CSS variable ── */
+.social-icon-link:hover {
+  color: var(--social-hover);
+  background: color-mix(in oklch, var(--social-hover) 8%, var(--muted));
+  border-color: color-mix(in oklch, var(--social-hover) 30%, var(--border));
+}
+
 /* ── Dot grid pattern ───────────────────────────────────────────────────────── */
 .dot-grid {
   background-image: radial-gradient(
@@ -165,6 +186,15 @@ body {
     transparent 1px
   );
   background-size: 20px 20px;
+}
+
+/* ── Active Grid Spotlight — dim siblings on card hover ──────────────────────── */
+.bento-row:has(.bento-card:hover) .bento-card:not(:hover) {
+  opacity: 0.72;
+  transition: opacity 250ms ease;
+}
+.bento-row .bento-card {
+  transition: opacity 250ms ease;
 }
 
 /* ── Noise texture overlay ───────────────────────────────────────────────────── */

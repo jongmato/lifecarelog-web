@@ -11,8 +11,8 @@ export function Providers({ children }: ProvidersProps) {
     <ThemeProvider
       attribute="class"
       defaultTheme="light"
-      enableSystem
-      disableTransitionOnChange={false}
+      enableSystem={false}
+      disableTransitionOnChange
     >
       {children}
     </ThemeProvider>

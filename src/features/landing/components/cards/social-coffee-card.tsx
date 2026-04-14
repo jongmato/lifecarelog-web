@@ -1,9 +1,10 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
+import { Clock, Gift, Video } from 'lucide-react'
 import { BentoCard } from '../bento-card'
 import { Button } from '@/shared/ui/button'
-import { GithubIcon, XIcon, LinkedinIcon } from '../social-icons'
+import { GithubIcon, XIcon, ThreadsIcon } from '../social-icons'
 
 const SOCIAL_LINKS = [
   {
@@ -16,16 +17,16 @@ const SOCIAL_LINKS = [
   {
     key: 'twitter' as const,
     icon: XIcon,
-    href: 'https://twitter.com',
+    href: 'https://x.com/lifecarelog',
     ariaLabel: 'X (Twitter)',
     color: 'oklch(0.25 0.01 250)',
   },
   {
-    key: 'linkedin' as const,
-    icon: LinkedinIcon,
-    href: 'https://linkedin.com',
-    ariaLabel: 'LinkedIn',
-    color: 'oklch(0.47 0.12 237)',
+    key: 'threads' as const,
+    icon: ThreadsIcon,
+    href: 'https://www.threads.com/@lifecarelog_official',
+    ariaLabel: 'Threads',
+    color: 'oklch(0.20 0 0)',
   },
 ] as const
 
@@ -134,6 +135,28 @@ export function SocialCoffeeCard({ index = 0 }: SocialCoffeeCardProps) {
             <h3 className="font-sans text-base font-semibold text-foreground leading-snug">
               {tCoffee('headline')}
             </h3>
+          </div>
+
+          {/* Meta pills */}
+          <div className="flex gap-2 flex-wrap">
+            {[
+              { icon: Clock, text: '30분' },
+              { icon: Gift, text: '무료' },
+              { icon: Video, text: 'Zoom' },
+            ].map(({ icon: Icon, text }) => (
+              <span
+                key={text}
+                className="inline-flex items-center gap-1 text-[11px] font-medium px-2 py-0.5 rounded-md"
+                style={{
+                  background: 'color-mix(in oklch, var(--accent) 10%, transparent)',
+                  color: 'var(--accent)',
+                  border: '1px solid color-mix(in oklch, var(--accent) 20%, transparent)',
+                }}
+              >
+                <Icon size={10} strokeWidth={2} aria-hidden="true" />
+                {text}
+              </span>
+            ))}
           </div>
 
           <p className="font-sans text-sm text-muted-foreground whitespace-pre-line leading-relaxed flex-1">

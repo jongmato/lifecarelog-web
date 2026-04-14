@@ -1,14 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { BentoGrid, BentoRow, BentoSectionBreak } from './bento-grid'
+import { NavigationHeader } from '@/widgets/navigation-header'
 import { HeroSection } from './hero-section'
-import { AboutCard } from './cards/about-card'
-import { PlanCCard } from './cards/plan-c-card'
-import { PlanLCard } from './cards/plan-l-card'
-import { PlanTCard } from './cards/plan-t-card'
-import { StatsTechCard } from './cards/stats-tech-card'
-import { SocialCoffeeCard } from './cards/social-coffee-card'
+import { PhilosophySection } from './sections/philosophy-section'
+import { StorySection } from './sections/story-section'
+import { ServicesPreviewSection } from './sections/services-preview-section'
+import { ContactSectionV2 } from './sections/contact-section-v2'
 import { ContactDialog } from './contact-dialog'
 import { Footer } from './footer'
 
@@ -21,37 +19,23 @@ export function LandingPage() {
 
   return (
     <>
-      <main
-        id="main-content"
-        className="flex flex-1 flex-col px-4 sm:px-6 py-8 sm:py-10"
-      >
-        <BentoGrid>
-          {/* Row 1: Hero (full width) */}
-          <BentoRow className="mb-3 sm:mb-4 lg:mb-5">
-            <HeroSection onContact={openContact} />
-          </BentoRow>
+      <NavigationHeader onContact={openContact} />
 
-          {/* Row 2: About (8col) + Plan-C (4col) */}
-          <BentoRow className="mb-3 sm:mb-4 lg:mb-5">
-            <AboutCard index={1} onContact={openContact} />
-            <PlanCCard index={2} />
-          </BentoRow>
+      <main id="main-content" className="flex flex-1 flex-col">
+        {/* Section 1: Hero — full viewport, brand first impression */}
+        <HeroSection onContact={openContact} />
 
-          {/* Row 3: Plan-L (4col) + Plan-T (8col) */}
-          <BentoRow className="mb-3 sm:mb-4 lg:mb-5">
-            <PlanLCard index={3} />
-            <PlanTCard index={4} />
-          </BentoRow>
+        {/* Section 2: Philosophy — brand core message */}
+        <PhilosophySection />
 
-          {/* Section break */}
-          <BentoSectionBreak />
+        {/* Section 3: Brand Story — narrative journey */}
+        <StorySection />
 
-          {/* Row 4: Stats+Tech (6col) + Social+Coffee (6col) */}
-          <BentoRow>
-            <StatsTechCard index={5} />
-            <SocialCoffeeCard index={6} />
-          </BentoRow>
-        </BentoGrid>
+        {/* Section 4: Services Preview — minimal cards */}
+        <ServicesPreviewSection />
+
+        {/* Section 5: Contact / Coffee Chat */}
+        <ContactSectionV2 onContact={openContact} />
       </main>
 
       <Footer onContact={openContact} />

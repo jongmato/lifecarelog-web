@@ -1,29 +1,31 @@
+'use client'
+
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { GithubIcon, XIcon, LinkedinIcon } from './social-icons'
+import Image from 'next/image'
+import { GithubIcon, XIcon, ThreadsIcon } from './social-icons'
 
 // DELIGHT: each icon has its own brand color revealed on hover
+// Colors stored as CSS-compatible strings; injected via --social-hover custom property
 const SOCIAL_LINKS = [
   {
     icon: GithubIcon,
-    href: 'https://github.com',
+    href: 'https://github.com/jongmato',
     label: 'GitHub',
+    // Near-black for GitHub — readable in both light/dark
     hoverColor: 'oklch(0.20 0.01 250)',
-    hoverBg: 'color-mix(in oklch, oklch(0.20 0.01 250) 8%, var(--muted))',
   },
   {
     icon: XIcon,
-    href: 'https://twitter.com',
+    href: 'https://x.com/lifecarelog',
     label: 'X (Twitter)',
     hoverColor: 'oklch(0.20 0 0)',
-    hoverBg: 'color-mix(in oklch, oklch(0.20 0 0) 6%, var(--muted))',
   },
   {
-    icon: LinkedinIcon,
-    href: 'https://linkedin.com',
-    label: 'LinkedIn',
-    hoverColor: 'oklch(0.47 0.12 237)',
-    hoverBg: 'color-mix(in oklch, oklch(0.47 0.12 237) 10%, var(--muted))',
+    icon: ThreadsIcon,
+    href: 'https://www.threads.com/@lifecarelog_official',
+    label: 'Threads',
+    hoverColor: 'oklch(0.20 0 0)',
   },
 ] as const
 
@@ -49,10 +51,7 @@ export function Footer({ onContact }: FooterProps) {
 
       <div
         className="w-full"
-        style={{
-          background:
-            'linear-gradient(180deg, color-mix(in oklch, var(--muted) 60%, transparent) 0%, transparent 100%)',
-        }}
+        style={{ background: 'var(--surface-low)' }}
       >
         {/* ADAPT: improved mobile layout — stacked on mobile, row on sm+ */}
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8 sm:py-10">
@@ -60,21 +59,20 @@ export function Footer({ onContact }: FooterProps) {
             {/* Brand mark */}
             <div className="flex flex-col gap-1.5">
               <div className="flex items-center gap-2">
-                {/* Logotype — pill with gradient */}
-                <span
-                  className="font-sans text-sm font-bold px-2.5 py-1 rounded-lg"
-                  style={{
-                    background:
-                      'linear-gradient(135deg, color-mix(in oklch, var(--primary) 15%, var(--muted)), color-mix(in oklch, var(--accent) 10%, var(--muted)))',
-                    color: 'var(--foreground)',
-                    border: '1px solid color-mix(in oklch, var(--primary) 20%, var(--border))',
-                  }}
-                >
-                  LifeCareLog
-                </span>
+                <Image
+                  src="/logo-icon.png"
+                  alt="LifeCareLog"
+                  width={32}
+                  height={32}
+                  sizes="32px"
+                  className="w-8 h-8 rounded-[10px]"
+                />
               </div>
               <span className="font-sans text-xs text-muted-foreground pl-0.5">
                 {tFooter('brand')}
+              </span>
+              <span className="font-sans text-[11px] text-muted-foreground/60 pl-0.5">
+                lifecarelog.co.kr
               </span>
             </div>
 
@@ -83,7 +81,7 @@ export function Footer({ onContact }: FooterProps) {
               <ul className="flex gap-5 flex-wrap">
                 <li>
                   <Link
-                    href="#"
+                    href="/services"
                     className="font-sans text-sm text-muted-foreground hover:text-foreground hover:underline underline-offset-4 decoration-primary/40 transition-colors duration-200"
                   >
                     {tNav('services')}
@@ -91,7 +89,7 @@ export function Footer({ onContact }: FooterProps) {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="/#philosophy"
                     className="font-sans text-sm text-muted-foreground hover:text-foreground hover:underline underline-offset-4 decoration-primary/40 transition-colors duration-200"
                   >
                     {tNav('about')}
@@ -110,8 +108,9 @@ export function Footer({ onContact }: FooterProps) {
             </nav>
 
             {/* Social links */}
+            {/* DELIGHT: brand color injected via --social-hover CSS variable, no JS hover handlers */}
             <div className="flex gap-1.5" role="list" aria-label="Social links">
-              {SOCIAL_LINKS.map(({ icon: Icon, href, label, hoverColor, hoverBg }) => (
+              {SOCIAL_LINKS.map(({ icon: Icon, href, label, hoverColor }) => (
                 <a
                   key={label}
                   href={href}
@@ -120,25 +119,13 @@ export function Footer({ onContact }: FooterProps) {
                   aria-label={label}
                   role="listitem"
                   // ADAPT: 44px touch target
-                  // DELIGHT: each icon reveals its own brand color
-                  className="w-11 h-11 flex items-center justify-center rounded-xl border transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                  style={{
-                    borderColor: 'var(--border)',
-                    background: 'transparent',
-                    color: 'var(--muted-foreground)',
-                  }}
-                  onMouseEnter={(e) => {
-                    const el = e.currentTarget
-                    el.style.color = hoverColor
-                    el.style.background = hoverBg
-                    el.style.borderColor = `color-mix(in oklch, ${hoverColor} 30%, var(--border))`
-                  }}
-                  onMouseLeave={(e) => {
-                    const el = e.currentTarget
-                    el.style.color = 'var(--muted-foreground)'
-                    el.style.background = 'transparent'
-                    el.style.borderColor = 'var(--border)'
-                  }}
+                  className="social-icon-link w-11 h-11 flex items-center justify-center rounded-xl border border-border transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                  style={
+                    {
+                      color: 'var(--muted-foreground)',
+                      '--social-hover': hoverColor,
+                    } as React.CSSProperties
+                  }
                 >
                   <Icon size={15} aria-hidden={true} />
                 </a>
@@ -156,20 +143,21 @@ export function Footer({ onContact }: FooterProps) {
           >
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
               <p className="font-sans text-xs text-muted-foreground">
-                {tFooter('copyright')}
+                {tFooter('copyright', { year: new Date().getFullYear() })}
               </p>
-              {/* Service badges */}
-              <div className="flex items-center gap-3">
-                {(['plan-c', 'plan-l', 'plan-t'] as const).map((plan) => (
+              {/* Service badges — primary tone for visual cohesion */}
+              <div className="flex items-center gap-2">
+                {(['Plan-C', 'Plan-L', 'Plan-T'] as const).map((badge) => (
                   <span
-                    key={plan}
+                    key={badge}
                     className="font-sans text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-md"
                     style={{
-                      color: `var(--${plan})`,
-                      background: `color-mix(in oklch, var(--${plan}) 8%, transparent)`,
+                      color: 'var(--primary)',
+                      background: 'color-mix(in oklch, var(--primary) 8%, transparent)',
+                      border: '1px solid color-mix(in oklch, var(--primary) 15%, transparent)',
                     }}
                   >
-                    {plan === 'plan-c' ? 'Plan-C' : plan === 'plan-l' ? 'Plan-L' : 'Plan-T'}
+                    {badge}
                   </span>
                 ))}
               </div>
