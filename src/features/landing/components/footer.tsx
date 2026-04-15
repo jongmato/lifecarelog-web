@@ -12,20 +12,20 @@ const SOCIAL_LINKS = [
     icon: GithubIcon,
     href: 'https://github.com/jongmato',
     label: 'GitHub',
-    // Near-black for GitHub — readable in both light/dark
-    hoverColor: 'oklch(0.20 0.01 250)',
+    // Use foreground CSS variable so it adapts to both light and dark mode
+    hoverColor: 'var(--foreground)',
   },
   {
     icon: XIcon,
     href: 'https://x.com/lifecarelog',
     label: 'X (Twitter)',
-    hoverColor: 'oklch(0.20 0 0)',
+    hoverColor: 'var(--foreground)',
   },
   {
     icon: ThreadsIcon,
     href: 'https://www.threads.com/@lifecarelog_official',
     label: 'Threads',
-    hoverColor: 'oklch(0.20 0 0)',
+    hoverColor: 'var(--foreground)',
   },
 ] as const
 

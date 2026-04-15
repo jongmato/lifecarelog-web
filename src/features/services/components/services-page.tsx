@@ -9,6 +9,7 @@ import { Badge } from '@/shared/ui/badge'
 import { Button } from '@/shared/ui/button'
 import { NavigationHeader } from '@/widgets/navigation-header'
 import { ContactDialog } from '@/features/landing/components/contact-dialog'
+import { Footer } from '@/features/landing/components/footer'
 
 const EASING = [0.22, 1, 0.36, 1] as const
 
@@ -66,7 +67,7 @@ function ServiceDetailCard({
             alt=""
             width={48}
             height={48}
-            className="w-12 h-12 rounded-xl shrink-0"
+            className="w-12 h-12 shrink-0"
             aria-hidden="true"
           />
           <div className="flex-1">
@@ -197,7 +198,7 @@ export function ServicesPage() {
             className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 mb-8"
           >
             <ArrowLeft size={14} strokeWidth={2} />
-            홈으로
+            {t('backToHome')}
           </Link>
 
           {/* Header */}
@@ -238,6 +239,7 @@ export function ServicesPage() {
       </main>
 
       <ContactDialog open={contactOpen} onClose={() => setContactOpen(false)} />
+      <Footer onContact={() => setContactOpen(true)} />
     </>
   )
 }

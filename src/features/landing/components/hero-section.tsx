@@ -20,14 +20,12 @@ function FloatingOrbs() {
         className="absolute -top-32 -right-32 w-[480px] h-[480px] rounded-full opacity-[0.10] dark:opacity-[0.06] orb-float-1"
         style={{
           background: 'radial-gradient(circle at 40% 40%, var(--primary-light), transparent 65%)',
-          willChange: 'transform',
         }}
       />
       <div
         className="absolute -bottom-24 -left-16 w-80 h-80 rounded-full opacity-[0.08] dark:opacity-[0.05] orb-float-2"
         style={{
           background: 'radial-gradient(circle at 60% 60%, var(--primary), transparent 65%)',
-          willChange: 'transform',
         }}
       />
     </div>

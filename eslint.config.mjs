@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Build artifacts and agent worktrees:
+    ".open-next/**",
+    ".claude/**",
   ]),
 ]);
 

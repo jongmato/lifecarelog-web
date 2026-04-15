@@ -13,27 +13,27 @@
   },
   "hero": {
     "tagline": "Designed for ease, small changes that matter",
-    "headline": "Sometimes a small inconvenience\nis worth fixing.",
-    "subheadline": "I build services for anyone who needs them, even just one person.\nCaring for life through thoughtful tools — LifeCareLog.",
+    "headline": "Every service starts\nfrom a real frustration.",
+    "subheadline": "A frontend developer stepping out of comfort,\nnow building what I actually want to use — from scratch.",
     "ctaScroll": "Read the story",
     "ctaContact": "Get in touch",
     "brandPill": "Care for your life, in every log"
   },
   "philosophy": {
     "headline": "I build services\nfor anyone\nwho needs them.",
-    "description": "What seems trivial to one person\ncould change someone else's entire day.\n\nIf even a handful of people want something, I'll build it.\nSmall tools that take care of the parts of life we tend to overlook.\nThat's why I became a developer.",
+    "description": "Investment platforms, mobility apps,\nblockchain accounting, edtech.\nFive years of building across different domains taught me something.\n\nWhat seems trivial to one person\ncan change someone else's entire day.\n\nSo if even a few people need it, I'll build it.\nSmall tools that care for the parts of life we tend to overlook.\nThat's why I started LifeCareLog.",
     "quote": "My goal is to contribute by building services\nthat genuinely improve people's lives."
   },
   "story": {
     "sectionLabel": "How it started",
-    "chapter1Title": "Five years in startups",
-    "chapter1": "I spent five years as a frontend developer across several startups.\nI enjoyed building products, but I never really got the chance\nto build something I actually wanted to use myself.",
+    "chapter1Title": "Five years as a frontend developer",
+    "chapter1": "Fractional investment platforms, vehicle search apps,\nblockchain accounting, edtech content editors.\n\nFour startups over five years.\nMore than ten products — all on the frontend side.\n\nI always loved building products,\nbut my role was always limited to the frontend.\nBuilding something entirely on my own felt out of reach.",
     "chapter2Title": "An unexpected turning point",
-    "chapter2": "One day, I was let go without much warning.\nIt was jarring at first — but looking back,\nit gave me space to sit with a question I'd been avoiding:\n\"What do I actually want to build?\"",
-    "chapter3Title": "Solo, but serious",
-    "chapter3": "As AI tools got better,\nI realized I could build something real on my own.\n\nFrom product thinking to design, development, and deployment —\nit's slow going solo, but every decision is deliberate.\nI'm building one service at a time, for anyone who needs it.",
+    "chapter2": "One day, I was let go without much warning.\n\nIt was jarring at first — but looking back,\nit gave me space to sit with a question I'd been avoiding.\n\n\"I've only ever done frontend.\nCould I actually build something from start to finish on my own?\"",
+    "chapter3Title": "A beginner again, but serious",
+    "chapter3": "As AI tools got better,\nI thought maybe I could give it a shot.\n\nPlanning, design, backend, deployment —\neverything was new. I wrestled with countless errors,\nlearning as I went.\n\nIt's slow and clumsy,\nbut I'm building services that at least one person can use,\nwith my own hands.",
     "chapter4Title": "What I'm building now",
-    "chapter4": "From calculators to legal search to mental wellness —\nI'm working through the things people actually need."
+    "chapter4": "I needed a loan calculator — and got ads instead.\nI tried reading a contract — and hit a wall of legal jargon.\nOn a tough day, there was nowhere to quietly write things down.\n\nStarting from frustrations I've actually lived,\nI'm building the things life needs — one at a time."
   },
   "servicesPreview": {
     "sectionLabel": "What I'm building",
@@ -54,11 +54,16 @@
       "badge": "In development"
     }
   },
+  "theme": {
+    "light": "Switch to light mode",
+    "dark": "Switch to dark mode"
+  },
   "services": {
     "meta": {
       "title": "Services — LifeCareLog",
       "description": "Services built by LifeCareLog"
     },
+    "backToHome": "Back to home",
     "headline": "What I'm building",
     "subheadline": "From Plan-A to Plan-Z — building useful services for everyday life, one at a time.\nEach service is a Plan, bringing one more piece of life into care.",
     "vision": "Three services now, but someday A to Z — I want to build tools that care for every part of life.",

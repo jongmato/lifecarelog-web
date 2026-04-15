@@ -224,10 +224,10 @@ function SuccessBanner({ message }: { message: string }) {
 function ErrorBanner({ message }: { message: string }) {
   return (
     <motion.div
-      initial={{ opacity: 0, x: 0 }}
-      animate={{ opacity: 1, x: [-4, 4, -4, 4, 0] }}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.4, ease: 'easeInOut' }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
       role="alert"
       aria-live="assertive"
       className="flex items-center gap-3 rounded-xl bg-error/10 border border-error/20 px-4 py-3 text-error"

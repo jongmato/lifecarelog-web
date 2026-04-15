@@ -86,9 +86,9 @@ function ServiceCard({ data, index }: ServiceCardProps) {
           <img
             src={data.iconSrc}
             alt=""
-            width={36}
-            height={36}
-            className="w-9 h-9 rounded-lg shrink-0"
+            width={40}
+            height={40}
+            className="w-10 h-10 shrink-0"
             aria-hidden="true"
           />
           <h3 className="font-sans text-base font-semibold text-foreground flex-1">

@@ -114,7 +114,20 @@ export default async function LocaleLayout({
       className={dmSerifDisplay.variable}
       suppressHydrationWarning
     >
+      <head>
+        {/* Preconnect to Pretendard CDN to reduce font load latency */}
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+      </head>
       <body className="min-h-full flex flex-col antialiased" suppressHydrationWarning>
+        {/* Speculation Rules — prerender /services for instant navigation */}
+        <script
+          type="speculationrules"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              prerender: [{ where: { href_matches: '/*/services' } }],
+            }),
+          }}
+        />
         {/* Skip navigation for accessibility */}
         <a
           href="#main-content"

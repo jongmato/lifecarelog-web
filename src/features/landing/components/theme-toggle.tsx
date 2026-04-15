@@ -4,12 +4,14 @@ import { useTheme } from 'next-themes'
 import { Sun, Moon } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useSyncExternalStore } from 'react'
+import { useTranslations } from 'next-intl'
 
 const emptySubscribe = () => () => {}
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme()
   const mounted = useSyncExternalStore(emptySubscribe, () => true, () => false)
+  const t = useTranslations('theme')
 
   if (!mounted) {
     return (
@@ -30,7 +32,7 @@ export function ThemeToggle() {
     <button
       onClick={handleToggle}
       className="relative w-11 h-11 rounded-xl flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors duration-200 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring"
-      aria-label={isDark ? '라이트 모드로 전환' : '다크 모드로 전환'}
+      aria-label={isDark ? t('light') : t('dark')}
       type="button"
     >
       <AnimatePresence mode="wait" initial={false}>

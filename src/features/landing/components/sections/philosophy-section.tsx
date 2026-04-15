@@ -57,7 +57,7 @@ export function PhilosophySection() {
           className="relative rounded-2xl px-7 sm:px-8 py-6 overflow-hidden"
           style={{
             borderLeft: '2px solid var(--primary)',
-            background: 'color-mix(in oklch, var(--primary) 6%, var(--surface-low))',
+            background: 'color-mix(in oklch, var(--primary) 12%, var(--surface-low))',
           }}
           variants={baseVariant(0.22)}
           initial="hidden"
