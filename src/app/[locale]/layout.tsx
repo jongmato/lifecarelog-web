@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import localFont from 'next/font/local'
 import { DM_Serif_Display } from 'next/font/google'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Providers } from '@/app/providers'
@@ -12,12 +11,8 @@ import '@/app/globals.css'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://lifecarelog.co.kr'
 
-const pretendard = localFont({
-  src: '../../fonts/PretendardVariable.woff2',
-  variable: '--font-pretendard',
-  display: 'swap',
-  weight: '100 900',
-})
+// Pretendard — CDN dynamic subset로 로드 (2.1MB → ~200KB)
+// globals.css에서 @import로 로드, CSS variable은 @theme에서 fallback 처리
 
 const dmSerifDisplay = DM_Serif_Display({
   variable: '--font-dm-serif',
@@ -116,7 +111,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${pretendard.variable} ${dmSerifDisplay.variable}`}
+      className={dmSerifDisplay.variable}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col antialiased" suppressHydrationWarning>
