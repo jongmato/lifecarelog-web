@@ -78,6 +78,12 @@ export async function generateMetadata({
         'en-US': `${SITE_URL}/en`,
       },
     },
+    verification: {
+      google: 'jecVvBAGE3LJ4rFZEty0Tc0HZ93BFUxlGJ2-QIZBvPw',
+      other: {
+        'naver-site-verification': '73f2a7bcbeac4e4c8bd9142f6b65988b396288e8',
+      },
+    },
     other: {
       'content-language': locale,
     },
