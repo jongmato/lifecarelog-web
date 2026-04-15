@@ -52,7 +52,11 @@ type FormStatus = 'idle' | 'submitting' | 'success' | 'error'
 
 // ─── Component ──────────────────────────────────────────────────────────────
 
-export function ContactForm() {
+interface ContactFormProps {
+  onSuccess?: () => void
+}
+
+export function ContactForm({ onSuccess }: ContactFormProps = {}) {
   const t = useTranslations('contact')
   const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
 
@@ -112,7 +116,8 @@ export function ContactForm() {
         reset()
         setStatus('idle')
         setTurnstileToken(null)
-      }, 3000)
+        onSuccess?.()
+      }, 2000)
     } catch {
       setErrorMessage(t('errorNetwork'))
       setStatus('error')

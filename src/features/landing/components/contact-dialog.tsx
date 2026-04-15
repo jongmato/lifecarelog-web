@@ -178,7 +178,7 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
 
             {/* Form body */}
             <div className="px-6 py-6 sm:px-8 sm:py-7">
-              <ContactForm />
+              <ContactForm onSuccess={onClose} />
             </div>
           </motion.div>
         </div>
