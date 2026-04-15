@@ -80,13 +80,10 @@ export function HeroSection({ onContact }: HeroSectionProps) {
             className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl"
           />
           {/* Decorative text logo — brand name already conveyed by icon alt */}
-          <Image
-            src="/logo-text.png"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo-text.svg"
             alt=""
-            width={360}
-            height={85}
-            priority
-            sizes="(max-width: 640px) 200px, 280px"
             className="h-8 sm:h-10 w-auto dark:opacity-90"
             style={{ mixBlendMode: 'screen' }}
           />
