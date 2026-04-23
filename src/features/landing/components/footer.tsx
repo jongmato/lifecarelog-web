@@ -142,9 +142,19 @@ export function Footer({ onContact }: FooterProps) {
             }}
           >
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-              <p className="font-sans text-xs text-muted-foreground">
-                {tFooter('copyright', { year: new Date().getFullYear() })}
-              </p>
+              <div className="flex items-center gap-3">
+                <p className="font-sans text-xs text-muted-foreground">
+                  {tFooter('copyright', { year: new Date().getFullYear() })}
+                </p>
+                <span className="text-muted-foreground/40">·</span>
+                <Link href="/terms" className="font-sans text-xs text-muted-foreground hover:text-foreground transition-colors">
+                  이용약관
+                </Link>
+                <span className="text-muted-foreground/40">·</span>
+                <Link href="/privacy" className="font-sans text-xs text-muted-foreground hover:text-foreground transition-colors">
+                  개인정보
+                </Link>
+              </div>
               {/* Service badges — primary tone for visual cohesion */}
               <div className="flex items-center gap-2">
                 {(['Plan-C', 'Plan-L', 'Plan-T'] as const).map((badge) => (

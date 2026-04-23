@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { DM_Serif_Display } from 'next/font/google'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Providers } from '@/app/providers'
+import { PageShell } from '@/widgets/page-shell'
 import { JsonLd } from '@/shared/components/json-ld'
 import { routing } from '@/i18n/routing'
 import '@/app/globals.css'
@@ -36,7 +37,7 @@ export async function generateMetadata({
     metadataBase: new URL(SITE_URL),
     title: t('title'),
     description: t('description'),
-    keywords: ['LifeCareLog', '라이프케어로그', '1인 개발', '솔로 개발자', 'Plan-C', 'Plan-L', 'Plan-T', '플랜씨', '플랜엘', '플랜티', '계산기', '법률 검색', '마음 건강'],
+    keywords: ['LifeCareLog', '라이프케어로그', '1인 개발', '솔로 개발자', 'Plan-C', 'Plan-L', 'Plan-T', '플랜씨', '플랜엘', '플랜티', '계산기', 'AI 문서 분석', '마음 건강'],
     authors: [{ name: 'LifeCareLog' }],
     creator: 'LifeCareLog',
     openGraph: {
@@ -117,17 +118,17 @@ export default async function LocaleLayout({
       <head>
         {/* Preconnect to Pretendard CDN to reduce font load latency */}
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
-      </head>
-      <body className="min-h-full flex flex-col antialiased" suppressHydrationWarning>
-        {/* Speculation Rules — prerender /services for instant navigation */}
+        {/* Speculation Rules — prerender /services and /pricing for instant navigation */}
         <script
           type="speculationrules"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              prerender: [{ where: { href_matches: '/*/services' } }],
+              prerender: [{ where: { href_matches: '/*/services|/*/pricing' } }],
             }),
           }}
         />
+      </head>
+      <body className="min-h-full flex flex-col antialiased" suppressHydrationWarning>
         {/* Skip navigation for accessibility */}
         <a
           href="#main-content"
@@ -136,7 +137,9 @@ export default async function LocaleLayout({
           {locale === 'ko' ? '본문으로 바로가기' : 'Skip to main content'}
         </a>
         <NextIntlClientProvider messages={messages}>
-          <Providers>{children}</Providers>
+          <Providers>
+            <PageShell>{children}</PageShell>
+          </Providers>
         </NextIntlClientProvider>
         <JsonLd />
         {process.env.NEXT_PUBLIC_GA_ID && (

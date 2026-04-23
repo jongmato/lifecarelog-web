@@ -1,15 +1,10 @@
 'use client'
 
-import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { motion, useReducedMotion } from 'framer-motion'
-import { ExternalLink, ArrowLeft } from 'lucide-react'
-import Link from 'next/link'
+import { ExternalLink } from 'lucide-react'
 import { Badge } from '@/shared/ui/badge'
 import { Button } from '@/shared/ui/button'
-import { NavigationHeader } from '@/widgets/navigation-header'
-import { ContactDialog } from '@/features/landing/components/contact-dialog'
-import { Footer } from '@/features/landing/components/footer'
 
 const EASING = [0.22, 1, 0.36, 1] as const
 
@@ -142,7 +137,6 @@ function ServiceDetailCard({
 export function ServicesPage() {
   const t = useTranslations('services')
   const shouldReduceMotion = useReducedMotion()
-  const [contactOpen, setContactOpen] = useState(false)
 
   const services: ServiceDetailProps[] = [
     {
@@ -187,20 +181,8 @@ export function ServicesPage() {
   ]
 
   return (
-    <>
-      <NavigationHeader onContact={() => setContactOpen(true)} />
-
       <main className="flex flex-1 flex-col px-4 sm:px-6 py-12 sm:py-16">
         <div className="w-full max-w-[1200px] mx-auto">
-          {/* Back link */}
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 mb-8"
-          >
-            <ArrowLeft size={14} strokeWidth={2} />
-            {t('backToHome')}
-          </Link>
-
           {/* Header */}
           <motion.div
             initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 20 }}
@@ -237,9 +219,5 @@ export function ServicesPage() {
           </motion.div>
         </div>
       </main>
-
-      <ContactDialog open={contactOpen} onClose={() => setContactOpen(false)} />
-      <Footer onContact={() => setContactOpen(true)} />
-    </>
   )
 }

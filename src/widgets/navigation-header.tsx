@@ -94,6 +94,12 @@ export function NavigationHeader({ onContact }: NavigationHeaderProps) {
             {t('services')}
           </Link>
           <Link
+            href="/pricing"
+            className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+          >
+            {t('pricing')}
+          </Link>
+          <Link
             href="/#philosophy"
             className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
@@ -154,6 +160,14 @@ export function NavigationHeader({ onContact }: NavigationHeaderProps) {
             className="flex px-5 py-3 font-sans text-sm text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors duration-200"
           >
             {t('services')}
+          </Link>
+          <Link
+            href="/pricing"
+            role="menuitem"
+            onClick={closeMobile}
+            className="flex px-5 py-3 font-sans text-sm text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors duration-200"
+          >
+            {t('pricing')}
           </Link>
           <Link
             href="/#philosophy"

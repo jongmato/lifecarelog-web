@@ -111,7 +111,7 @@ function ServiceCard({ data, index }: ServiceCardProps) {
             style={{ color: data.accentColor }}
           >
             <ExternalLink size={11} strokeWidth={2} aria-hidden="true" />
-            <span>바로 가기</span>
+            <span>{t('goToService')}</span>
           </div>
         )}
       </div>

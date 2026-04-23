@@ -7,6 +7,7 @@
     "services": "서비스",
     "about": "이야기",
     "contact": "연락하기",
+    "pricing": "요금",
     "ariaLabel": "메인 네비게이션",
     "openMenu": "메뉴 열기",
     "closeMenu": "메뉴 닫기"
@@ -52,6 +53,39 @@
       "name": "플랜티",
       "tagline": "매일 마음을 돌보는 앱",
       "badge": "개발 중"
+    },
+    "goToService": "바로 가기"
+  },
+  "devService": {
+    "sectionLabel": "외주 개발",
+    "headline": "직접 만든 경험으로,\n당신의 서비스도 만들어 드려요.",
+    "subheadline": "기획부터 배포까지, 5년간 다양한 서비스를 만들어온 경험으로 도와드려요.",
+    "popularLabel": "추천",
+    "priceFrom": "부터",
+    "tierCta": "문의하기",
+    "maintenanceNote": "유지보수 구독 ₩50만/월 별도 제공",
+    "ctaPricing": "요금 자세히 보기",
+    "ctaContact": "문의하기",
+    "viewPricing": "요금표 보기",
+    "tiers": {
+      "starter": {
+        "label": "Starter",
+        "name": "랜딩페이지",
+        "desc": "반응형 랜딩 1페이지 + 기본 SEO",
+        "items": ["1페이지 반응형 랜딩", "기본 SEO 최적화", "Cloudflare 배포", "소스코드 전체 인도", "1개월 수정 지원"]
+      },
+      "standard": {
+        "label": "Standard",
+        "name": "웹사이트",
+        "desc": "5페이지 이내 + 관리자 페이지",
+        "items": ["5페이지 이내 반응형", "관리자 페이지", "문의 폼 / 이메일 연동", "SEO + 애널리틱스", "2개월 수정 지원"]
+      },
+      "premium": {
+        "label": "Premium",
+        "name": "풀스택 웹 앱",
+        "desc": "인증 / DB / API / 대시보드",
+        "items": ["회원 인증 / DB / API", "대시보드 + 관리자", "결제 연동", "CI/CD + 모니터링", "3개월 수정 지원"]
+      }
     }
   },
   "theme": {

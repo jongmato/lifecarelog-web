@@ -7,6 +7,7 @@
     "services": "Services",
     "about": "Story",
     "contact": "Contact",
+    "pricing": "Pricing",
     "ariaLabel": "Main navigation",
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
@@ -45,13 +46,46 @@
     },
     "planL": {
       "name": "Plan-L",
-      "tagline": "Legal info, in plain language",
+      "tagline": "AI document analysis, made simple",
       "badge": "Live"
     },
     "planT": {
       "name": "Plan-T",
       "tagline": "A daily mental wellness app",
       "badge": "In development"
+    },
+    "goToService": "Visit"
+  },
+  "devService": {
+    "sectionLabel": "Hire me",
+    "headline": "I build my own products.\nI can build yours too.",
+    "subheadline": "Same stack, same care — just applied to your idea.",
+    "popularLabel": "Most chosen",
+    "priceFrom": "from",
+    "tierCta": "Let's talk",
+    "maintenanceNote": "Ongoing support available at ₩500K/mo after launch",
+    "ctaPricing": "See full pricing",
+    "ctaContact": "Start a conversation",
+    "viewPricing": "Full pricing",
+    "tiers": {
+      "starter": {
+        "label": "Starter",
+        "name": "Landing Page",
+        "desc": "One sharp page that gets the point across",
+        "items": ["Single responsive page", "SEO basics covered", "Deployed on Cloudflare", "You own all the code", "1 month of tweaks included"]
+      },
+      "standard": {
+        "label": "Standard",
+        "name": "Website",
+        "desc": "A proper site with an admin panel",
+        "items": ["Up to 5 responsive pages", "Admin dashboard", "Contact form + email", "Analytics + SEO setup", "2 months of tweaks included"]
+      },
+      "premium": {
+        "label": "Premium",
+        "name": "Web App",
+        "desc": "The full thing — auth, database, APIs",
+        "items": ["User auth + database + API", "Dashboard + admin panel", "Payment integration", "CI/CD + error monitoring", "3 months of tweaks included"]
+      }
     }
   },
   "theme": {
@@ -77,12 +111,12 @@
     },
     "planL": {
       "title": "Plan-L",
-      "subtitle": "AI Legal Search",
-      "description": "What does this contract clause mean? Which law applies here?\nSometimes you want to understand before talking to a lawyer.\nAI finds legal info and explains it in plain language.",
-      "teaser": "AI searches Korean statutes and explains them in plain language.",
-      "cta": "Search legal info",
+      "subtitle": "AI Document Analysis",
+      "description": "What does this clause actually mean? What rules apply here?\nSometimes you just want to understand before asking an expert.\nAI finds relevant info and explains it in plain language.",
+      "teaser": "AI searches official databases and breaks down the results for you.",
+      "cta": "Try it out",
       "badge": "Live",
-      "features": "Case search · Statute interpretation · Plain-language summary · AI analysis"
+      "features": "Document search · Clause analysis · Plain-language summary · AI insights"
     },
     "planT": {
       "title": "Plan-T",
