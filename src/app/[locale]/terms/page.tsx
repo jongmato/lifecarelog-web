@@ -83,7 +83,7 @@ export default function TermsPage() {
             서비스 관련 문의는 아래로 연락해 주세요.
           </p>
           <ul className="list-disc pl-5 space-y-1.5">
-            <li>이메일: lifecarelog.official@gmail.com</li>
+            <li>이메일: support@lifecarelog.co.kr</li>
             <li>웹사이트: lifecarelog.co.kr</li>
           </ul>
         </section>

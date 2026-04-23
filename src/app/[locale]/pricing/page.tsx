@@ -261,7 +261,7 @@ export default function PricingPage() {
           <p>• <strong>크레딧:</strong> 미사용 크레딧은 구매일로부터 7일 이내 환불 가능.</p>
           <p>• <strong>웹 개발 프로젝트:</strong> 착수 전 100% 환불. 착수 후 진행 비율에 따라 부분 환불.</p>
           <p>• <strong>유지보수 구독:</strong> 해지 시 현재 결제 기간까지 서비스 제공. 미사용 시간 환불 불가.</p>
-          <p>• 환불 문의: lifecarelog.official@gmail.com</p>
+          <p>• 환불 문의: support@lifecarelog.co.kr</p>
         </div>
       </div>
     </main>

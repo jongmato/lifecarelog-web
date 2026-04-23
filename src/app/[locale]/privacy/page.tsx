@@ -89,7 +89,7 @@ export default function PrivacyPage() {
           <p>개인정보 관련 문의는 아래로 연락해 주세요.</p>
           <ul className="list-disc pl-5 space-y-1.5 mt-2">
             <li>개인정보 보호 책임자: 원종현</li>
-            <li>이메일: lifecarelog.official@gmail.com</li>
+            <li>이메일: support@lifecarelog.co.kr</li>
           </ul>
         </section>
       </div>
