@@ -16,9 +16,8 @@ const SAAS_PLANS = [
     name: 'Plan-L',
     tagline: 'AI 문서 분석 서비스',
     items: [
-      { label: 'Pro 구독', price: '₩10,900/월', note: '얼리버드 (정가 ₩12,900)' },
-      { label: '크레딧 1건', price: '₩1,500', note: '일회성' },
-      { label: '크레딧 5건', price: '₩6,000', note: '일회성' },
+      { label: 'Free', price: '₩0', note: '3건 무료 분석' },
+      { label: 'Pro (준비 중)', price: '₩10,900/월', note: '얼리버드 (정가 ₩12,900)' },
     ],
     href: 'https://plan-l.lifecarelog.co.kr',
     cta: '서비스 바로가기',
@@ -257,8 +256,7 @@ export default function PricingPage() {
       <div className="pt-8 border-t border-border">
         <h2 className="text-lg font-semibold text-foreground mb-4">환불 정책</h2>
         <div className="space-y-2 text-sm text-foreground/80">
-          <p>• <strong>AI 서비스 구독:</strong> 해지 시 현재 결제 기간까지 이용 가능. 미사용 기간 환불 불가.</p>
-          <p>• <strong>크레딧:</strong> 미사용 크레딧은 구매일로부터 7일 이내 환불 가능.</p>
+          <p>• <strong>AI 서비스 구독 (출시 예정):</strong> 해지 시 현재 결제 기간까지 이용 가능. 미사용 기간 환불 불가.</p>
           <p>• <strong>웹 개발 프로젝트:</strong> 착수 전 100% 환불. 착수 후 진행 비율에 따라 부분 환불.</p>
           <p>• <strong>유지보수 구독:</strong> 해지 시 현재 결제 기간까지 서비스 제공. 미사용 시간 환불 불가.</p>
           <p>• 환불 문의: support@lifecarelog.co.kr</p>
