@@ -75,7 +75,7 @@ const DEV_TIERS = [
     features: [
       '회원 인증 / DB / API',
       '대시보드 + 관리자',
-      '결제 연동 (Paddle 등)',
+      '결제 연동',
       'CI/CD + 모니터링 설정',
       '납품 후 3개월 수정 지원',
     ],
@@ -236,7 +236,7 @@ export default function PricingPage() {
       <div className="mb-16">
         <h2 className="text-lg font-semibold text-foreground mb-3">기술 스택</h2>
         <div className="flex flex-wrap gap-2">
-          {['Next.js', 'React', 'React Native', 'Expo', 'TypeScript', 'TailwindCSS', 'NestJS', 'FastAPI', 'Supabase', 'Cloudflare', 'Paddle'].map((tech) => (
+          {['Next.js', 'React', 'React Native', 'Expo', 'TypeScript', 'TailwindCSS', 'NestJS', 'FastAPI', 'Supabase', 'Cloudflare'].map((tech) => (
             <span
               key={tech}
               className="text-xs font-medium px-2.5 py-1 rounded-md"

@@ -22,7 +22,7 @@ export default function PrivacyPage() {
           <ul className="list-disc pl-5 space-y-1.5 mt-2">
             <li><strong>필수 정보:</strong> 이메일 주소, 비밀번호(암호화 저장)</li>
             <li><strong>자동 수집:</strong> 접속 로그, 쿠키, 서비스 이용 기록</li>
-            <li><strong>결제 시:</strong> 결제 정보는 Paddle(결제 대행사)이 직접 처리하며, 회사는 카드번호 등 민감한 결제 정보를 저장하지 않아요.</li>
+            <li><strong>결제 시:</strong> 결제 정보는 외부 결제 대행사이 직접 처리하며, 회사는 카드번호 등 민감한 결제 정보를 저장하지 않아요.</li>
           </ul>
         </section>
 
@@ -54,7 +54,7 @@ export default function PrivacyPage() {
           </p>
           <ul className="list-disc pl-5 space-y-1.5 mt-2">
             <li>법령에 의한 요청이 있는 경우</li>
-            <li>결제 처리를 위해 Paddle에 필요 최소한의 정보를 전달하는 경우</li>
+            <li>결제 처리를 위해 결제 대행사에 필요 최소한의 정보를 전달하는 경우</li>
           </ul>
         </section>
 

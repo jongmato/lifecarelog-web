@@ -53,7 +53,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-lg font-semibold text-foreground mb-3">제5조 (결제 및 환불)</h2>
           <ul className="list-disc pl-5 space-y-1.5">
-            <li>유료 서비스의 결제는 Paddle(결제 대행사)을 통해 처리돼요.</li>
+            <li>유료 서비스의 결제는 외부 결제 대행사를 통해 처리돼요.</li>
             <li>구독 서비스는 매월 자동 갱신되며, 해지 시 현재 결제 기간이 끝날 때까지 서비스를 이용할 수 있어요.</li>
             <li>크레딧은 구매 후 사용하지 않은 경우, 구매일로부터 7일 이내 환불 요청이 가능해요.</li>
             <li>외주 개발 서비스는 착수 전 100% 환불, 착수 후에는 진행 비율에 따라 부분 환불이 가능해요.</li>
