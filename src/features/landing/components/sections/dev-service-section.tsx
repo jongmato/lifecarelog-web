@@ -44,7 +44,7 @@ function TierCard({ tier, index, shouldReduceMotion, onContact }: TierCardProps)
   return (
     <motion.div
       variants={variants}
-      initial="hidden"
+      initial={false}
       whileInView="visible"
       viewport={{ once: true, amount: 0.1 }}
       className="relative flex flex-col rounded-2xl p-6 h-full shadow-card"
@@ -200,7 +200,7 @@ export function DevServiceSection({ onContact }: DevServiceSectionProps) {
         {/* Section header */}
         <motion.div
           variants={headingVariants}
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           className="flex items-center justify-between mb-4 gap-4"
@@ -224,7 +224,7 @@ export function DevServiceSection({ onContact }: DevServiceSectionProps) {
         {/* Transition copy */}
         <motion.div
           variants={fadeVariants}
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
           className="mb-10 sm:mb-12"
@@ -260,7 +260,7 @@ export function DevServiceSection({ onContact }: DevServiceSectionProps) {
         {/* Maintenance subscription note */}
         <motion.p
           variants={fadeVariants}
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           className="font-sans text-xs text-center mb-10"
@@ -272,7 +272,7 @@ export function DevServiceSection({ onContact }: DevServiceSectionProps) {
         {/* Bottom CTAs */}
         <motion.div
           variants={fadeVariants}
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-3"
@@ -298,7 +298,7 @@ export function DevServiceSection({ onContact }: DevServiceSectionProps) {
 
         {/* Mobile "view pricing" */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={false}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.35, duration: 0.3 }}

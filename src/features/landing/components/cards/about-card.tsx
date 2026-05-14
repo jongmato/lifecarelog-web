@@ -6,10 +6,9 @@ import { TECH_STACK } from '../tech-stack-data'
 
 interface AboutCardProps {
   index?: number
-  onContact?: () => void
 }
 
-export function AboutCard({ index = 0, onContact }: AboutCardProps) {
+export function AboutCard({ index = 0 }: AboutCardProps) {
   const t = useTranslations('about')
 
   return (

@@ -2,7 +2,6 @@
 
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import Image from 'next/image'
 import { GithubIcon, XIcon, ThreadsIcon } from './social-icons'
 
 // DELIGHT: each icon has its own brand color revealed on hover
@@ -59,12 +58,12 @@ export function Footer({ onContact }: FooterProps) {
             {/* Brand mark */}
             <div className="flex flex-col gap-1.5">
               <div className="flex items-center gap-2">
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src="/logo-icon.png"
                   alt="LifeCareLog"
                   width={32}
                   height={32}
-                  sizes="32px"
                   className="w-8 h-8 rounded-[10px]"
                 />
               </div>

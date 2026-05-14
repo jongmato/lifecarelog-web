@@ -15,7 +15,7 @@
   "hero": {
     "tagline": "Designed for ease, small changes that matter",
     "headline": "Every service starts\nfrom a real frustration.",
-    "subheadline": "A frontend developer stepping out of comfort,\nnow building what I actually want to use — from scratch.",
+    "subheadline": "I am turning problems I actually ran into — financial calculations, housing-law research, and daily mental logs — into real services.",
     "ctaScroll": "Read the story",
     "ctaContact": "Get in touch",
     "brandPill": "Care for your life, in every log"
@@ -58,8 +58,8 @@
   },
   "devService": {
     "sectionLabel": "Hire me",
-    "headline": "I build my own products.\nI can build yours too.",
-    "subheadline": "Same stack, same care — just applied to your idea.",
+    "headline": "I turn real problems into products.\nI can build your MVP too.",
+    "subheadline": "Next.js web apps, Expo apps, admin dashboards, AI search/RAG, and n8n automation — from planning to deployment.",
     "popularLabel": "Recommended",
     "priceFrom": "from",
     "tierCta": "Let's talk",
@@ -72,19 +72,37 @@
         "label": "Starter",
         "name": "Landing Page",
         "desc": "One sharp page that gets the point across",
-        "items": ["Single responsive page", "SEO basics covered", "Deployed on Cloudflare", "You own all the code", "1 month of tweaks included"]
+        "items": [
+          "Single responsive page",
+          "SEO basics covered",
+          "Deployed on Cloudflare",
+          "You own all the code",
+          "1 month of tweaks included"
+        ]
       },
       "standard": {
         "label": "Standard",
         "name": "Website",
         "desc": "A proper site with an admin panel",
-        "items": ["Up to 5 responsive pages", "Admin dashboard", "Contact form + email", "Analytics + SEO setup", "2 months of tweaks included"]
+        "items": [
+          "Up to 5 responsive pages",
+          "Admin dashboard",
+          "Contact form + email",
+          "Analytics + SEO setup",
+          "2 months of tweaks included"
+        ]
       },
       "premium": {
         "label": "Premium",
         "name": "Web App",
         "desc": "The full thing — auth, database, APIs",
-        "items": ["User auth + database + API", "Dashboard + admin panel", "Payment integration", "CI/CD + error monitoring", "3 months of tweaks included"]
+        "items": [
+          "User auth + database + API",
+          "Dashboard + admin panel",
+          "Payment integration",
+          "CI/CD + error monitoring",
+          "3 months of tweaks included"
+        ]
       }
     }
   },
@@ -99,24 +117,24 @@
     },
     "backToHome": "Back to home",
     "headline": "What I'm building",
-    "subheadline": "From Plan-A to Plan-Z — building useful services for everyday life, one at a time.\nEach service is a Plan, bringing one more piece of life into care.",
+    "subheadline": "From mortgage calculations to housing-law research and emotional journaling, I build services around problems I have actually needed to solve.",
     "vision": "Three services now, but someday A to Z — I want to build tools that care for every part of life.",
     "planC": {
       "title": "Plan-C",
       "subtitle": "Financial Calculators & Planner",
-      "description": "Loan interest, severance pay, take-home salary...\nWhen you search for these, ads come first.\nPlan-C puts the most-needed calculators in one clean place — plus scenario planning and financial planner tools.",
+      "description": "I built Plan-C for my own home-loan and moving-budget calculations.\nIt keeps common calculations like loan interest, severance pay, and take-home salary clean and fast, with scenario comparison and planner tools built in.",
       "cta": "Try it out",
       "badge": "Live",
       "features": "Loan interest · Severance pay · Take-home salary · Savings calculator · Scenario planner"
     },
     "planL": {
       "title": "Plan-L",
-      "subtitle": "AI Document Analysis",
-      "description": "What does this clause actually mean? What rules apply here?\nSometimes you just want to understand before asking an expert.\nAI finds relevant info and explains it in plain language.",
-      "teaser": "AI searches official databases and breaks down the results for you.",
+      "subtitle": "Statute & Precedent Search",
+      "description": "I built Plan-L while looking up housing lease protection laws and court precedents for a real lease dispute.\nIt is not legal advice — it is an information search tool for finding relevant statutes and precedents in plain language.",
+      "teaser": "AI searches statutes and precedents, then summarizes the results in readable language.",
       "cta": "Try it out",
       "badge": "Live",
-      "features": "Document search · Clause analysis · Plain-language summary · AI insights"
+      "features": "Precedent search · Statute search · Plain-language summaries · AI-assisted information organization"
     },
     "planT": {
       "title": "Plan-T",
@@ -124,13 +142,13 @@
       "description": "How are you feeling today? Why?\nWhen it's hard to put into words, AI listens quietly.\nPlan-T is an iOS/Android app for daily mental wellness — in active development.",
       "platforms": "iOS · Android",
       "badge": "In development",
-      "features": "Mood tracking · AI counseling · Wellness reports · Daily check-in"
+      "features": "Mood tracking · AI conversation · Wellness reports · Daily check-in"
     }
   },
   "contact": {
     "sectionLabel": "Let's talk",
     "headline": "What's on your mind?",
-    "subheadline": "Coffee chats, collaboration ideas, project requests — all welcome.\nI read every message and reply personally.",
+    "subheadline": "MVP web apps, admin dashboards, AI search/RAG, and automation projects are welcome.\nI read every message and reply personally.",
     "ctaCoffee": "Book a coffee chat",
     "ctaProject": "Request a project",
     "ctaMessage": "Send a message",

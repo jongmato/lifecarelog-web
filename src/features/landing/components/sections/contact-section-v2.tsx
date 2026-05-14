@@ -74,7 +74,7 @@ export function ContactSectionV2({ onContact }: ContactSectionV2Props) {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-14 sm:py-20">
         <motion.div
           variants={containerVariants}
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
           className="flex flex-col items-center text-center gap-8"

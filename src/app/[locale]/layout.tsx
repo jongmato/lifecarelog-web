@@ -2,10 +2,9 @@ import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
-import { DM_Serif_Display } from 'next/font/google'
-import { GoogleAnalytics } from '@next/third-parties/google'
 import { Providers } from '@/app/providers'
 import { PageShell } from '@/widgets/page-shell'
+import { AnalyticsConsent } from '@/shared/components/analytics-consent'
 import { JsonLd } from '@/shared/components/json-ld'
 import { routing } from '@/i18n/routing'
 import '@/app/globals.css'
@@ -14,16 +13,6 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://lifecarelog.co.kr'
 
 // Pretendard — CDN dynamic subset로 로드 (2.1MB → ~200KB)
 // globals.css에서 @import로 로드, CSS variable은 @theme에서 fallback 처리
-
-const dmSerifDisplay = DM_Serif_Display({
-  variable: '--font-dm-serif',
-  subsets: ['latin'],
-  weight: '400',
-  display: 'swap',
-})
-
-// Gmarket Sans — CDN으로 로드 (Google Fonts에 없음)
-// globals.css에서 @font-face로 로드
 
 export async function generateMetadata({
   params,
@@ -37,7 +26,7 @@ export async function generateMetadata({
     metadataBase: new URL(SITE_URL),
     title: t('title'),
     description: t('description'),
-    keywords: ['LifeCareLog', '라이프케어로그', '1인 개발', '솔로 개발자', 'Plan-C', 'Plan-L', 'Plan-T', '플랜씨', '플랜엘', '플랜티', '계산기', 'AI 문서 분석', '마음 건강'],
+    keywords: ['LifeCareLog', '라이프케어로그', '1인 개발', '솔로 개발자', 'Plan-C', 'Plan-L', 'Plan-T', '플랜씨', '플랜엘', '플랜티', '계산기', '법령 판례 검색', '마음 기록'],
     authors: [{ name: 'LifeCareLog' }],
     creator: 'LifeCareLog',
     openGraph: {
@@ -112,7 +101,6 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={dmSerifDisplay.variable}
       suppressHydrationWarning
     >
       <head>
@@ -142,9 +130,7 @@ export default async function LocaleLayout({
           </Providers>
         </NextIntlClientProvider>
         <JsonLd />
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-        )}
+        <AnalyticsConsent gaId={process.env.NEXT_PUBLIC_GA_ID} locale={locale} />
       </body>
     </html>
   )

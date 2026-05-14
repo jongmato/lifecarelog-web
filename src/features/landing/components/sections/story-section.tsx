@@ -35,7 +35,7 @@ function Chapter({ number, title, body, index, isLast = false, shouldReduceMotio
           className="font-display text-5xl sm:text-6xl font-bold leading-none select-none"
           style={{ color: 'color-mix(in oklch, var(--foreground) 8%, transparent)' }}
           variants={chapterVariants}
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
@@ -58,7 +58,7 @@ function Chapter({ number, title, body, index, isLast = false, shouldReduceMotio
       <motion.div
         className="flex-1 pb-14"
         variants={chapterVariants}
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
       >
@@ -117,7 +117,7 @@ export function StorySection() {
           className="font-sans text-xs font-semibold uppercase tracking-widest mb-14"
           style={{ color: 'var(--primary)' }}
           variants={labelVariants}
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >

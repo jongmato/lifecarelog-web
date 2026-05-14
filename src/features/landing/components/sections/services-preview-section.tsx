@@ -64,7 +64,7 @@ function ServiceCard({ data, index }: ServiceCardProps) {
   const cardContent = (
     <motion.div
       variants={variants}
-      initial="hidden"
+      initial={false}
       whileInView="visible"
       whileHover={isLive && !shouldReduceMotion ? { y: -4, transition: { type: 'spring', stiffness: 300, damping: 30 } } : {}}
       viewport={{ once: true, amount: 0.1 }}
@@ -160,7 +160,7 @@ export function ServicesPreviewSection() {
       {/* Section header */}
       <motion.div
         variants={headingVariants}
-        initial="hidden"
+        initial={false}
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         className="flex items-center justify-between mb-8 sm:mb-10 gap-4"
@@ -190,7 +190,7 @@ export function ServicesPreviewSection() {
 
       {/* Mobile "view all" */}
       <motion.div
-        initial={{ opacity: 0 }}
+        initial={false}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.35, duration: 0.3 }}

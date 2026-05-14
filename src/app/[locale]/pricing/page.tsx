@@ -7,17 +7,17 @@ function ContactLink({ className, children }: { className: string; children: Rea
 }
 
 export const metadata: Metadata = {
-  title: '서비스 요금 — LifeCareLog',
-  description: 'LifeCareLog 서비스 요금 안내',
+  title: '서비스 이용·제작 요금 안내 — LifeCareLog',
+  description: 'LifeCareLog 서비스 이용 정보와 웹앱 제작 의뢰 기준',
 }
 
 const SAAS_PLANS = [
   {
     name: 'Plan-L',
-    tagline: 'AI 문서 분석 서비스',
+    tagline: '법령·판례 정보 검색 도구',
     items: [
-      { label: 'Free', price: '₩0', note: '3건 무료 분석' },
-      { label: 'Pro (준비 중)', price: '₩10,900/월', note: '얼리버드 (정가 ₩12,900)' },
+      { label: '무료 체험', price: '₩0', note: '계정당 3건 무료 검색' },
+      { label: '유료 후보 기능', price: '관심 등록', note: '결제 기능은 아직 제공하지 않음' },
     ],
     href: 'https://plan-l.lifecarelog.co.kr',
     cta: '서비스 바로가기',
@@ -88,10 +88,10 @@ export default function PricingPage() {
   return (
     <main className="max-w-[960px] mx-auto px-4 sm:px-6 py-16 sm:py-24">
       <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
-        요금 안내
+        서비스 이용·제작 요금 안내
       </h1>
       <p className="text-muted-foreground mb-12">
-        만들고 있는 서비스와 제작 의뢰 요금이에요.
+        직접 운영하는 서비스 이용 정보와 웹앱 제작 의뢰 기준을 함께 정리했어요.
       </p>
 
       {/* SaaS Plans */}
@@ -252,14 +252,14 @@ export default function PricingPage() {
         </div>
       </div>
 
-      {/* Refund Policy */}
+      {/* Policy */}
       <div className="pt-8 border-t border-border">
-        <h2 className="text-lg font-semibold text-foreground mb-4">환불 정책</h2>
+        <h2 className="text-lg font-semibold text-foreground mb-4">이용 및 계약 안내</h2>
         <div className="space-y-2 text-sm text-foreground/80">
-          <p>• <strong>AI 서비스 구독 (출시 예정):</strong> 해지 시 현재 결제 기간까지 이용 가능. 미사용 기간 환불 불가.</p>
+          <p>• <strong>Plan-L:</strong> 현재 무료 체험과 유료 기능 관심 등록만 제공하며, 결제 기능은 운영하지 않습니다.</p>
           <p>• <strong>웹 개발 프로젝트:</strong> 착수 전 100% 환불. 착수 후 진행 비율에 따라 부분 환불.</p>
           <p>• <strong>유지보수 구독:</strong> 해지 시 현재 결제 기간까지 서비스 제공. 미사용 시간 환불 불가.</p>
-          <p>• 환불 문의: support@lifecarelog.co.kr</p>
+          <p>• 제작/유지보수 계약 문의: support@lifecarelog.co.kr</p>
         </div>
       </div>
     </main>

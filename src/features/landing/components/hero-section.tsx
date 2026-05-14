@@ -3,7 +3,6 @@
 import React from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
-import Image from 'next/image'
 import { Button } from '@/shared/ui'
 
 const EASING = [0.22, 1, 0.36, 1] as const
@@ -12,25 +11,7 @@ interface HeroSectionProps {
   onContact?: () => void
 }
 
-// P1-01: Pure CSS keyframe animation — compositor thread, zero JS overhead
-function FloatingOrbs() {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-      <div
-        className="absolute -top-32 -right-32 w-[480px] h-[480px] rounded-full opacity-[0.10] dark:opacity-[0.06] orb-float-1"
-        style={{
-          background: 'radial-gradient(circle at 40% 40%, var(--primary-light), transparent 65%)',
-        }}
-      />
-      <div
-        className="absolute -bottom-24 -left-16 w-80 h-80 rounded-full opacity-[0.08] dark:opacity-[0.05] orb-float-2"
-        style={{
-          background: 'radial-gradient(circle at 60% 60%, var(--primary), transparent 65%)',
-        }}
-      />
-    </div>
-  )
-}
+const HERO_FACTS = ['Plan-C 운영 중', 'Plan-L 운영 중', 'MVP 제작 문의 가능']
 
 export function HeroSection({ onContact }: HeroSectionProps) {
   const t = useTranslations('hero')
@@ -54,27 +35,24 @@ export function HeroSection({ onContact }: HeroSectionProps) {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-[82svh] flex flex-col items-center justify-center overflow-hidden py-20 sm:py-24"
       aria-label="Hero"
       style={{ background: 'var(--background)' }}
     >
-      <FloatingOrbs />
-
       <motion.div
         className="relative z-10 flex flex-col items-center text-center px-6 sm:px-8 max-w-2xl mx-auto w-full"
         variants={containerVariants}
-        initial="hidden"
+        initial={false}
         animate="visible"
       >
         {/* Logo — symbol + text logo 수평 배치 */}
         <motion.div variants={itemVariants} className="flex items-center gap-4 mb-8">
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/logo-icon.png"
             alt="LifeCareLog"
             width={64}
             height={64}
-            priority
-            sizes="(max-width: 640px) 56px, 64px"
             className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl"
           />
           {/* Decorative text logo — brand name already conveyed by icon alt */}
@@ -109,15 +87,35 @@ export function HeroSection({ onContact }: HeroSectionProps) {
         {/* Subheadline */}
         <motion.p
           variants={itemVariants}
-          className="font-sans text-base sm:text-lg whitespace-pre-line leading-[1.8] mb-8 max-w-lg text-muted-foreground"
+          className="font-sans text-base sm:text-lg whitespace-pre-line leading-[1.8] mb-7 max-w-lg text-muted-foreground"
         >
           {t('subheadline')}
         </motion.p>
 
+        <motion.div
+          variants={itemVariants}
+          className="mb-8 grid w-full max-w-xl grid-cols-1 gap-2 sm:grid-cols-3"
+          aria-label="운영 현황"
+        >
+          {HERO_FACTS.map((fact) => (
+            <span
+              key={fact}
+              className="rounded-xl border px-3 py-2 font-sans text-xs font-medium"
+              style={{
+                borderColor: 'var(--border)',
+                background: 'var(--surface-low)',
+                color: 'var(--muted-foreground)',
+              }}
+            >
+              {fact}
+            </span>
+          ))}
+        </motion.div>
+
         {/* CTA — solid colors, no gradient */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto mb-12"
+          className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto"
         >
           <a
             href="#philosophy"
@@ -138,8 +136,6 @@ export function HeroSection({ onContact }: HeroSectionProps) {
             {t('ctaContact')}
           </Button>
         </motion.div>
-
-        {/* Scroll indicator removed — user preference */}
       </motion.div>
     </section>
   )

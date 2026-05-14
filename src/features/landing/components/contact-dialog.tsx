@@ -4,7 +4,6 @@ import { useTranslations } from 'next-intl'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Mail } from 'lucide-react'
 import { useCallback, useEffect, useId, useRef } from 'react'
-import Image from 'next/image'
 import { ContactForm } from './contact-form'
 
 const DIALOG_EASING = [0.22, 1, 0.36, 1] as const
@@ -143,7 +142,8 @@ export function ContactDialog({ open, onClose }: ContactDialogProps) {
 
               {/* Icon + headline — id links to aria-labelledby */}
               <div className="flex items-start gap-3 pr-8">
-                <Image
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src="/logo-icon.png"
                   alt=""
                   width={40}

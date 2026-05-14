@@ -33,7 +33,7 @@ export function PhilosophySection() {
           id="philosophy-headline"
           className="font-sans font-bold text-3xl sm:text-4xl lg:text-5xl leading-[1.25] tracking-tight whitespace-pre-line mb-10 sm:mb-12"
           variants={baseVariant(0)}
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={viewportOptions}
         >
@@ -45,7 +45,7 @@ export function PhilosophySection() {
           className="font-sans text-base sm:text-lg leading-[1.9] whitespace-pre-line mb-10"
           style={{ color: 'var(--muted-foreground)' }}
           variants={baseVariant(0.1)}
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={viewportOptions}
         >
@@ -60,7 +60,7 @@ export function PhilosophySection() {
             background: 'color-mix(in oklch, var(--primary) 12%, var(--surface-low))',
           }}
           variants={baseVariant(0.22)}
-          initial="hidden"
+          initial={false}
           whileInView="visible"
           viewport={viewportOptions}
           aria-label="핵심 인용구"

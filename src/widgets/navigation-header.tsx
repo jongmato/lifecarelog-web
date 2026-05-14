@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from '@/features/landing/components/theme-toggle'
 import { LocaleSwitcher } from '@/shared/ui/locale-switcher'
@@ -74,13 +73,12 @@ export function NavigationHeader({ onContact }: NavigationHeaderProps) {
           href="/"
           className="shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-xl"
         >
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/logo-icon.png"
             alt="LifeCareLog"
             width={32}
             height={32}
-            priority
-            sizes="32px"
             className="w-8 h-8 rounded-[10px]"
           />
         </Link>
