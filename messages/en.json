@@ -54,6 +54,11 @@
       "tagline": "A daily mental wellness app",
       "badge": "In development"
     },
+    "planB": {
+      "name": "Plan-B",
+      "tagline": "Basketball club ops in one place",
+      "badge": "Live"
+    },
     "goToService": "Visit"
   },
   "devService": {
@@ -117,8 +122,8 @@
     },
     "backToHome": "Back to home",
     "headline": "What I'm building",
-    "subheadline": "From mortgage calculations to housing-law research and emotional journaling, I build services around problems I have actually needed to solve.",
-    "vision": "Three services now, but someday A to Z — I want to build tools that care for every part of life.",
+    "subheadline": "From mortgage calculations to housing-law research, basketball club ops, and emotional journaling, I build services around problems I have actually needed to solve.",
+    "vision": "Four services now, but someday A to Z — I want to build tools that care for every part of life.",
     "planC": {
       "title": "Plan-C",
       "subtitle": "Financial Calculators & Planner",
@@ -143,6 +148,14 @@
       "platforms": "iOS · Android",
       "badge": "In development",
       "features": "Mood tracking · AI conversation · Wellness reports · Daily check-in"
+    },
+    "planB": {
+      "title": "Plan-B",
+      "subtitle": "Basketball Club Ops Manager",
+      "description": "I built Plan-B for my own amateur basketball club — to keep games, members, dues, and tactics in one place.\nLog quarter-by-quarter stats, organize team rosters, track dues, and plan plays from a clean mobile-first interface.",
+      "cta": "Run your club",
+      "badge": "Live",
+      "features": "Game scoring · Members & teams · Dues tracking · Tactics board · Season stats"
     }
   },
   "contact": {

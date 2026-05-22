@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="플랜비">
+  <title>플랜비 로고</title>
+  <!-- Hero nav 의 [B] 칩과 동일한 디자인. 네온 그린 라운드 스퀘어 +
+       단색 흰색 B. system font (Pretendard 등) 가 없는 환경에서도 보이도록
+       sans-serif fallback 체인을 명시한다. -->
+  <rect width="32" height="32" rx="6" fill="#39FF14"/>
+  <text
+    x="50%"
+    y="50%"
+    text-anchor="middle"
+    dominant-baseline="central"
+    font-family="-apple-system, BlinkMacSystemFont, 'Pretendard', 'Apple SD Gothic Neo', 'Segoe UI', system-ui, sans-serif"
+    font-weight="900"
+    font-size="22"
+    fill="#FFFFFF"
+  >B</text>
+</svg>

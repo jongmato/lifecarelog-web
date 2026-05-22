@@ -167,6 +167,19 @@ export function ServicesPage() {
       index: 1,
     },
     {
+      title: t('planB.title'),
+      subtitle: t('planB.subtitle'),
+      description: t('planB.description'),
+      badge: t('planB.badge'),
+      badgeVariant: 'live',
+      cta: t('planB.cta'),
+      href: 'https://plan-b.lifecarelog.co.kr',
+      color: 'var(--plan-b)',
+      features: t('planB.features'),
+      iconSrc: '/plan-b-logo.svg',
+      index: 2,
+    },
+    {
       title: t('planT.title'),
       subtitle: t('planT.subtitle'),
       description: t('planT.description'),
@@ -176,7 +189,7 @@ export function ServicesPage() {
       color: 'var(--primary)',
       features: t('planT.features'),
       iconSrc: '/logo-icon.png',
-      index: 2,
+      index: 3,
     },
   ]
 
@@ -199,7 +212,7 @@ export function ServicesPage() {
           </motion.div>
 
           {/* Service cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {services.map((service) => (
               <ServiceDetailCard key={service.title} {...service} />
             ))}

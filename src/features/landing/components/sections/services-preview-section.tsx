@@ -9,7 +9,7 @@ import { Badge } from '@/shared/ui/badge'
 const EASING = [0.22, 1, 0.36, 1] as const
 
 interface ServiceCardData {
-  key: 'planC' | 'planL' | 'planT'
+  key: 'planC' | 'planL' | 'planB' | 'planT'
   accentColor: string
   href: string | null
   badgeVariant: 'live' | 'in-development'
@@ -30,6 +30,13 @@ const SERVICES: ServiceCardData[] = [
     href: 'https://plan-l.lifecarelog.co.kr',
     badgeVariant: 'live',
     iconSrc: '/plan-l-logo.png',
+  },
+  {
+    key: 'planB',
+    accentColor: 'var(--plan-b)',
+    href: 'https://plan-b.lifecarelog.co.kr',
+    badgeVariant: 'live',
+    iconSrc: '/plan-b-logo.svg',
   },
   {
     key: 'planT',
@@ -182,7 +189,7 @@ export function ServicesPreviewSection() {
       </motion.div>
 
       {/* Service cards — equal height */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {SERVICES.map((service, i) => (
           <ServiceCard key={service.key} data={service} index={i} />
         ))}

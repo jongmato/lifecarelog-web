@@ -23,6 +23,7 @@
   --color-plan-c: var(--plan-c);
   --color-plan-l: var(--plan-l);
   --color-plan-t: var(--plan-t);
+  --color-plan-b: var(--plan-b);
   --color-surface-low: var(--surface-low);
   --color-primary-light: var(--primary-light);
   --color-tertiary: var(--tertiary);
@@ -64,6 +65,7 @@
   --plan-c: oklch(0.55 0.10 215);
   --plan-l: oklch(0.50 0.09 255);
   --plan-t: oklch(0.53 0.10 190);
+  --plan-b: oklch(0.55 0.13 145);
 }
 
 /* Dark Mode — Warm cocoa (elevated dark, visibly warm)
@@ -94,6 +96,7 @@
   --plan-c: oklch(0.74 0.10 210);
   --plan-l: oklch(0.66 0.09 250);
   --plan-t: oklch(0.70 0.10 185);
+  --plan-b: oklch(0.78 0.17 145);
 }
 
 * {
