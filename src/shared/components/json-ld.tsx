@@ -26,6 +26,24 @@ const websiteSchema = {
   creator: { '@id': `${SITE_URL}/#person` },
 }
 
+// 우산 브랜드 엔티티 — plan-c/l/b 가 publisher 로 참조하는 Organization.
+// AI 검색엔진의 브랜드 entity 인식(AEO) 강화.
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${SITE_URL}/#organization`,
+  name: 'LifeCareLog',
+  url: SITE_URL,
+  logo: `${SITE_URL}/logo.svg`,
+  description: '삶에 필요한 서비스를 하나씩 만들어가는 1인 개발 브랜드',
+  founder: { '@id': `${SITE_URL}/#person` },
+  sameAs: [
+    'https://github.com/jongmato',
+    'https://x.com/lifecarelog',
+    'https://www.threads.com/@lifecarelog_official',
+  ],
+}
+
 export function JsonLd() {
   return (
     <>
@@ -36,6 +54,10 @@ export function JsonLd() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
       />
     </>
   )

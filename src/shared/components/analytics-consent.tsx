@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { enableAnalytics, disableAnalytics } from '@/shared/lib/analytics'
 
 const CONSENT_KEY = 'lifecarelog-analytics-consent'
 
@@ -20,7 +21,10 @@ export function AnalyticsConsent({ gaId, locale }: AnalyticsConsentProps) {
   useEffect(() => {
     queueMicrotask(() => {
       const saved = window.localStorage.getItem(CONSENT_KEY)
-      setConsent(saved === 'accepted' || saved === 'rejected' ? saved : null)
+      const next = saved === 'accepted' || saved === 'rejected' ? saved : null
+      setConsent(next)
+      // 이전에 동의한 재방문자: PostHog 수집 활성화 (GA는 아래 렌더에서 로드)
+      if (next === 'accepted') enableAnalytics()
       setIsReady(true)
     })
   }, [])
@@ -36,6 +40,9 @@ export function AnalyticsConsent({ gaId, locale }: AnalyticsConsentProps) {
   const saveConsent = (nextConsent: Exclude<ConsentState, null>) => {
     window.localStorage.setItem(CONSENT_KEY, nextConsent)
     setConsent(nextConsent)
+    // PostHog 동의 연동: 수락 시 수집 활성화, 거부 시 수집 중단
+    if (nextConsent === 'accepted') enableAnalytics()
+    else disableAnalytics()
   }
 
   return (
