@@ -156,7 +156,7 @@ export function Footer({ onContact }: FooterProps) {
               </div>
               {/* Service badges — primary tone for visual cohesion */}
               <div className="flex items-center gap-2">
-                {(['Plan-C', 'Plan-L', 'Plan-T'] as const).map((badge) => (
+                {(['Plan-C', 'Plan-L', 'Plan-B'] as const).map((badge) => (
                   <span
                     key={badge}
                     className="font-sans text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-md"

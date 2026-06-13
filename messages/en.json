@@ -14,11 +14,15 @@
   },
   "hero": {
     "tagline": "Designed for ease, small changes that matter",
-    "headline": "Every service starts\nfrom a real frustration.",
-    "subheadline": "I am turning problems I actually ran into — financial calculations, housing-law research, and daily mental logs — into real services.",
+    "headline": "Building services\nlife actually needs.",
+    "subheadline": "Solo developer · AI product builder.\nRunning a finance calculator, legal info tool, and basketball club app.",
     "ctaScroll": "Read the story",
     "ctaContact": "Get in touch",
-    "brandPill": "Care for your life, in every log"
+    "brandPill": "Care for your life, in every log",
+    "ctaCoffee": "Let's have a coffee chat",
+    "fact1": "Plan-C · Live",
+    "fact2": "Plan-L · Live",
+    "fact3": "Plan-B · Live"
   },
   "philosophy": {
     "headline": "I build services\nfor anyone\nwho needs them.",
@@ -196,5 +200,127 @@
     "description": "The address might be wrong, or this page may have moved.",
     "cta": "Go back home",
     "ctaServices": "Browse services"
+  },
+  "work": {
+    "sectionLabel": "What I've built",
+    "headline": "Services actually running in production.",
+    "viewAll": "See all services",
+    "goToService": "Visit service",
+    "planC": {
+      "name": "Plan-C",
+      "tagline": "Calculate loans, savings, and investments in one place.",
+      "badge": "Live"
+    },
+    "planL": {
+      "name": "Plan-L",
+      "tagline": "Find everyday legal information, made simple.",
+      "badge": "Live"
+    },
+    "planB": {
+      "name": "Plan-B",
+      "tagline": "Team management tools for basketball clubs.",
+      "badge": "Live"
+    }
+  },
+  "about": {
+    "sectionLabel": "About",
+    "headline": "Building services\nthat care for life.",
+    "description": "I build and run everything solo, with AI. Whenever I find something inconvenient, I make a tool to fix it. Complex financial calculations, confusing legal terms, the hassle of running a team — solving them one by one.",
+    "stat1Number": "3",
+    "stat1Label": "live services",
+    "stat2Number": "2024",
+    "stat2Label": "started",
+    "stat3Number": "100%",
+    "stat3Label": "AI-assisted dev",
+    "skills": "Next.js · React · Expo · FastAPI · Supabase · AI"
+  },
+  "how": {
+    "sectionLabel": "How",
+    "headline": "How I build.",
+    "principle1Title": "Ship fast, learn faster.",
+    "principle1Body": "Launch an MVP quickly, watch how people use it, and improve from there.",
+    "principle2Title": "AI all the way through.",
+    "principle2Body": "Development, design, planning — AI is involved at every step so things get done faster and more carefully.",
+    "principle3Title": "I stay through launch.",
+    "principle3Body": "Launch isn't the end. I'm responsible until the product runs stably.",
+    "pricingLink": "See pricing and full service details"
+  },
+  "planT": {
+    "meta": {
+      "title": "Plan-T — An AI chat journal for your feelings",
+      "description": "Plan-T lets you write your day as a chat. The AI quietly listens and distills your scattered feelings into a single line. Join the waitlist."
+    },
+    "brand": {
+      "name": "Plan-T",
+      "tagline": "An AI chat journal for your feelings"
+    },
+    "hero": {
+      "badge": "Coming soon",
+      "headline": "Just let today's\nfeelings out.",
+      "subheadline": "Plan-T is a journaling app where you write your day as a chat —\nthe AI listens quietly and distills your feelings into one line.",
+      "ctaPrimary": "Join the waitlist",
+      "ctaSecondary": "See how it works",
+      "note": "No spam — just one note when we launch.",
+      "ariaLabel": "Plan-T introduction"
+    },
+    "pain": {
+      "sectionLabel": "Sound familiar?",
+      "headline": "Your mind is full,\nbut the page stays blank.",
+      "item1Title": "The blank page is heavy",
+      "item1Body": "You open the journal, can't decide where to start, and just close it again.",
+      "item2Title": "Feelings get tangled",
+      "item2Body": "You feel off but can't quite tell yourself why, or what set it off.",
+      "item3Title": "Nowhere to be heard",
+      "item3Body": "Bringing every small feeling to someone else feels like too much to ask."
+    },
+    "demo": {
+      "sectionLabel": "How it works",
+      "headline": "One question, one line —\nyou write like a conversation.",
+      "caption": "A static demo screen example. The final product design may differ at launch.",
+      "aiName": "Plan-T",
+      "msg1": "What feeling was strongest for you today?",
+      "msg2": "Meetings kept piling up, so I'm pretty drained.",
+      "msg3": "A heavy day. Even so, you carried it through to the end — that's real.",
+      "msg4": "Hearing that actually eases it a little.",
+      "summaryLabel": "Today, in one line",
+      "summary": "Overwhelming, but you held on to the end.",
+      "onlineLabel": "available"
+    },
+    "features": {
+      "sectionLabel": "What Plan-T does",
+      "headline": "Beyond recording —\na gentle flow that cares.",
+      "card1Title": "An AI that starts first",
+      "card1Body": "So you never freeze at a blank screen, Plan-T asks how your day was first.",
+      "card2Title": "Feelings, in one line",
+      "card2Body": "It listens to the scatter and reflects your core feeling back in one soft sentence.",
+      "card3Title": "See your inner trend",
+      "card3Body": "From your records, look back calmly on where your heart has been lately.",
+      "card4Title": "A quiet nudge",
+      "card4Body": "As your day winds down, one gentle check-in helps the habit stick."
+    },
+    "safety": {
+      "sectionLabel": "Made to feel safe",
+      "headline": "Talking about feelings\nshould be safe.",
+      "point1Title": "A journal, not treatment",
+      "point1Body": "Plan-T is a journaling tool that helps you sort your feelings. It does not replace medical diagnosis or treatment.",
+      "point2Title": "Your records are yours",
+      "point2Body": "At launch, record protection and deletion controls will be designed clearly. This landing v0 does not store journal records.",
+      "point3Title": "Help when it's hard",
+      "point3Body": "For urgent or high-risk situations, we are preparing clear guidance to professional support channels.",
+      "disclaimer": "In a crisis, please contact emergency services or a local crisis line right away."
+    },
+    "cta": {
+      "headline": "Be the first\nto write it down?",
+      "body": "We'll let you know the moment we launch. Just leave your email.",
+      "placeholder": "Email address",
+      "button": "Check email format",
+      "loading": "Joining…",
+      "success": "Email format looks valid. Actual waitlist storage will be connected only after deployment approval.",
+      "errorEmail": "Please check your email format.",
+      "errorGeneric": "Something went wrong. Please try again shortly.",
+      "privacy": "This v0 form is a local demo and does not store your email. Before real collection, privacy policy and consent copy will be connected.",
+      "demoNotice": "Demo form · not stored"
+    },
+    "footerNote": "Plan-T is a journaling service made by LifeCareLog."
   }
 }

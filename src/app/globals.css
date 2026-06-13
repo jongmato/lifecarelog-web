@@ -33,6 +33,7 @@
   --radius-lg: 1rem;
   --radius-xl: 1.25rem;
   --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
 
   --font-sans: var(--font-pretendard, 'Pretendard Variable', 'Pretendard', system-ui, sans-serif);
   --font-display: Georgia, 'Times New Roman', serif;

@@ -14,11 +14,15 @@
   },
   "hero": {
     "tagline": "편함을 설계, 작지만 큰 변화",
-    "headline": "직접 겪은 불편함에서\n서비스가 시작돼요.",
-    "subheadline": "금융 계산, 전세계약 법령·판례 검색, 마음 기록처럼\n내가 실제로 겪은 문제를 서비스로 만들고 있어요.",
+    "headline": "삶에 필요한 서비스를\n직접 만들어요.",
+    "subheadline": "1인 개발자·AI 프로덕트 빌더.\n금융 계산기, 생활 법률, 농구 커뮤니티를 운영 중이에요.",
     "ctaScroll": "이야기 읽기",
     "ctaContact": "연락하기",
-    "brandPill": "삶을 돌보는 기록"
+    "brandPill": "삶을 돌보는 기록",
+    "ctaCoffee": "커피 한 잔 이야기해요",
+    "fact1": "Plan-C 운영 중",
+    "fact2": "Plan-L 운영 중",
+    "fact3": "Plan-B 운영 중"
   },
   "philosophy": {
     "headline": "한 명이라도\n필요로 하는 서비스를\n만들어요.",
@@ -196,5 +200,127 @@
     "description": "주소를 잘못 입력하셨거나, 페이지가 이동했을 수 있어요.",
     "cta": "홈으로 돌아가기",
     "ctaServices": "서비스 살펴보기"
+  },
+  "work": {
+    "sectionLabel": "만든 것들",
+    "headline": "실제로 운영 중인 서비스예요.",
+    "viewAll": "서비스 전체 보기",
+    "goToService": "서비스 보기",
+    "planC": {
+      "name": "Plan-C",
+      "tagline": "대출, 저축, 투자를 한 곳에서 계산해요.",
+      "badge": "운영 중"
+    },
+    "planL": {
+      "name": "Plan-L",
+      "tagline": "일상 속 법률 정보를 쉽게 찾아요.",
+      "badge": "운영 중"
+    },
+    "planB": {
+      "name": "Plan-B",
+      "tagline": "농구 동호회를 위한 팀 운영 도구예요.",
+      "badge": "운영 중"
+    }
+  },
+  "about": {
+    "sectionLabel": "About",
+    "headline": "삶을 돌보는 기록을\n만들어요.",
+    "description": "AI와 함께 혼자 만들고, 직접 운영해요. 불편한 것을 발견하면 직접 해결하는 도구를 만들어요. 복잡한 금융 계산, 어려운 법률 용어, 팀 운영의 번거로움 — 하나씩 해결하고 있어요.",
+    "stat1Number": "3",
+    "stat1Label": "운영 중인 서비스",
+    "stat2Number": "2024",
+    "stat2Label": "시작한 해",
+    "stat3Number": "100%",
+    "stat3Label": "AI 보조 개발",
+    "skills": "Next.js · React · Expo · FastAPI · Supabase · AI"
+  },
+  "how": {
+    "sectionLabel": "How",
+    "headline": "이렇게 만들어요.",
+    "principle1Title": "빠르게 만들고 검증해요.",
+    "principle1Body": "MVP를 빠르게 출시하고 사용자 반응을 보며 개선해요.",
+    "principle2Title": "AI를 적극 활용해요.",
+    "principle2Body": "개발·디자인·기획 전 과정에 AI를 써서 더 빠르고 꼼꼼하게 만들어요.",
+    "principle3Title": "운영까지 함께해요.",
+    "principle3Body": "출시가 끝이 아니에요. 안정적으로 운영될 때까지 책임져요.",
+    "pricingLink": "가격 및 상세 서비스 확인하기"
+  },
+  "planT": {
+    "meta": {
+      "title": "플랜티 — 마음을 기록하는 AI 채팅 일기",
+      "description": "플랜티(Plan-T)는 하루의 마음을 채팅으로 적으면 AI가 가만히 들어주고 정리해주는 마음기록 앱이에요. 출시 알림을 신청해 보세요."
+    },
+    "brand": {
+      "name": "플랜티",
+      "tagline": "마음을 기록하는 AI 채팅 일기"
+    },
+    "hero": {
+      "badge": "출시 준비 중",
+      "headline": "오늘 마음, 그냥\n털어놓아 보세요.",
+      "subheadline": "플랜티는 채팅으로 적은 하루를 AI가 가만히 들어주고,\n흩어진 감정을 한 줄로 정리해주는 마음기록 앱이에요.",
+      "ctaPrimary": "출시 알림 신청하기",
+      "ctaSecondary": "어떻게 쓰는지 보기",
+      "note": "스팸 없이 출시 소식만 한 번 보내드려요.",
+      "ariaLabel": "플랜티 소개"
+    },
+    "pain": {
+      "sectionLabel": "이런 적 있어요?",
+      "headline": "마음은 복잡한데,\n쓰려고 하면 막막해요.",
+      "item1Title": "빈 노트가 부담스러워요",
+      "item1Body": "막상 일기장을 펴면 무슨 말부터 써야 할지 몰라 그냥 덮어버려요.",
+      "item2Title": "감정이 뭉쳐 있어요",
+      "item2Body": "기분은 안 좋은데 왜 그런지, 무엇 때문인지 스스로도 잘 모르겠어요.",
+      "item3Title": "들어줄 곳이 없어요",
+      "item3Body": "사소한 마음을 매번 누군가에게 꺼내 놓기는 미안하고 부담스러워요."
+    },
+    "demo": {
+      "sectionLabel": "이렇게 기록해요",
+      "headline": "질문 하나에 한 줄씩,\n대화하듯 적어요.",
+      "caption": "정적 데모 화면 예시예요. 출시 시 실제 디자인은 달라질 수 있어요.",
+      "aiName": "플랜티",
+      "msg1": "오늘 하루, 어떤 마음이 가장 컸어요?",
+      "msg2": "회의가 계속 밀려서 좀 지쳤어요.",
+      "msg3": "바쁜 하루였네요. 그 지침 속에서도 끝까지 해낸 건 분명한 거 같아요.",
+      "msg4": "그렇게 말해주니까 조금 풀리네요.",
+      "summaryLabel": "오늘의 한 줄",
+      "summary": "벅찼지만, 끝까지 버텨낸 하루",
+      "onlineLabel": "대화 가능"
+    },
+    "features": {
+      "sectionLabel": "플랜티가 하는 일",
+      "headline": "기록을 넘어,\n마음을 돌보는 흐름까지.",
+      "card1Title": "먼저 말 걸어주는 AI",
+      "card1Body": "빈 화면 앞에서 막막하지 않게, 플랜티가 먼저 오늘의 안부를 물어요.",
+      "card2Title": "감정을 한 줄로 정리",
+      "card2Body": "흩어진 이야기를 듣고 오늘의 핵심 감정을 부드러운 한 문장으로 비춰줘요.",
+      "card3Title": "마음의 흐름 보기",
+      "card3Body": "쌓인 기록으로 요즘 내 마음이 어디로 흐르는지 차분히 돌아볼 수 있어요.",
+      "card4Title": "조용한 알림",
+      "card4Body": "하루를 마칠 때쯤, 부담 없는 안부 한 번으로 기록 습관을 도와줘요."
+    },
+    "safety": {
+      "sectionLabel": "안심하고 쓰도록",
+      "headline": "마음 이야기는,\n안전해야 하니까요.",
+      "point1Title": "치료가 아닌 기록이에요",
+      "point1Body": "플랜티는 마음을 정리하도록 돕는 기록 도구예요. 의학적 진단이나 치료를 대신하지 않아요.",
+      "point2Title": "내 기록은 내 것이에요",
+      "point2Body": "출시 시 기록 보호와 삭제 권한을 명확히 설계할 예정이에요. 랜딩 v0에서는 기록을 저장하지 않아요.",
+      "point3Title": "힘들 땐 전문가 연결",
+      "point3Body": "위급하거나 도움이 필요한 상황에서는 전문 상담·도움 창구를 바로 확인할 수 있도록 안내 문구를 준비하고 있어요.",
+      "disclaimer": "위기 상황이라면 지금 바로 자살예방상담전화 ☎ 109 또는 가까운 응급실로 연락해 주세요."
+    },
+    "cta": {
+      "headline": "가장 먼저,\n마음을 적어볼래요?",
+      "body": "출시되면 가장 먼저 알려드릴게요. 이메일만 남겨주세요.",
+      "placeholder": "이메일 주소",
+      "button": "이메일 형식 확인",
+      "loading": "신청 중…",
+      "success": "이메일 형식이 확인됐어요. 실제 출시 알림 저장은 배포 승인 후 연결됩니다.",
+      "errorEmail": "이메일 형식을 확인해 주세요.",
+      "errorGeneric": "잠시 후 다시 시도해 주세요.",
+      "privacy": "현재 v0 폼은 로컬 데모용이라 이메일을 저장하지 않아요. 실제 수집 전 개인정보처리방침과 동의 문구를 먼저 연결합니다.",
+      "demoNotice": "데모 폼 · 실제 저장 안 됨"
+    },
+    "footerNote": "플랜티는 LifeCareLog가 만드는 마음기록 서비스예요."
   }
 }
