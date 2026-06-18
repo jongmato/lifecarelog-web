@@ -11,6 +11,20 @@ import '@/app/globals.css'
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://lifecarelog.co.kr'
 
+// Bing 소유권 인증 코드. Bing Webmaster Tools에서 발급받은 값을 채우면 자동으로
+// msvalidate.01 메타태그가 출력된다. GSC import 시 메타 불필요(비워둠 가능).
+// (google/naver 값은 아래 generateMetadata verification 에 이미 배선됨)
+const BING_SITE_VERIFICATION = ''
+
+// naver/bing 메타 — 값이 있는 항목만 포함 (Record 타입으로 우회: inline 객체에
+// 조건부 spread 시 Next 인덱스 시그니처가 undefined를 거부함)
+const verificationOther: Record<string, string> = {
+  'naver-site-verification': '73f2a7bcbeac4e4c8bd9142f6b65988b396288e8',
+}
+if (BING_SITE_VERIFICATION) {
+  verificationOther['msvalidate.01'] = BING_SITE_VERIFICATION
+}
+
 // Pretendard — CDN dynamic subset로 로드 (2.1MB → ~200KB)
 // globals.css에서 @import로 로드, CSS variable은 @theme에서 fallback 처리
 
@@ -65,9 +79,7 @@ export async function generateMetadata({
     },
     verification: {
       google: 'jecVvBAGE3LJ4rFZEty0Tc0HZ93BFUxlGJ2-QIZBvPw',
-      other: {
-        'naver-site-verification': '73f2a7bcbeac4e4c8bd9142f6b65988b396288e8',
-      },
+      other: verificationOther,
     },
     other: {
       'content-language': locale,
@@ -130,7 +142,11 @@ export default async function LocaleLayout({
           </Providers>
         </NextIntlClientProvider>
         <JsonLd />
-        <AnalyticsConsent gaId={process.env.NEXT_PUBLIC_GA_ID} locale={locale} />
+        <AnalyticsConsent
+          gaId={process.env.NEXT_PUBLIC_GA_ID}
+          clarityId={process.env.NEXT_PUBLIC_CLARITY_ID}
+          locale={locale}
+        />
       </body>
     </html>
   )

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { enableAnalytics, disableAnalytics } from '@/shared/lib/analytics'
+import { ClarityScript } from '@/shared/components/clarity-script'
 
 const CONSENT_KEY = 'lifecarelog-analytics-consent'
 
@@ -10,10 +11,12 @@ type ConsentState = 'accepted' | 'rejected' | null
 
 interface AnalyticsConsentProps {
   gaId?: string
+  clarityId?: string
   locale: string
 }
 
-export function AnalyticsConsent({ gaId, locale }: AnalyticsConsentProps) {
+// GA4·PostHog·Clarity — 동의 'accepted' 시에만 로드 (PIPA)
+export function AnalyticsConsent({ gaId, clarityId, locale }: AnalyticsConsentProps) {
   const [consent, setConsent] = useState<ConsentState>(null)
   const [isReady, setIsReady] = useState(false)
   const isKorean = locale === 'ko'
@@ -23,19 +26,27 @@ export function AnalyticsConsent({ gaId, locale }: AnalyticsConsentProps) {
       const saved = window.localStorage.getItem(CONSENT_KEY)
       const next = saved === 'accepted' || saved === 'rejected' ? saved : null
       setConsent(next)
-      // 이전에 동의한 재방문자: PostHog 수집 활성화 (GA는 아래 렌더에서 로드)
+      // 이전에 동의한 재방문자: PostHog 수집 활성화 (GA/Clarity는 아래 렌더에서 로드)
       if (next === 'accepted') enableAnalytics()
       setIsReady(true)
     })
   }, [])
 
-  if (!gaId || !isReady) return null
+  if (!isReady) return null
 
   if (consent === 'accepted') {
-    return <GoogleAnalytics gaId={gaId} />
+    return (
+      <>
+        {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
+        {clarityId ? <ClarityScript projectId={clarityId} /> : null}
+      </>
+    )
   }
 
   if (consent === 'rejected') return null
+
+  // gaId도 clarityId도 없으면 배너 표시할 필요 없음
+  if (!gaId && !clarityId) return null
 
   const saveConsent = (nextConsent: Exclude<ConsentState, null>) => {
     window.localStorage.setItem(CONSENT_KEY, nextConsent)
