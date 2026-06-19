@@ -77,8 +77,9 @@ export async function generateMetadata({
         'en-US': `${SITE_URL}/en`,
       },
     },
+    // 구글 소유권은 GSC 도메인 속성(sc-domain:lifecarelog.co.kr, CF 공급업체 자동확인)이
+    // 커버 → 구글 메타 불필요. 네이버는 사이트별이라 other에 유지.
     verification: {
-      google: 'jecVvBAGE3LJ4rFZEty0Tc0HZ93BFUxlGJ2-QIZBvPw',
       other: verificationOther,
     },
     other: {
