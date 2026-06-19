@@ -2,7 +2,14 @@
 
 import { useLocale } from 'next-intl'
 import { usePathname, useRouter } from '@/i18n/navigation'
+import { routing } from '@/i18n/routing'
 import { cn } from '@/lib/utils'
+
+const LOCALE_LABELS: Record<string, { short: string; aria: string }> = {
+  ko: { short: '한', aria: '한국어' },
+  en: { short: 'EN', aria: 'English' },
+  ja: { short: '日', aria: '日本語' },
+}
 
 export function LocaleSwitcher() {
   const locale = useLocale()
@@ -19,7 +26,7 @@ export function LocaleSwitcher() {
       role="group"
       aria-label="언어 선택"
     >
-      {(['ko', 'en'] as const).map((loc) => (
+      {routing.locales.map((loc) => (
         <button
           key={loc}
           onClick={() => handleSwitch(loc)}
@@ -32,10 +39,10 @@ export function LocaleSwitcher() {
               : 'text-muted-foreground hover:text-foreground hover:bg-muted'
           )}
           aria-pressed={locale === loc}
-          aria-label={loc === 'ko' ? '한국어' : 'English'}
+          aria-label={LOCALE_LABELS[loc]?.aria ?? loc}
           type="button"
         >
-          {loc === 'ko' ? '한' : 'EN'}
+          {LOCALE_LABELS[loc]?.short ?? loc.toUpperCase()}
         </button>
       ))}
     </div>
