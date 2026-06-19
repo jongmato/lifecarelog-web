@@ -13,7 +13,7 @@
     "closeMenu": "Close menu"
   },
   "hero": {
-    "tagline": "Designed for ease, small changes that matter",
+    "tagline": "Designed to be simple — small changes that matter",
     "headline": "Building services\nlife actually needs.",
     "subheadline": "Solo developer · AI product builder.\nRunning a finance calculator, legal info tool, and basketball club app.",
     "ctaScroll": "Read the story",
@@ -126,7 +126,7 @@
     },
     "backToHome": "Back to home",
     "headline": "What I'm building",
-    "subheadline": "From mortgage calculations to housing-law research, basketball club ops, and emotional journaling, I build services around problems I have actually needed to solve.",
+    "subheadline": "From mortgage math to housing-law research, basketball club ops, and journaling your feelings — I build services around problems I've actually had to solve.",
     "vision": "Four services now, but someday A to Z — I want to build tools that care for every part of life.",
     "planC": {
       "title": "Plan-C",
@@ -310,7 +310,7 @@
       "disclaimer": "In a crisis, please contact emergency services or a local crisis line right away."
     },
     "cta": {
-      "headline": "Be the first\nto write it down?",
+      "headline": "Want to be the first\nto write it down?",
       "body": "We'll let you know the moment we launch. Just leave your email.",
       "placeholder": "Email address",
       "button": "Check email format",
