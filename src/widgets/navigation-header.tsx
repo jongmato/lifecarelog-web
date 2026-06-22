@@ -7,6 +7,8 @@ import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from '@/features/landing/components/theme-toggle'
 import { LocaleSwitcher } from '@/shared/ui/locale-switcher'
 
+const BLOG_URL = 'https://blog.lifecarelog.co.kr'
+
 interface NavigationHeaderProps {
   onContact?: () => void
 }
@@ -91,6 +93,12 @@ export function NavigationHeader({ onContact }: NavigationHeaderProps) {
           >
             {t('services')}
           </Link>
+          <a
+            href={BLOG_URL}
+            className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+          >
+            {t('blog')}
+          </a>
           <Link
             href="/pricing"
             className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
@@ -98,7 +106,7 @@ export function NavigationHeader({ onContact }: NavigationHeaderProps) {
             {t('pricing')}
           </Link>
           <Link
-            href="/#philosophy"
+            href="/#about"
             className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
             {t('about')}
@@ -159,6 +167,14 @@ export function NavigationHeader({ onContact }: NavigationHeaderProps) {
           >
             {t('services')}
           </Link>
+          <a
+            href={BLOG_URL}
+            role="menuitem"
+            onClick={closeMobile}
+            className="flex px-5 py-3 font-sans text-sm text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors duration-200"
+          >
+            {t('blog')}
+          </a>
           <Link
             href="/pricing"
             role="menuitem"
@@ -168,7 +184,7 @@ export function NavigationHeader({ onContact }: NavigationHeaderProps) {
             {t('pricing')}
           </Link>
           <Link
-            href="/#philosophy"
+            href="/#about"
             role="menuitem"
             onClick={closeMobile}
             className="flex px-5 py-3 font-sans text-sm text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors duration-200"

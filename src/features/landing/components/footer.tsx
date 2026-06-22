@@ -28,6 +28,14 @@ const SOCIAL_LINKS = [
   },
 ] as const
 
+const BLOG_URL = 'https://blog.lifecarelog.co.kr'
+
+const PRODUCT_LINKS = [
+  { label: 'Plan-C', href: 'https://plan-c.lifecarelog.co.kr' },
+  { label: 'Plan-L', href: 'https://plan-l.lifecarelog.co.kr' },
+  { label: 'Plan-B', href: 'https://plan-b.lifecarelog.co.kr' },
+] as const
+
 interface FooterProps {
   onContact?: () => void
 }
@@ -87,8 +95,16 @@ export function Footer({ onContact }: FooterProps) {
                   </Link>
                 </li>
                 <li>
+                  <a
+                    href={BLOG_URL}
+                    className="font-sans text-sm text-muted-foreground hover:text-foreground hover:underline underline-offset-4 decoration-primary/40 transition-colors duration-200"
+                  >
+                    {tNav('blog')}
+                  </a>
+                </li>
+                <li>
                   <Link
-                    href="/#philosophy"
+                    href="/#about"
                     className="font-sans text-sm text-muted-foreground hover:text-foreground hover:underline underline-offset-4 decoration-primary/40 transition-colors duration-200"
                   >
                     {tNav('about')}
@@ -156,18 +172,22 @@ export function Footer({ onContact }: FooterProps) {
               </div>
               {/* Service badges — primary tone for visual cohesion */}
               <div className="flex items-center gap-2">
-                {(['Plan-C', 'Plan-L', 'Plan-B'] as const).map((badge) => (
-                  <span
-                    key={badge}
-                    className="font-sans text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-md"
+                {PRODUCT_LINKS.map(({ label, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${label} 서비스 (새 탭 열림)`}
+                    className="font-sans text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded-md transition-all duration-200 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     style={{
                       color: 'var(--primary)',
                       background: 'color-mix(in oklch, var(--primary) 8%, transparent)',
                       border: '1px solid color-mix(in oklch, var(--primary) 15%, transparent)',
                     }}
                   >
-                    {badge}
-                  </span>
+                    {label}
+                  </a>
                 ))}
               </div>
             </div>

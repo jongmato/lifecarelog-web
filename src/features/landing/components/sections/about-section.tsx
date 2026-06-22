@@ -24,8 +24,9 @@ export function AboutSection() {
 
   return (
     <section
+      id="about"
       aria-labelledby="about-section-heading"
-      className="w-full"
+      className="w-full scroll-mt-16"
       style={{ background: 'var(--surface-low)' }}
     >
       {/* Top divider */}
