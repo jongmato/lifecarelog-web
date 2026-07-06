@@ -7,7 +7,7 @@ import type { LibraryPrompt } from '@/content/library/blog-prompts-10'
 
 const COPIED_RESET_MS = 1500
 
-export function CopyPromptBlock({ title, prompt }: LibraryPrompt) {
+export function CopyPromptBlock({ title, prompt, why, pitfall }: LibraryPrompt) {
   const [copied, setCopied] = useState(false)
   const resetTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -54,6 +54,14 @@ export function CopyPromptBlock({ title, prompt }: LibraryPrompt) {
       >
         {prompt}
       </p>
+      <div className="mt-3 space-y-1.5">
+        <p className="font-sans text-xs leading-relaxed text-foreground/70">
+          <span className="font-semibold text-foreground/80">💡 왜 이렇게 쓰나</span> — {why}
+        </p>
+        <p className="font-sans text-xs leading-relaxed text-foreground/70">
+          <span className="font-semibold text-foreground/80">⚠️ 흔한 실패</span> — {pitfall}
+        </p>
+      </div>
     </div>
   )
 }

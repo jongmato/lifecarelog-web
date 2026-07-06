@@ -100,6 +100,12 @@ export function NavigationHeader({ onContact }: NavigationHeaderProps) {
             {t('blog')}
           </a>
           <Link
+            href="/library"
+            className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+          >
+            {t('library')}
+          </Link>
+          <Link
             href="/pricing"
             className="font-sans text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
           >
@@ -175,6 +181,14 @@ export function NavigationHeader({ onContact }: NavigationHeaderProps) {
           >
             {t('blog')}
           </a>
+          <Link
+            href="/library"
+            role="menuitem"
+            onClick={closeMobile}
+            className="flex px-5 py-3 font-sans text-sm text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-colors duration-200"
+          >
+            {t('library')}
+          </Link>
           <Link
             href="/pricing"
             role="menuitem"
