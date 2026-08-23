@@ -119,12 +119,24 @@ export default async function LocaleLayout({
       <head>
         {/* Preconnect to Pretendard CDN to reduce font load latency */}
         <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
-        {/* Speculation Rules — prerender /services and /pricing for instant navigation */}
+        {/* Speculation Rules — prerender /services and /pricing for instant navigation.
+            URLPattern은 파이프(|) alternation을 지원하지 않으므로 or 배열로 분리한다
+            — 종전 파이프 결합 단일 문자열은 무동작이었고, Googlebot이 그 문자열을
+            리터럴 URL로 오인 크롤해 GSC 404를 만들었다 (2026-08-23). */}
         <script
           type="speculationrules"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
-              prerender: [{ where: { href_matches: '/*/services|/*/pricing' } }],
+              prerender: [
+                {
+                  where: {
+                    or: [
+                      { href_matches: '/*/services' },
+                      { href_matches: '/*/pricing' },
+                    ],
+                  },
+                },
+              ],
             }),
           }}
         />
