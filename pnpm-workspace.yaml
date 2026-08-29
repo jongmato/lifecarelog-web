@@ -1,3 +1,21 @@
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
+# supply-chain guard: only install versions published >=7 days ago (unit=minutes, rules/security.md)
+minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  # Narrow, temporary exemption for one security release only (Codex adversarial review 2026-08-30).
+  # A bare "next"/"@next/*" glob would also exempt every FUTURE release, including @next/third-parties,
+  # which is exactly the slow-rug case the age gate exists to catch.
+  # 16.3.3 fixed unauthenticated RCE: GHSA-p293-qw3h-jr36, GHSA-2xp9-vwfh-vxw4.
+  # REMOVE THIS BLOCK after 2026-09-02, when 16.3.3 clears the 7-day window on its own.
+  - next@16.3.3
+  - "@next/env@16.3.3"
+  - "@next/swc-darwin-arm64@16.3.3"
+  - "@next/swc-darwin-x64@16.3.3"
+  - "@next/swc-linux-arm64-gnu@16.3.3"
+  - "@next/swc-linux-arm64-musl@16.3.3"
+  - "@next/swc-linux-x64-gnu@16.3.3"
+  - "@next/swc-linux-x64-musl@16.3.3"
+  - "@next/swc-win32-arm64-msvc@16.3.3"
+  - "@next/swc-win32-x64-msvc@16.3.3"
