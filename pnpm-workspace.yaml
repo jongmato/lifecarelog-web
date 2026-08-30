@@ -1,3 +1,15 @@
+# Build-script policy, carried over verbatim from the pre-v11 decision:
+#   onlyBuiltDependencies -> true   ignoredBuiltDependencies -> false
+# pnpm 11 sets strictDepBuilds=true, so an unanswered entry fails the install by design.
+allowBuilds:
+  esbuild: true
+  workerd: true
+  '@sentry/cli': true
+  '@parcel/watcher': true
+  '@swc/core': true
+  core-js: false
+  sharp: false
+  unrs-resolver: false
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
