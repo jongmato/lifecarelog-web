@@ -45,6 +45,9 @@ jobs:
           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
+      - name: 배포 번들 인라인 스크립트 검사
+        run: pnpm check:bundle
+
       - name: Cloudflare Workers 배포
         uses: cloudflare/wrangler-action@v3
         with:

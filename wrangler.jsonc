@@ -24,6 +24,10 @@
   "account_id": "eb555c22df4760883a35a6c7db99dfb9",
   "compatibility_date": "2025-08-16",
   "compatibility_flags": ["nodejs_compat"],
+  // esbuild's keep-names helper (`__name`) leaks into scripts that libraries inline via
+  // `fn.toString()` (next-themes' ThemeScript), where the helper is undefined and the
+  // inline script dies with `ReferenceError: __name is not defined`.
+  "keep_names": false,
   "assets": {
     "binding": "ASSETS",
     "directory": ".open-next/assets"

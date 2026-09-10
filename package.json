@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint",
     "cf:build": "opennextjs-cloudflare build",
+    "check:bundle": "node scripts/check-no-esbuild-name-helper.mjs",
     "cf:preview": "opennextjs-cloudflare preview",
     "cf:deploy": "opennextjs-cloudflare deploy"
   },
