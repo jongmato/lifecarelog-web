@@ -1,86 +1,90 @@
-# DESIGN.md — LifeCareLog Web (허브·랜딩)
-
-> LifeCareLog 제품군(plan-c/l/t/b …)을 소개하는 **허브/랜딩 웹**의 as-built 디자인 시스템. 신규 창작이 아니라 `src/app/globals.css`에 이미 구현된 토큰/유틸을 문서화한 것 (SSOT = globals.css). 충돌 시 globals.css 우선.
->
-> 갱신: 2026-07-04 · 출처: `src/app/globals.css`(`@theme inline`, oklch 토큰), `src/app/[locale]/`(i18n)
-> 로딩: UI 작업 전 이 문서 + globals.css **필독**. 자동주입(@import) 아님 — 필요 시 on-demand.
-
+---
+version: 2.0
+source: src/app/globals.css
+colors:
+  bg: "oklch(0.985 0.004 85)"
+  surface: "oklch(0.955 0.012 82)"
+  surface-2: "oklch(0.930 0.014 80)"
+  fg: "oklch(0.20 0.006 80)"
+  fg-muted: "oklch(0.45 0.008 80)"
+  fg-subtle: "oklch(0.52 0.008 80)"
+  fg-disabled: "oklch(0.70 0.006 80)"
+  border: "oklch(0.900 0.008 82)"
+  border-input: "oklch(0.620 0.008 80)"
+  primary: "oklch(0.22 0.006 80)"
+  primary-hover: "oklch(0.32 0.006 80)"
+  on-primary: "oklch(0.985 0.004 85)"
+  accent: "oklch(0.50 0.14 8)"
+  accent-muted: "oklch(0.940 0.030 8)"
+  accent-dot: "oklch(0.780 0.090 8)"
+  error: "oklch(0.52 0.17 27)"
+  success: "oklch(0.50 0.11 150)"
+colors-dark:
+  bg: "oklch(0.17 0.006 80)"
+  surface: "oklch(0.21 0.008 80)"
+  surface-2: "oklch(0.25 0.008 80)"
+  fg: "oklch(0.93 0.005 85)"
+  fg-muted: "oklch(0.70 0.006 80)"
+  fg-subtle: "oklch(0.64 0.006 80)"
+  border: "oklch(0.30 0.008 80)"
+  primary: "oklch(0.93 0.005 85)"
+  on-primary: "oklch(0.17 0.006 80)"
+  accent: "oklch(0.78 0.10 8)"
+  accent-muted: "oklch(0.28 0.03 8)"
+typography:
+  family-ko: "Pretendard Variable"
+  family-en: "Geist"
+  display: { size: "56px / 40px", line: 1.15, weight: 600, tracking: "-0.02em" }
+  h2: { size: "32px / 24px", line: 1.25, weight: 600 }
+  body: { size: 16px, line: 1.75, weight: 400 }
+  caption: { size: 14px, line: 1.5, weight: 400 }
+rounded: { control: 8px, card: 16px, pill: 999px }
+spacing: { 1: 4px, 2: 8px, 3: 16px, 4: 24px, 5: 32px, 6: 48px, 7: 64px, 8: 96px }
+components:
+  button-high: { bg: "{colors.primary}", fg: "{colors.on-primary}", rounded: "{rounded.control}", height: 48px }
+  button-medium: { bg: "{colors.surface}", fg: "{colors.fg}", rounded: "{rounded.control}", height: 48px }
+  button-low: { bg: transparent, fg: "{colors.fg}", border: "{colors.border-input}", rounded: "{rounded.control}", height: 48px }
+  link: { fg: "{colors.accent}", underline-offset: 4px }
+  chip-selected: { bg: "{colors.accent-muted}", fg: "{colors.accent}" }
+  chip: { bg: transparent, fg: "{colors.fg-muted}", border: "{colors.border}" }
+  card: { bg: "{colors.surface}", rounded: "{rounded.card}", padding: "{spacing.4}" }
 ---
 
-## 1. Overview (4차원)
+# LifeCareLog Web Design v2
 
-- **Purpose**: 방문자가 LifeCareLog와 산하 제품(plan-c/l/t/b)을 한눈에 이해하고 각 제품 랜딩으로 이동. 신뢰·따뜻함으로 "1인 개발자가 정성껏 만든 도구 모음"을 전달.
-- **Tone**: Artisan Journal — 따뜻한 아이보리 지면 위의 정갈한 편집물. 과장 마케팅 카피 아닌 "손으로 정리한 기록"의 결. 해요체.
-- **Constraints**: Next.js 16(App Router·i18n `[locale]`) + Tailwind v4(CSS-first `@theme`) + Cloudflare(OpenNext) 배포. Pretendard 본문 + Georgia serif 디스플레이. `word-break: keep-all`(한글 줄바꿈).
-- **Differentiation**: 보라 AI-slop 배제 — warm ivory + rose/mustard/green 계열. 제품별 시그니처 색(plan-c/l/t/b)으로 카드 구분. bento 그리드 spotlight·noise·dot-grid로 정적이지 않되 절제된 질감.
+## 방향
 
----
+- Purpose: 방문자가 LifeCareLog와 제품군을 이해하고 필요한 제품 또는 상담으로 이동해요.
+- Tone: 따뜻한 아이보리 지면 위의 절제된 편집물이에요. 카피는 해요체를 써요.
+- Constraints: Next.js App Router, Tailwind CSS-first tokens, i18n, 반응형, 접근성을 유지해요.
+- Differentiation: 여백·타이포·중립 표면을 우선하고 핑크는 작은 상호작용 신호로만 써요.
 
-## 2. 색 토큰 (3층 · 시맨틱 이름 + 사용규칙 1줄)
+원시 색 값의 실행 SSOT는 `src/app/globals.css`예요. 이 문서의 컴포넌트 값은 위 시맨틱 토큰을 참조하며, 새 토큰은 문서 승인 후 CSS에 추가해요. Pretendard는 현재 CDN dynamic subset을 한국어 기본 글꼴로 유지하고 Geist는 `next/font`로 영문·숫자 디스플레이에만 사용해요.
 
-`globals.css`가 SSOT(oklch). 원시값 직접 사용 금지 → 아래 시맨틱 이름으로만 참조. Light = warm ivory 기본, Dark = warm cocoa(순흑 아님, L 0.22+).
+## 사용 규칙
 
-| 시맨틱 | Light(oklch) | 사용규칙 |
-|---|---|---|
-| `background` | `0.985 0.006 88` | 메인 지면(아이보리). 비면 장식 말고 여백·타이포로 밀도 |
-| `surface-low` | `0.975 0.007 88` | 살짝 낮춘 섹션 배경. 큰 band에만 |
-| `card` | `0.995 0.003 88` | 카드 표면. shadow는 `.shadow-card` 유틸로만 |
-| `foreground` | `0.18 0.010 248` | 본문·제목. 순수 `#000` 금지 |
-| `muted-foreground` | `0.52 0.010 248` | 보조·메타 텍스트 |
-| `primary` | `0.76 0.09 15` (rose) | 핵심 CTA·브랜드 accent. 화면당 절제 |
-| `primary-hover` | `0.70 0.11 15` | primary hover/pressed |
-| `accent` | `0.72 0.10 55` (mustard) | 보조 강조·하이라이트. 큰 배경 덮기 금지 |
-| `tertiary` | `0.52 0.10 158` (green) | 3차 accent·성공 근접 신호 |
-| `border` | `0.905 0.006 88` | 1px 구분선(전역 `* { border-color }`) |
-| `success`/`warning`/`error` | `150`/`60`/`25` hue | 상태 전용. 감정/품질 평가색으로 오용 금지 |
+- 페이지 기본은 `bg`와 `fg`예요. 표면은 `bg` → `surface` → `surface-2` 세 단계까지만 써요.
+- High 채움은 화면의 `main`에서 1개만 써요. 헤더 채움과 같은 CTA의 이중 채움은 금지해요.
+- `accent`는 링크, 포커스 링, 선택 글자, 로고 점에만 써요. `accent-muted` 면은 화면당 최대 1블록이에요.
+- 제품은 로고와 이름으로 구분해요. 제품별 시그니처 색 토큰을 새로 만들지 않아요.
+- 글꼴 굵기는 400과 600만 쓰고 숫자열에는 `tabular-nums`를 적용해요. 한 화면 글자 크기는 4단계 이내예요.
+- 모바일 우선으로 구성해요. `<640px`은 1열·좌우 16px·섹션 64px, `640–1024px`은 좌우 24px, `>1024px`은 최대 1120px·섹션 96px이에요.
+- H1은 모바일 40px, 데스크톱 56px이며 본문 중심 폭은 680–720px이에요.
+- 터치 영역은 최소 44px, 구조 구분선은 전체 둘레 또는 divider 1px로 만들어요.
 
-**제품 시그니처색** (카드/뱃지에서 제품 구분 전용, 본문 텍스트 금지):
-`plan-c` 블루(215) · `plan-l` 인디고(255) · `plan-t` 틸(190) · `plan-b` 그린(145).
+## Do
 
----
+- 흰 여백, 위치, 크기, 400/600 굵기, 텍스트 회색 단계로 위계를 먼저 만들어요.
+- 카드에는 `surface`, 16px radius, 24px padding, 전체 둘레 1px border를 써요.
+- 상태는 낮은 채도의 의미색과 점·아이콘·문구를 함께 사용해요.
+- `word-break: keep-all`, keyboard focus, `prefers-reduced-motion`을 유지해요.
 
-## 3. Radius · Typography
+## Don't
 
-- **Radius 계층**(장식 아닌 위계): `sm .5rem` → `md .75` → `lg 1` → `xl 1.25` → `2xl 1.5` → `3xl 2rem`. 한 화면에서 동일 radius 반복 금지, 요소 크기별로.
-- **Font**: 본문/헤딩 = `Pretendard Variable`(dynamic-subset CDN). 디스플레이 = `Georgia` serif(에디토리얼 히어로 강조에만, 남발 금지). 굵기 2종 이내.
-- 본문 `line-height 1.75` · `word-break: keep-all` · antialiased.
+- 한 방향의 두꺼운 accent bar, 보라색, gradient text, blob, glow, dot-grid, noise, glass blur를 쓰지 않아요.
+- 순수 `#000`, `#FFF`, `#888`, card shadow, card-in-card, 균일 feature grid를 쓰지 않아요.
+- 8px grid 밖의 임의 간격, 굵기 3종 이상, uppercase label, Georgia·Inter·Roboto·Arial·system-ui를 쓰지 않아요.
+- 산발적인 hover translate, count-up, 카드 형제 dimming을 쓰지 않아요.
+- Badge·Chip·Tag·제목에 `primary`나 `accent`를 장식으로 쓰지 않아요.
 
----
-
-## 4. Utilities (globals.css 정의 — 재구현 금지, className으로 사용)
-
-- `.shadow-card` / `.shadow-card-hover` — 카드 그림자 시스템(1px 링 + soft shadow). 임의 box-shadow 금지.
-- `.glow-success` — 성공 상태 glow(절제).
-- `.dot-grid` — 20px radial dot 패턴 배경(subtle grid, blob/glow 아님).
-- `.bento-row:has(.bento-card:hover)` — 카드 hover 시 형제 dim(spotlight). bento 그리드 상호작용.
-- `.noise-overlay::after` — opacity 0.02 SVG noise(질감, AI-slop 그라디언트 대체).
-- `.social-icon-link` — `--social-hover` 변수로 브랜드색 hover.
-- 모션: `prefers-reduced-motion` 존중(전역 처리) · theme 전환 300ms ease-out.
-
----
-
-## 5. Do / Don't (anti-slop)
-
-**Do**
-- 토큰만 사용(`bg-background`, `text-foreground`, `text-primary` …). oklch hex 하드코딩 금지.
-- 제품 소개는 각 시그니처색 + `.shadow-card`로 카드화, bento 그리드로 배치.
-- 히어로 강조는 Georgia serif 1곳, 나머지는 Pretendard 위계.
-- 여백·keep-all·정갈한 편집 리듬으로 "따뜻한 기록물" 톤 유지.
-
-**Don't**
-- 보라/무지개 AI 그라디언트, conic-gradient 배경, glow radial blob.
-- card-in-card, side-stripe border(border-left>1px), 전역 동일 radius/shadow.
-- 8px 그리드 밖 임의 간격(13/19px), 내부>외부 간격 역전.
-- Georgia serif를 본문 전체에 적용, 굵기 3종 이상, ALL CAPS 한글.
-- 제품 시그니처색을 본문 텍스트/큰 배경으로 남용.
-
----
-
-## 6. Agent Prompt Guide
-
-1. `DESIGN.md` + `src/app/globals.css`를 먼저 읽는다.
-2. 새 UI가 허브/랜딩/제품카드 중 무엇인지 밝힌다.
-3. Tailwind v4 유틸 + 위 시맨틱 토큰만 사용. 신규 색은 먼저 이 문서에 후보로 적고 globals.css 추가는 별도 검증 후.
-4. `.shadow-card`·`.dot-grid`·`.noise-overlay` 등 **기존 유틸 재사용**(CSS로 흉내내 재구현 금지).
-5. i18n `[locale]` 라우트 구조 존중, 카피는 messages/ 사전 경유.
-6. 데스크톱/모바일 반응형·`prefers-reduced-motion` 검증.
+예외가 꼭 필요하면 해당 코드와 같은 줄에 `allow-tN: 이유`를 남기고 review에서 다시 확인해요.

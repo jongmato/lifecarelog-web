@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages, getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { Providers } from '@/app/providers'
+import { geist } from '@/app/fonts'
 import { PageShell } from '@/widgets/page-shell'
 import { AnalyticsConsent } from '@/shared/components/analytics-consent'
 import { JsonLd } from '@/shared/components/json-ld'
@@ -114,6 +115,7 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
+      className={geist.variable}
       suppressHydrationWarning
     >
       <head>

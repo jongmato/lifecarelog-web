@@ -2,102 +2,123 @@
 @import "tailwindcss";
 @custom-variant dark (&:is(.dark *));
 
+/* DESIGN v2 (WEB-SPEC §2). Raw values live ONLY in :root / .dark below.
+ * Names without a legacy meaning are the v2 tokens; legacy shadcn-style names
+ * (background, foreground, muted, card ...) are aliases kept so S2~S4 components keep rendering. */
 @theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-fg-disabled: var(--fg-disabled);
+  --color-border-input: var(--border-input);
+  --color-on-primary: var(--on-primary);
+  --color-accent-muted: var(--accent-muted);
+  --color-accent-dot: var(--accent-dot);
   --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
   --color-primary-hover: var(--primary-hover);
   --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
   --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
   --color-success: var(--success);
-  --color-warning: var(--warning);
   --color-error: var(--error);
-  --color-plan-c: var(--plan-c);
-  --color-plan-l: var(--plan-l);
-  --color-plan-t: var(--plan-t);
-  --color-plan-b: var(--plan-b);
-  --color-surface-low: var(--surface-low);
-  --color-primary-light: var(--primary-light);
-  --color-tertiary: var(--tertiary);
 
+  /* legacy aliases (remove when S2~S4 migrate call sites) */
+  --color-primary-foreground: var(--on-primary);
+  --color-accent-foreground: var(--on-primary);
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-muted: var(--surface);
+  --color-muted-foreground: var(--fg-muted);
+  --color-card: var(--surface);
+  --color-card-foreground: var(--fg);
+  --color-surface-low: var(--surface);
+  --color-input: var(--surface);
+  --color-ring: var(--accent);
+  --color-warning: var(--warning);
+  --color-primary-light: var(--surface-2);
+  --color-tertiary: var(--fg-muted);
+  /* product signature colors are retired: neutral on purpose (differentiate by logo + name) */
+  --color-plan-c: var(--fg-muted);
+  --color-plan-l: var(--fg-muted);
+  --color-plan-t: var(--fg-muted);
+  --color-plan-b: var(--fg-muted);
+
+  /* rounded: control 8 / card 16 / pill */
   --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
+  --radius-md: 0.5rem;
   --radius-lg: 1rem;
-  --radius-xl: 1.25rem;
-  --radius-2xl: 1.5rem;
-  --radius-3xl: 2rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1rem;
 
-  --font-sans: var(--font-pretendard, 'Pretendard Variable', 'Pretendard', system-ui, sans-serif);
-  --font-display: Georgia, 'Times New Roman', serif;
-  --font-heading: 'Pretendard Variable', 'Pretendard', system-ui, sans-serif;
+  --font-sans: 'Pretendard Variable', 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  --font-display: var(--font-geist), 'Pretendard Variable', 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+  --font-heading: 'Pretendard Variable', 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
 }
 
-
-/* Light Mode — Artisan Journal warm ivory palette */
+/* Light — white paper, beige surface, near-black ink */
 :root {
-  --background: oklch(0.985 0.006 88);
-  --surface-low: oklch(0.975 0.007 88);
-  --foreground: oklch(0.18 0.010 248);
-  --primary: oklch(0.76 0.09 15);
-  --primary-light: oklch(0.84 0.06 15);
-  --primary-hover: oklch(0.70 0.11 15);
-  --primary-foreground: oklch(0.98 0.005 88);
-  --accent: oklch(0.72 0.10 55);
-  --accent-foreground: oklch(0.18 0.010 248);
-  --tertiary: oklch(0.52 0.10 158);
-  --card: oklch(0.995 0.003 88);
-  --card-foreground: oklch(0.18 0.010 248);
-  --muted: oklch(0.950 0.006 88);
-  --muted-foreground: oklch(0.52 0.010 248);
-  --border: oklch(0.905 0.006 88);
-  --input: oklch(0.935 0.006 88);
-  --ring: oklch(0.76 0.09 15);
-  --success: oklch(0.60 0.14 150);
-  --warning: oklch(0.70 0.13 60);
-  --error: oklch(0.58 0.18 25);
-  --plan-c: oklch(0.55 0.10 215);
-  --plan-l: oklch(0.50 0.09 255);
-  --plan-t: oklch(0.53 0.10 190);
-  --plan-b: oklch(0.55 0.13 145);
+  --bg: oklch(0.985 0.004 85);
+  --surface: oklch(0.955 0.012 82);
+  --surface-2: oklch(0.930 0.014 80);
+  --fg: oklch(0.20 0.006 80);
+  --fg-muted: oklch(0.45 0.008 80);
+  --fg-subtle: oklch(0.52 0.008 80);
+  --fg-disabled: oklch(0.70 0.006 80);
+  --border: oklch(0.900 0.008 82);
+  --border-input: oklch(0.620 0.008 80);
+  --primary: oklch(0.22 0.006 80);
+  --primary-hover: oklch(0.32 0.006 80);
+  --on-primary: oklch(0.985 0.004 85);
+  --accent: oklch(0.50 0.14 8);
+  --accent-muted: oklch(0.940 0.030 8);
+  --accent-dot: oklch(0.780 0.090 8);
+  --error: oklch(0.52 0.17 27);
+  --success: oklch(0.50 0.11 150);
+  --warning: oklch(0.50 0.10 70);
+
+  /* legacy raw aliases (remove with their S2-S4 direct var() call sites) */
+  --background: var(--bg);
+  --surface-low: var(--surface);
+  --foreground: var(--fg);
+  --primary-light: var(--surface-2);
+  --primary-foreground: var(--on-primary);
+  --accent-foreground: var(--on-primary);
+  --tertiary: var(--fg-muted);
+  --card: var(--surface);
+  --card-foreground: var(--fg);
+  --muted: var(--surface);
+  --muted-foreground: var(--fg-muted);
+  --input: var(--surface);
+  --ring: var(--accent);
+  --plan-c: var(--fg-muted);
+  --plan-l: var(--fg-muted);
+  --plan-t: var(--fg-muted);
+  --plan-b: var(--fg-muted);
 }
 
-/* Dark Mode — Warm cocoa (elevated dark, visibly warm)
- * Lightness 0.22+ so it reads as dark charcoal, not black.
- * Hue 50 (warm amber) with chroma 0.015-0.020 for visible warmth.
- * Inspired by Notion warm dark, Cal.com stone (#1C1917). */
+/* Dark — separate scale, not an inversion */
 .dark {
-  --background: oklch(0.22 0.015 50);
-  --surface-low: oklch(0.25 0.015 50);
-  --foreground: oklch(0.94 0.008 80);
-  --primary: oklch(0.74 0.08 15);
-  --primary-light: oklch(0.66 0.10 15);
-  --primary-hover: oklch(0.80 0.07 15);
-  --primary-foreground: oklch(0.22 0.015 50);
-  --accent: oklch(0.74 0.08 55);
-  --accent-foreground: oklch(0.22 0.015 50);
-  --tertiary: oklch(0.72 0.08 158);
-  --card: oklch(0.28 0.015 50);
-  --card-foreground: oklch(0.94 0.008 80);
-  --muted: oklch(0.32 0.015 50);
-  --muted-foreground: oklch(0.60 0.012 55);
-  --border: oklch(0.35 0.015 50);
-  --input: oklch(0.30 0.015 50);
-  --ring: oklch(0.74 0.08 15);
-  --success: oklch(0.70 0.14 150);
-  --warning: oklch(0.78 0.12 60);
-  --error: oklch(0.68 0.16 25);
-  --plan-c: oklch(0.74 0.10 210);
-  --plan-l: oklch(0.66 0.09 250);
-  --plan-t: oklch(0.70 0.10 185);
-  --plan-b: oklch(0.78 0.17 145);
+  --bg: oklch(0.17 0.006 80);
+  --surface: oklch(0.21 0.008 80);
+  --surface-2: oklch(0.25 0.008 80);
+  --fg: oklch(0.93 0.005 85);
+  --fg-muted: oklch(0.70 0.006 80);
+  --fg-subtle: oklch(0.64 0.006 80);
+  --fg-disabled: oklch(0.45 0.006 80);
+  --border: oklch(0.30 0.008 80);
+  --border-input: oklch(0.55 0.008 80);
+  --primary: oklch(0.93 0.005 85);
+  --primary-hover: oklch(0.85 0.005 85);
+  --on-primary: oklch(0.17 0.006 80);
+  --accent: oklch(0.78 0.10 8);
+  --accent-muted: oklch(0.28 0.03 8);
+  --accent-dot: oklch(0.65 0.09 8);
+  --error: oklch(0.70 0.15 27);
+  --success: oklch(0.72 0.11 150);
+  --warning: oklch(0.75 0.10 70);
 }
 
 * {
@@ -109,8 +130,8 @@ html {
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--bg);
+  color: var(--fg);
   font-family: var(--font-sans);
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
@@ -118,18 +139,15 @@ body {
   word-break: keep-all;
 }
 
-/* Brand selection colors */
 ::selection {
-  background-color: color-mix(in oklch, var(--primary) 20%, transparent);
-  color: var(--foreground);
+  background-color: var(--accent-muted);
+  color: var(--fg);
 }
 
-/* Smooth theme transition */
 :root {
   transition: background-color 300ms ease-out, color 300ms ease-out;
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -138,59 +156,16 @@ body {
   }
 }
 
-/* ── Glow utilities ─────────────────────────────────────────────────────────── */
-.glow-success {
-  box-shadow: 0 0 10px color-mix(in oklch, var(--success) 45%, transparent);
-}
-
-/* ── Card shadow system ──────────────────────────────────────────────────────── */
+/* Cards: 1px full-perimeter border, no shadow (class names kept for existing call sites) */
 .shadow-card {
-  box-shadow:
-    0 1px 2px color-mix(in oklch, var(--foreground) 4%, transparent),
-    0 4px 12px color-mix(in oklch, var(--foreground) 6%, transparent),
-    0 0 0 1px var(--border);
+  box-shadow: 0 0 0 1px var(--border);
 }
-
 .shadow-card-hover {
-  box-shadow:
-    0 4px 8px color-mix(in oklch, var(--foreground) 5%, transparent),
-    0 12px 32px color-mix(in oklch, var(--foreground) 10%, transparent),
-    0 0 0 1px color-mix(in oklch, var(--primary) 25%, var(--border));
+  box-shadow: 0 0 0 1px var(--border-input);
 }
 
-/* ── Social icon link — brand color on hover via --social-hover CSS variable ── */
+/* Social icon link — neutral hover (brand-color hover retired with v2) */
 .social-icon-link:hover {
-  color: var(--social-hover);
-  background: color-mix(in oklch, var(--social-hover) 8%, var(--muted));
-  border-color: color-mix(in oklch, var(--social-hover) 30%, var(--border));
-}
-
-/* ── Dot grid pattern ───────────────────────────────────────────────────────── */
-.dot-grid {
-  background-image: radial-gradient(
-    circle,
-    color-mix(in oklch, var(--foreground) 12%, transparent) 1px,
-    transparent 1px
-  );
-  background-size: 20px 20px;
-}
-
-/* ── Active Grid Spotlight — dim siblings on card hover ──────────────────────── */
-.bento-row:has(.bento-card:hover) .bento-card:not(:hover) {
-  opacity: 0.72;
-  transition: opacity 250ms ease;
-}
-.bento-row .bento-card {
-  transition: opacity 250ms ease;
-}
-
-/* ── Noise texture overlay ───────────────────────────────────────────────────── */
-.noise-overlay::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0.02;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  pointer-events: none;
-  border-radius: inherit;
+  color: var(--fg);
+  background: var(--surface-2);
 }
