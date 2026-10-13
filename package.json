@@ -11,6 +11,9 @@
     "lint": "eslint",
     "cf:build": "opennextjs-cloudflare build",
     "check:bundle": "node scripts/check-no-esbuild-name-helper.mjs",
+    "check:design": "node scripts/check-design-bans.mjs src/",
+    "check:design:s1": "node scripts/check-design-bans.mjs src/app/globals.css src/app/fonts.ts 'src/app/[locale]/layout.tsx'",
+    "test:design": "node --test scripts/*.test.mjs",
     "cf:preview": "opennextjs-cloudflare preview",
     "cf:deploy": "opennextjs-cloudflare deploy"
   },
