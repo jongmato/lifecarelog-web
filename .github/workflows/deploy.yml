@@ -33,6 +33,9 @@ jobs:
       - name: ESLint 린트
         run: pnpm lint
 
+      - name: 단위 테스트
+        run: pnpm test
+
       - name: OpenNext Cloudflare 빌드
         run: pnpm cf:build
         env:

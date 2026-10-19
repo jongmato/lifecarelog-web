@@ -29,6 +29,9 @@ jobs:
       - name: ESLint 린트
         run: pnpm lint
 
+      - name: 단위 테스트
+        run: pnpm test
+
       - name: Next.js 프로덕션 빌드 검증
         run: pnpm build
         env:

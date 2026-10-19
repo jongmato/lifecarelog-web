@@ -10,7 +10,7 @@ const intlMiddleware = createMiddleware(routing)
 // ponytail: only paths in the matcher below redirect on www; static assets, api,
 // robots/sitemap still answer on www. Move to a CF redirect rule if that matters.
 export default function middleware(request: NextRequest) {
-  const target = wwwRedirectTarget(request.nextUrl)
+  const target = wwwRedirectTarget(new URL(request.url))
   if (target) return NextResponse.redirect(target, 308)
   return intlMiddleware(request)
 }
