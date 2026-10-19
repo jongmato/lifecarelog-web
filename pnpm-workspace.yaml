@@ -16,19 +16,16 @@ ignoredBuiltDependencies:
 # supply-chain guard: only install versions published >=7 days ago (unit=minutes, rules/security.md)
 minimumReleaseAge: 10080
 minimumReleaseAgeExclude:
-  # Narrow, temporary exemption for one security release only (Codex adversarial review 2026-08-30).
-  # A bare "next"/"@next/*" glob would also exempt every FUTURE release, including @next/third-parties,
-  # which is exactly the slow-rug case the age gate exists to catch.
-  # 16.3.8 (published 2026-09-30) fixes GHSA-cjq9-62q9-8jv4 (High, Image Optimization SSRF) + 5 Medium/1 Low.
-  # https://nextjs.org/blog/september-2026-security-release
-  # REMOVE THIS BLOCK after 2026-10-07, when 16.3.8 clears the 7-day window on its own.
-  - next@16.3.8
-  - "@next/env@16.3.8"
-  - "@next/swc-darwin-arm64@16.3.8"
-  - "@next/swc-darwin-x64@16.3.8"
-  - "@next/swc-linux-arm64-gnu@16.3.8"
-  - "@next/swc-linux-arm64-musl@16.3.8"
-  - "@next/swc-linux-x64-gnu@16.3.8"
-  - "@next/swc-linux-x64-musl@16.3.8"
-  - "@next/swc-win32-arm64-msvc@16.3.8"
-  - "@next/swc-win32-x64-msvc@16.3.8"
+  # temporary: GHSA-2464/673q/p3m5, remove after 2026-10-22
+  # next@16.4.2 clears the 7-day window at 2026-10-22T20:57Z (10-23 05:57 KST); removing the block earlier breaks frozen installs.
+  # Exact versions only: a bare next/@next/* glob would also exempt every FUTURE release (slow-rug hole).
+  - next@16.4.2
+  - "@next/env@16.4.2"
+  - "@next/swc-darwin-arm64@16.4.2"
+  - "@next/swc-darwin-x64@16.4.2"
+  - "@next/swc-linux-arm64-gnu@16.4.2"
+  - "@next/swc-linux-arm64-musl@16.4.2"
+  - "@next/swc-linux-x64-gnu@16.4.2"
+  - "@next/swc-linux-x64-musl@16.4.2"
+  - "@next/swc-win32-arm64-msvc@16.4.2"
+  - "@next/swc-win32-x64-msvc@16.4.2"
