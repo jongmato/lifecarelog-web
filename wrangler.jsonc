@@ -43,6 +43,11 @@
     {
       "pattern": "lifecarelog.co.kr",
       "custom_domain": true
+    },
+    // www only 308-redirects to the apex (src/lib/www-redirect.ts).
+    {
+      "pattern": "www.lifecarelog.co.kr",
+      "custom_domain": true
     }
   ]
 }

@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
+    "test": "node --test 'src/**/*.test.ts'",
     "lint": "eslint",
     "cf:build": "opennextjs-cloudflare build",
     "check:bundle": "node scripts/check-no-esbuild-name-helper.mjs",
