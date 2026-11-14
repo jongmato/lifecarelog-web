@@ -15,17 +15,3 @@ ignoredBuiltDependencies:
   - unrs-resolver
 # supply-chain guard: only install versions published >=7 days ago (unit=minutes, rules/security.md)
 minimumReleaseAge: 10080
-minimumReleaseAgeExclude:
-  # temporary: GHSA-2464/673q/p3m5, remove after 2026-10-22
-  # next@16.4.2 clears the 7-day window at 2026-10-22T20:57Z (10-23 05:57 KST); removing the block earlier breaks frozen installs.
-  # Exact versions only: a bare next/@next/* glob would also exempt every FUTURE release (slow-rug hole).
-  - next@16.4.2
-  - "@next/env@16.4.2"
-  - "@next/swc-darwin-arm64@16.4.2"
-  - "@next/swc-darwin-x64@16.4.2"
-  - "@next/swc-linux-arm64-gnu@16.4.2"
-  - "@next/swc-linux-arm64-musl@16.4.2"
-  - "@next/swc-linux-x64-gnu@16.4.2"
-  - "@next/swc-linux-x64-musl@16.4.2"
-  - "@next/swc-win32-arm64-msvc@16.4.2"
-  - "@next/swc-win32-x64-msvc@16.4.2"
